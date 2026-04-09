@@ -384,20 +384,7 @@
 <button id="backToTop" aria-label="Retour en haut">↑</button>
 
 <script>
-const MEUBLES = [
-  { id:1, cat:'Salon', titre:'Canapé d\'angle moderne 6 places', desc:'Canapé d\'angle en tissu premium, confortable et élégant. Disponible en plusieurs coloris.', prix:380000, tags:['Tissu premium','6 places','Livraison incluse'], emoji:'🛋️', img:'salon', statut:'available' },
-  { id:2, cat:'Chambre', titre:'Lit king size avec tête de lit', desc:'Lit double 180x200 avec tête de lit capitonnée en simili cuir. Structure solide, design contemporain.', prix:250000, tags:['180x200','Tête de lit','Simili cuir'], emoji:'🛏️', img:'chambre', statut:'available' },
-  { id:3, cat:'Salle à manger', titre:'Table à manger 8 places + chaises', desc:'Table rectangulaire en bois massif avec 8 chaises assorties. Idéale pour grandes familles.', prix:420000, tags:['Bois massif','8 places','Chaises incluses'], emoji:'🍽️', img:'salle-manger', statut:'available' },
-  { id:4, cat:'Bureau', titre:'Bureau exécutif avec caisson', desc:'Bureau directorial avec caisson 3 tiroirs, finition noyer. Parfait pour espace professionnel.', prix:185000, tags:['Noyer','Caisson inclus','Professionnel'], emoji:'💼', img:'bureau', statut:'available' },
-  { id:5, cat:'Salon', titre:'Salon complet 7 places + table', desc:'Ensemble salon complet : canapé 3 places + 2 fauteuils + table basse + tapis. Livraison incluse.', prix:650000, tags:['Complet','7 places','Tapis inclus','Livraison'], emoji:'🛋️', img:'salon', statut:'available' },
-  { id:6, cat:'Chambre', titre:'Armoire penderie 3 portes miroir', desc:'Grande armoire 3 portes avec miroir intégré. Nombreux rangements intérieurs, finition blanc mat.', prix:220000, tags:['Miroir','3 portes','Blanc mat'], emoji:'🚪', img:'chambre', statut:'available' },
-  { id:7, cat:'Meuble TV', titre:'Meuble TV suspendu design', desc:'Meuble TV flottant avec niches de rangement. Design épuré, idéal pour salon moderne.', prix:145000, tags:['Flottant','Design','Rangement'], emoji:'📺', img:'tv', statut:'available' },
-  { id:8, cat:'Décoration', titre:'Set décoratif salon complet', desc:'Ensemble de décoration : coussins décoratifs, vases, bougies, cadres. Pour donner vie à votre intérieur.', prix:85000, tags:['Ensemble complet','Coussins','Vases','Cadres'], emoji:'🎨', img:'decoration', statut:'available' },
-  { id:9, cat:'Pack', titre:'Pack Chambre Complète', desc:'Tout pour votre chambre : lit 160x200 + matelas + armoire + table de nuit x2 + commode. Livraison incluse.', prix:680000, tags:['Complet','Matelas inclus','2 tables de nuit','Livraison'], emoji:'📦', img:'pack', statut:'available' },
-  { id:10, cat:'Bureau', titre:'Fauteuil ergonomique direction', desc:'Fauteuil de direction en cuir véritable, réglable en hauteur, accoudoirs rembourrés. Confort optimal.', prix:120000, tags:['Cuir véritable','Ergonomique','Réglable'], emoji:'🪑', img:'bureau', statut:'available' },
-  { id:11, cat:'Salle à manger', titre:'Buffet vaisselier moderne', desc:'Buffet 2 portes + 2 tiroirs + vitrine supérieure. Finition chêne clair, design contemporain.', prix:195000, tags:['Vitrine','Chêne clair','Rangement'], emoji:'🍽️', img:'salle-manger', statut:'available' },
-  { id:12, cat:'Pack', titre:'Pack Bureau Complet PME', desc:'Aménagement complet pour 4 postes de travail : bureaux, fauteuils, caissons, armoire archives. Installation incluse.', prix:1200000, tags:['4 postes','Professionnel','Installation incluse'], emoji:'📦', img:'pack', statut:'available' },
-];
+let MEUBLES = [];
 
 const fmt = n => new Intl.NumberFormat('fr-CI').format(n) + ' FCFA';
 const waProduct = p => `https://wa.me/2250797388202?text=${encodeURIComponent(`Bonjour RAZAK Multi Service,\n\nJe suis intéressé(e) par ce meuble :\n\n🛋️ ${p.titre}\n💰 Prix : ${fmt(p.prix)}\n\nPouvez-vous me donner plus d'informations sur la disponibilité et les délais de livraison ?`)}`;
@@ -467,7 +454,9 @@ document.getElementById('devisAmeubleForm').addEventListener('submit', e => {
 });
 
 document.addEventListener('DOMContentLoaded', () => {
-  applyAmeubleFilters();
+  fetch('data/ameublement.json?v=' + Date.now())
+    .then(r => r.json())
+    .then(data => { MEUBLES = data; applyAmeubleFilters(); });
   ['af-budget','af-sort'].forEach(id => document.getElementById(id).addEventListener('change', applyAmeubleFilters));
   document.getElementById('af-search').addEventListener('input', applyAmeubleFilters);
 });

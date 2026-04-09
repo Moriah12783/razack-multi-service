@@ -253,20 +253,7 @@
 <button id="backToTop" aria-label="Retour en haut">↑</button>
 
 <script>
-const VEHICLES = [
-  { id:1, brand:'Toyota', model:'Land Cruiser Prado', year:2020, km:45000, fuel:'Diesel', transmission:'Automatique', type:'SUV', price:28500000, status:'available', color:'Noir', engine:'3.0L V6', doors:5, emoji:'🚙', desc:'Excellent état, entretien suivi, climatisation, GPS, caméra de recul.' },
-  { id:2, brand:'Toyota', model:'Hilux Double Cab', year:2021, km:32000, fuel:'Diesel', transmission:'Manuelle', type:'Pick-up', price:18900000, status:'new', color:'Blanc', engine:'2.4L Turbo', doors:4, emoji:'🛻', desc:'Véhicule robuste idéal pour tous terrains. Très faible kilométrage.' },
-  { id:3, brand:'Mercedes-Benz', model:'C 220 AMG Line', year:2019, km:68000, fuel:'Essence', transmission:'Automatique', type:'Berline', price:22000000, status:'available', color:'Gris', engine:'2.0L Turbo', doors:4, emoji:'🚗', desc:'Finition AMG Line, toit ouvrant, sièges cuir chauffants, parfait état.' },
-  { id:4, brand:'Hyundai', model:'Tucson Prestige', year:2022, km:18000, fuel:'Essence', transmission:'Automatique', type:'SUV', price:16500000, status:'new', color:'Bleu', engine:'1.6L GDI', doors:5, emoji:'🚙', desc:'Quasi-neuf, garantie constructeur, équipements complets.' },
-  { id:5, brand:'Toyota', model:'Corolla Sedan', year:2020, km:55000, fuel:'Hybride', transmission:'Automatique', type:'Berline', price:12000000, status:'available', color:'Blanc', engine:'1.8L Hybride', doors:4, emoji:'🚗', desc:'Économique, fiable, faible consommation grâce au moteur hybride.' },
-  { id:6, brand:'Ford', model:'Ranger Wildtrak', year:2021, km:40000, fuel:'Diesel', transmission:'Automatique', type:'Pick-up', price:17800000, status:'available', color:'Gris', engine:'2.0L Bi-Turbo', doors:4, emoji:'🛻', desc:'4x4 puissant, barre de protection, treuil électrique, excellent état.' },
-  { id:7, brand:'Kia', model:'Sportage EX', year:2022, km:22000, fuel:'Essence', transmission:'Automatique', type:'SUV', price:14500000, status:'available', color:'Rouge', engine:'2.0L MPi', doors:5, emoji:'🚙', desc:'SUV moderne, nombreux équipements de sécurité, intérieur élégant.' },
-  { id:8, brand:'Mitsubishi', model:'Pajero Sport', year:2020, km:58000, fuel:'Diesel', transmission:'Automatique', type:'SUV', price:19500000, status:'available', color:'Noir', engine:'2.4L MIVEC', doors:5, emoji:'🚙', desc:'4x4 tout-terrain, 7 places, suspension robuste, idéal Abidjan.' },
-  { id:9, brand:'BMW', model:'Série 3 320i', year:2019, km:72000, fuel:'Essence', transmission:'Automatique', type:'Berline', price:20000000, status:'available', color:'Blanc', engine:'2.0L TwinPower', doors:4, emoji:'🚗', desc:'Berline premium, équipements haut de gamme, entretien BMW certifié.' },
-  { id:10, brand:'Nissan', model:'Patrol Y62', year:2018, km:85000, fuel:'Essence', transmission:'Automatique', type:'SUV', price:32000000, status:'available', color:'Blanc', engine:'5.6L V8', doors:5, emoji:'🚙', desc:'SUV de luxe 8 places, moteur V8, équipements premium complets.' },
-  { id:11, brand:'Honda', model:'CR-V EX', year:2021, km:28000, fuel:'Essence', transmission:'Automatique', type:'SUV', price:15800000, status:'new', color:'Gris', engine:'1.5L Turbo', doors:5, emoji:'🚙', desc:'SUV familial fiable, faible kilométrage, technologie Honda Sensing.' },
-  { id:12, brand:'Peugeot', model:'3008 GT Line', year:2020, km:42000, fuel:'Diesel', transmission:'Automatique', type:'SUV', price:13500000, status:'available', color:'Bleu', engine:'1.5L BlueHDi', doors:5, emoji:'🚙', desc:'Design distinctif, intérieur i-Cockpit, équipements modernes.' },
-];
+let VEHICLES = [];
 
 const fmt = n => new Intl.NumberFormat('fr-CI').format(n) + ' FCFA';
 const SL = { available:'Disponible', new:'Nouveau', sold:'Vendu' };
@@ -358,8 +345,13 @@ const resetFilters = () => {
 };
 
 document.addEventListener('DOMContentLoaded', () => {
-  populateFilters();
-  applyFilters();
+  fetch('data/vehicules-vente.json?v=' + Date.now())
+    .then(r => r.json())
+    .then(data => {
+      VEHICLES = data;
+      populateFilters();
+      applyFilters();
+    });
   ['f-brand','f-type','f-fuel','f-trans','f-price','f-sort'].forEach(id => document.getElementById(id).addEventListener('change', applyFilters));
   document.getElementById('f-search').addEventListener('input', applyFilters);
 });

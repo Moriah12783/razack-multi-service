@@ -431,16 +431,7 @@
 <button id="backToTop" aria-label="Retour en haut">↑</button>
 
 <script>
-const LOCATION_VEHICLES = [
-  { id:1, brand:'Toyota', model:'Corolla', year:2021, type:'Berline', formule:'sans-chauffeur', priceDay:25000, priceWeek:150000, priceMonth:450000, places:5, fuel:'Essence', transmission:'Automatique', status:'available', emoji:'🚗', features:['Climatisation','GPS','Bluetooth','Kilométrage inclus'] },
-  { id:2, brand:'Toyota', model:'Land Cruiser Prado', year:2020, type:'SUV', formule:'chauffeur', priceDay:80000, priceWeek:480000, priceMonth:1500000, places:7, fuel:'Diesel', transmission:'Automatique', status:'available', emoji:'🚙', features:['Chauffeur professionnel','Climatisation','GPS','Wi-Fi bord'] },
-  { id:3, brand:'Mercedes-Benz', model:'Classe E', year:2021, type:'Berline', formule:'chauffeur', priceDay:100000, priceWeek:600000, priceMonth:1800000, places:5, fuel:'Diesel', transmission:'Automatique', status:'available', emoji:'🚗', features:['Chauffeur VIP','Cuir','Climatisation','Wi-Fi','GPS'] },
-  { id:4, brand:'Toyota', model:'HiAce Minibus', year:2020, type:'Minibus', formule:'chauffeur', priceDay:70000, priceWeek:420000, priceMonth:1200000, places:14, fuel:'Diesel', transmission:'Manuelle', status:'available', emoji:'🚌', features:['Chauffeur inclus','Climatisation','Idéal groupes','Bagages'] },
-  { id:5, brand:'Ford', model:'Ranger Pick-up', year:2021, type:'Pick-up', formule:'sans-chauffeur', priceDay:45000, priceWeek:270000, priceMonth:800000, places:4, fuel:'Diesel', transmission:'Manuelle', status:'available', emoji:'🛻', features:['4x4','Benne','Climatisation','Tout terrain'] },
-  { id:6, brand:'Hyundai', model:'Tucson', year:2022, type:'SUV', formule:'sans-chauffeur', priceDay:40000, priceWeek:240000, priceMonth:700000, places:5, fuel:'Essence', transmission:'Automatique', status:'available', emoji:'🚙', features:['Climatisation','GPS','Bluetooth','Caméra recul'] },
-  { id:7, brand:'Kia', model:'Sportage', year:2022, type:'SUV', formule:'sans-chauffeur', priceDay:38000, priceWeek:228000, priceMonth:680000, places:5, fuel:'Essence', transmission:'Automatique', status:'available', emoji:'🚙', features:['Climatisation','GPS','Économique','Confortable'] },
-  { id:8, brand:'Toyota', model:'Camry VIP', year:2021, type:'Berline', formule:'chauffeur', priceDay:90000, priceWeek:540000, priceMonth:1600000, places:5, fuel:'Essence', transmission:'Automatique', status:'available', emoji:'🚗', features:['Chauffeur VIP','Très haut de gamme','Cuir','Wi-Fi','Minibar'] },
-];
+let LOCATION_VEHICLES = [];
 
 const fmtPrice = n => new Intl.NumberFormat('fr-CI').format(n);
 const SL = { available:'Disponible', rented:'Loué' };
@@ -530,7 +521,9 @@ document.getElementById('devisForm').addEventListener('submit', e => {
 });
 
 document.addEventListener('DOMContentLoaded', () => {
-  applyLocationFilters();
+  fetch('data/vehicules-location.json?v=' + Date.now())
+    .then(r => r.json())
+    .then(data => { LOCATION_VEHICLES = data; applyLocationFilters(); });
   ['lf-type','lf-duration','lf-vehicletype','lf-budget','lf-sort'].forEach(id => document.getElementById(id).addEventListener('change', applyLocationFilters));
 });
 </script>

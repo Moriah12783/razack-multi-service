@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin — RAZAK Multi Service</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --navy: #0A1F44; --navy-dark: #060F22; --gold: #C9A84C; --gold-light: #E8C96A;
+      --white: #fff; --off-white: #F8F7F4; --gray-100: #F3F4F6; --gray-200: #E5E7EB;
+      --gray-400: #9CA3AF; --gray-600: #4B5563; --green: #16A34A; --red: #DC2626;
+      --radius: 8px; --shadow: 0 2px 12px rgba(0,0,0,.1);
+    }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--off-white); color: var(--navy); min-height: 100vh; }
+
+    /* ── LOGIN ── */
+    #loginScreen { display: flex; align-items: center; justify-content: center; min-height: 100vh; background: linear-gradient(135deg, var(--navy-dark), var(--navy)); }
+    .login-box { background: var(--white); border-radius: 16px; padding: 48px 40px; width: 100%; max-width: 400px; box-shadow: 0 20px 60px rgba(0,0,0,.4); text-align: center; }
+    .login-logo { font-size: 2.5rem; font-weight: 900; color: var(--navy); letter-spacing: -.02em; margin-bottom: 4px; }
+    .login-logo span { color: var(--gold); }
+    .login-sub { font-size: .8rem; color: var(--gray-400); letter-spacing: .15em; text-transform: uppercase; margin-bottom: 32px; }
+    .login-box h2 { font-size: 1.2rem; color: var(--navy); margin-bottom: 24px; }
+    .login-input { width: 100%; padding: 14px 16px; border: 2px solid var(--gray-200); border-radius: var(--radius); font-size: 1rem; outline: none; margin-bottom: 16px; transition: .2s; }
+    .login-input:focus { border-color: var(--gold); }
+    .login-btn { width: 100%; padding: 14px; background: var(--navy); color: var(--white); border: none; border-radius: var(--radius); font-size: 1rem; font-weight: 700; cursor: pointer; transition: .2s; }
+    .login-btn:hover { background: var(--gold); color: var(--navy); }
+    .login-error { color: var(--red); font-size: .85rem; margin-top: 8px; display: none; }
+    .first-run-note { font-size: .78rem; color: var(--gray-400); margin-top: 16px; line-height: 1.5; background: var(--off-white); padding: 10px; border-radius: 6px; }
+
+    /* ── ADMIN PANEL ── */
+    #adminPanel { display: none; }
+    .admin-header { background: var(--navy-dark); padding: 0 24px; display: flex; align-items: center; gap: 20px; height: 60px; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 12px rgba(0,0,0,.3); }
+    .admin-brand { font-size: 1.1rem; font-weight: 900; color: var(--white); letter-spacing: -.01em; }
+    .admin-brand span { color: var(--gold); }
+    .admin-brand small { font-size: .65rem; color: var(--gray-400); display: block; font-weight: 400; letter-spacing: .1em; }
+    .header-spacer { flex: 1; }
+    .header-btn { padding: 8px 16px; border-radius: 6px; font-size: .82rem; font-weight: 700; cursor: pointer; border: none; transition: .2s; }
+    .btn-publish { background: var(--gold); color: var(--navy); }
+    .btn-publish:hover { background: var(--gold-light); }
+    .btn-publish:disabled { background: var(--gray-200); color: var(--gray-400); cursor: not-allowed; }
+    .btn-settings { background: rgba(255,255,255,.1); color: var(--white); }
+    .btn-settings:hover { background: rgba(255,255,255,.2); }
+    .btn-logout { background: rgba(220,38,38,.15); color: #FCA5A5; }
+    .btn-logout:hover { background: rgba(220,38,38,.3); }
+    .publish-status { font-size: .78rem; color: var(--gray-400); }
+
+    /* ── TABS ── */
+    .admin-tabs { background: var(--white); border-bottom: 2px solid var(--gray-200); display: flex; padding: 0 24px; gap: 0; }
+    .admin-tab { padding: 16px 20px; font-size: .9rem; font-weight: 600; color: var(--gray-400); cursor: pointer; border-bottom: 3px solid transparent; margin-bottom: -2px; transition: .2s; white-space: nowrap; }
+    .admin-tab:hover { color: var(--navy); }
+    .admin-tab.active { color: var(--navy); border-bottom-color: var(--gold); }
+    .tab-count { background: var(--gold); color: var(--navy); font-size: .7rem; font-weight: 700; padding: 2px 7px; border-radius: 20px; margin-left: 6px; }
+
+    /* ── CONTENT ── */
+    .admin-content { padding: 24px; max-width: 1200px; margin: 0 auto; }
+    .section-toolbar { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; flex-wrap: wrap; }
+    .search-input { flex: 1; min-width: 200px; padding: 10px 14px; border: 1.5px solid var(--gray-200); border-radius: var(--radius); font-size: .9rem; outline: none; }
+    .search-input:focus { border-color: var(--gold); }
+    .btn-add { padding: 10px 20px; background: var(--navy); color: var(--white); border: none; border-radius: var(--radius); font-size: .88rem; font-weight: 700; cursor: pointer; transition: .2s; white-space: nowrap; }
+    .btn-add:hover { background: var(--gold); color: var(--navy); }
+
+    /* ── TABLE ── */
+    .admin-table { background: var(--white); border-radius: 12px; box-shadow: var(--shadow); overflow: hidden; }
+    table { width: 100%; border-collapse: collapse; }
+    thead { background: var(--navy); }
+    thead th { padding: 12px 16px; text-align: left; font-size: .75rem; font-weight: 700; color: rgba(255,255,255,.7); text-transform: uppercase; letter-spacing: .08em; }
+    tbody tr { border-bottom: 1px solid var(--gray-100); transition: .15s; }
+    tbody tr:hover { background: var(--off-white); }
+    tbody tr:last-child { border-bottom: none; }
+    td { padding: 12px 16px; font-size: .88rem; color: var(--gray-600); vertical-align: middle; }
+    td.td-main { font-weight: 600; color: var(--navy); }
+    .badge { display: inline-block; padding: 3px 10px; border-radius: 20px; font-size: .72rem; font-weight: 700; }
+    .badge-available { background: #DCFCE7; color: #166534; }
+    .badge-new { background: #DBEAFE; color: #1E40AF; }
+    .badge-sold { background: #FEE2E2; color: #991B1B; }
+    .badge-rented { background: #FEF3C7; color: #92400E; }
+    .td-actions { display: flex; gap: 8px; }
+    .btn-edit { padding: 6px 14px; background: var(--navy); color: var(--white); border: none; border-radius: 6px; font-size: .78rem; font-weight: 600; cursor: pointer; transition: .2s; }
+    .btn-edit:hover { background: var(--gold); color: var(--navy); }
+    .btn-delete { padding: 6px 14px; background: #FEE2E2; color: var(--red); border: none; border-radius: 6px; font-size: .78rem; font-weight: 600; cursor: pointer; transition: .2s; }
+    .btn-delete:hover { background: var(--red); color: var(--white); }
+    .empty-state { text-align: center; padding: 60px 20px; color: var(--gray-400); }
+    .empty-state .es-icon { font-size: 3rem; margin-bottom: 12px; }
+
+    /* ── MODAL ── */
+    .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,.5); z-index: 500; align-items: flex-start; justify-content: center; padding: 40px 16px; overflow-y: auto; }
+    .modal-overlay.open { display: flex; }
+    .modal { background: var(--white); border-radius: 16px; width: 100%; max-width: 640px; padding: 32px; position: relative; margin: auto; }
+    .modal h3 { font-size: 1.2rem; color: var(--navy); margin-bottom: 24px; padding-bottom: 16px; border-bottom: 2px solid var(--gray-100); }
+    .modal-close { position: absolute; top: 16px; right: 16px; width: 32px; height: 32px; border-radius: 50%; background: var(--gray-100); border: none; font-size: 1.1rem; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+    .modal-close:hover { background: var(--navy); color: var(--white); }
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .form-group { display: flex; flex-direction: column; gap: 6px; }
+    .form-group.full { grid-column: span 2; }
+    .form-group label { font-size: .8rem; font-weight: 700; color: var(--navy); text-transform: uppercase; letter-spacing: .06em; }
+    .form-group input, .form-group select, .form-group textarea { padding: 10px 12px; border: 1.5px solid var(--gray-200); border-radius: var(--radius); font-size: .9rem; outline: none; font-family: inherit; transition: .2s; }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--gold); }
+    .form-group textarea { resize: vertical; min-height: 80px; }
+    .form-group small { font-size: .75rem; color: var(--gray-400); }
+    .modal-footer { display: flex; gap: 12px; justify-content: flex-end; margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--gray-100); }
+    .btn-cancel { padding: 10px 20px; background: var(--gray-100); color: var(--gray-600); border: none; border-radius: var(--radius); font-weight: 600; cursor: pointer; }
+    .btn-save { padding: 10px 24px; background: var(--navy); color: var(--white); border: none; border-radius: var(--radius); font-weight: 700; cursor: pointer; transition: .2s; }
+    .btn-save:hover { background: var(--gold); color: var(--navy); }
+
+    /* ── SETTINGS MODAL ── */
+    .settings-info { background: var(--off-white); border-left: 3px solid var(--gold); border-radius: 0 8px 8px 0; padding: 12px 16px; font-size: .82rem; color: var(--gray-600); margin-bottom: 20px; line-height: 1.6; }
+    .token-status { display: flex; align-items: center; gap: 8px; font-size: .82rem; margin-top: 8px; }
+    .dot { width: 8px; height: 8px; border-radius: 50%; }
+    .dot-green { background: var(--green); }
+    .dot-red { background: var(--red); }
+
+    /* ── TOAST ── */
+    #toast { position: fixed; bottom: 24px; right: 24px; background: var(--navy); color: var(--white); padding: 14px 20px; border-radius: 10px; font-size: .88rem; font-weight: 600; z-index: 9999; transform: translateY(100px); opacity: 0; transition: .3s; pointer-events: none; max-width: 320px; }
+    #toast.show { transform: translateY(0); opacity: 1; }
+    #toast.toast-success { background: var(--green); }
+    #toast.toast-error { background: var(--red); }
+
+    @media(max-width: 640px) {
+      .admin-tabs { overflow-x: auto; }
+      .form-grid { grid-template-columns: 1fr; }
+      .form-group.full { grid-column: span 1; }
+      .admin-header { gap: 10px; }
+      .admin-brand small { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══ LOGIN ═══ -->
+<div id="loginScreen">
+  <div class="login-box">
+    <div class="login-logo">RAZAK<span>.</span></div>
+    <div class="login-sub">Panel Administrateur</div>
+    <h2>Connexion</h2>
+    <input type="password" id="loginPwd" class="login-input" placeholder="Mot de passe" autocomplete="current-password">
+    <button class="login-btn" onclick="doLogin()">Accéder au panel</button>
+    <div class="login-error" id="loginError">Mot de passe incorrect.</div>
+    <div class="first-run-note" id="firstRunNote" style="display:none">
+      🔐 Première connexion — définissez votre mot de passe administrateur.
+    </div>
+  </div>
+</div>
+
+<!-- ═══ ADMIN PANEL ═══ -->
+<div id="adminPanel">
+
+  <!-- HEADER -->
+  <header class="admin-header">
+    <div class="admin-brand">RAZAK<span>.</span> <small>ADMIN</small></div>
+    <div class="header-spacer"></div>
+    <span class="publish-status" id="publishStatus"></span>
+    <button class="header-btn btn-settings" onclick="openSettings()">⚙️ GitHub</button>
+    <button class="header-btn btn-publish" id="btnPublish" onclick="publishAll()">🚀 Publier sur le site</button>
+    <button class="header-btn btn-logout" onclick="logout()">Déconnexion</button>
+  </header>
+
+  <!-- TABS -->
+  <div class="admin-tabs">
+    <div class="admin-tab active" onclick="switchTab('vente')" id="tab-vente">🚗 Véhicules à vendre <span class="tab-count" id="count-vente">0</span></div>
+    <div class="admin-tab" onclick="switchTab('location')" id="tab-location">🔑 Location <span class="tab-count" id="count-location">0</span></div>
+    <div class="admin-tab" onclick="switchTab('immobilier')" id="tab-immobilier">🏠 Immobilier <span class="tab-count" id="count-immobilier">0</span></div>
+    <div class="admin-tab" onclick="switchTab('ameublement')" id="tab-ameublement">🛋️ Ameublement <span class="tab-count" id="count-ameublement">0</span></div>
+  </div>
+
+  <!-- CONTENT -->
+  <div class="admin-content">
+    <div id="section-vente"></div>
+    <div id="section-location" style="display:none"></div>
+    <div id="section-immobilier" style="display:none"></div>
+    <div id="section-ameublement" style="display:none"></div>
+  </div>
+</div>
+
+<!-- ═══ MODAL FORM ═══ -->
+<div class="modal-overlay" id="formModal">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <h3 id="modalTitle">Ajouter une annonce</h3>
+    <div id="modalFormContent"></div>
+    <div class="modal-footer">
+      <button class="btn-cancel" onclick="closeModal()">Annuler</button>
+      <button class="btn-save" onclick="saveItem()">Enregistrer</button>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ SETTINGS MODAL ═══ -->
+<div class="modal-overlay" id="settingsModal">
+  <div class="modal">
+    <button class="modal-close" onclick="closeSettings()">✕</button>
+    <h3>⚙️ Configuration GitHub</h3>
+    <div class="settings-info">
+      Pour publier les modifications sur le site, entrez votre <strong>Personal Access Token GitHub</strong> (avec permission <code>contents:write</code>).<br>
+      Le token est stocké uniquement dans votre navigateur.
+    </div>
+    <div class="form-group" style="margin-bottom:16px">
+      <label>GitHub Token</label>
+      <input type="password" id="ghToken" placeholder="ghp_xxxxxxxxxxxxxxxxxxxx">
+    </div>
+    <div class="token-status" id="tokenStatus"></div>
+    <div class="form-group" style="margin-top:16px">
+      <label>Mot de passe admin</label>
+      <input type="password" id="newPwd" placeholder="Nouveau mot de passe (laisser vide = inchangé)">
+    </div>
+    <div class="modal-footer">
+      <button class="btn-cancel" onclick="closeSettings()">Annuler</button>
+      <button class="btn-save" onclick="saveSettings()">Sauvegarder</button>
+    </div>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div id="toast"></div>
+
+<script>
+/* ═══════════════════════════════════════
+   CONFIG
+═══════════════════════════════════════ */
+const REPO = 'marion2015peyrot-arch/razack-multi-service';
+const FILES = {
+  vente:       'data/vehicules-vente.json',
+  location:    'data/vehicules-location.json',
+  immobilier:  'data/immobilier.json',
+  ameublement: 'data/ameublement.json'
+};
+
+/* ═══════════════════════════════════════
+   AUTH
+═══════════════════════════════════════ */
+async function sha256(msg) {
+  const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(msg));
+  return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2,'0')).join('');
+}
+
+async function doLogin() {
+  const pwd = document.getElementById('loginPwd').value;
+  if (!pwd) return;
+  const hash = await sha256(pwd);
+  const stored = localStorage.getItem('razak_admin_hash');
+  if (!stored) {
+    // First run — set password
+    localStorage.setItem('razak_admin_hash', hash);
+    localStorage.setItem('razak_admin_session', '1');
+    showAdmin();
+  } else if (hash === stored) {
+    localStorage.setItem('razak_admin_session', '1');
+    showAdmin();
+  } else {
+    document.getElementById('loginError').style.display = 'block';
+    document.getElementById('loginPwd').value = '';
+  }
+}
+document.getElementById('loginPwd').addEventListener('keydown', e => { if (e.key === 'Enter') doLogin(); });
+
+function logout() {
+  localStorage.removeItem('razak_admin_session');
+  location.reload();
+}
+
+function checkSession() {
+  if (!localStorage.getItem('razak_admin_hash')) {
+    document.getElementById('firstRunNote').style.display = 'block';
+  }
+  if (localStorage.getItem('razak_admin_session') === '1') showAdmin();
+}
+
+function showAdmin() {
+  document.getElementById('loginScreen').style.display = 'none';
+  document.getElementById('adminPanel').style.display = 'block';
+  loadAllData();
+}
+
+/* ═══════════════════════════════════════
+   DATA
+═══════════════════════════════════════ */
+const DB = { vente: [], location: [], immobilier: [], ameublement: [] };
+let currentTab = 'vente';
+let editingId = null;
+
+async function loadAllData() {
+  for (const [key, path] of Object.entries(FILES)) {
+    try {
+      const r = await fetch(path + '?v=' + Date.now());
+      DB[key] = await r.json();
+    } catch(e) { DB[key] = []; }
+  }
+  renderAll();
+}
+
+function renderAll() {
+  ['vente','location','immobilier','ameublement'].forEach(tab => {
+    document.getElementById('count-' + tab).textContent = DB[tab].length;
+    renderSection(tab);
+  });
+}
+
+function nextId(arr) {
+  return arr.length ? Math.max(...arr.map(x => x.id || 0)) + 1 : 1;
+}
+
+/* ═══════════════════════════════════════
+   TABS
+═══════════════════════════════════════ */
+function switchTab(tab) {
+  currentTab = tab;
+  document.querySelectorAll('.admin-tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('tab-' + tab).classList.add('active');
+  ['vente','location','immobilier','ameublement'].forEach(t => {
+    document.getElementById('section-' + t).style.display = t === tab ? 'block' : 'none';
+  });
+}
+
+/* ═══════════════════════════════════════
+   RENDER SECTIONS
+═══════════════════════════════════════ */
+function renderSection(tab) {
+  const el = document.getElementById('section-' + tab);
+  const items = DB[tab];
+  const rows = items.length ? items.map(item => renderRow(tab, item)).join('') :
+    `<tr><td colspan="6"><div class="empty-state"><div class="es-icon">📭</div>Aucune annonce — cliquez sur "+ Ajouter" pour commencer.</div></td></tr>`;
+
+  el.innerHTML = `
+    <div class="section-toolbar">
+      <input class="search-input" placeholder="🔍 Rechercher..." oninput="filterTable('${tab}', this.value)">
+      <button class="btn-add" onclick="openAdd('${tab}')">+ Ajouter</button>
+    </div>
+    <div class="admin-table">
+      <table id="table-${tab}">
+        <thead><tr>${getHeaders(tab)}</tr></thead>
+        <tbody id="tbody-${tab}">${rows}</tbody>
+      </table>
+    </div>`;
+}
+
+function getHeaders(tab) {
+  const base = '<th style="width:40px"></th><th>Titre / Nom</th>';
+  if (tab === 'vente')       return base + '<th>Année</th><th>Prix</th><th>Statut</th><th style="width:120px">Actions</th>';
+  if (tab === 'location')    return base + '<th>Formule</th><th>Prix/jour</th><th>Statut</th><th style="width:120px">Actions</th>';
+  if (tab === 'immobilier')  return base + '<th>Mode</th><th>Prix</th><th>Statut</th><th style="width:120px">Actions</th>';
+  if (tab === 'ameublement') return base + '<th>Catégorie</th><th>Prix</th><th>Statut</th><th style="width:120px">Actions</th>';
+}
+
+function renderRow(tab, item) {
+  const statusMap = { available: '<span class="badge badge-available">Disponible</span>', new: '<span class="badge badge-new">Nouveau</span>', sold: '<span class="badge badge-sold">Vendu</span>', rented: '<span class="badge badge-rented">Loué</span>' };
+  const fmt = n => new Intl.NumberFormat('fr-CI').format(n) + ' FCFA';
+  const st = key => statusMap[key] || `<span class="badge">${key}</span>`;
+
+  if (tab === 'vente') return `<tr data-id="${item.id}">
+    <td style="font-size:1.3rem">${item.emoji||'🚗'}</td>
+    <td class="td-main">${item.brand} ${item.model}</td>
+    <td>${item.year}</td><td>${fmt(item.price)}</td>
+    <td>${st(item.status)}</td>
+    <td><div class="td-actions"><button class="btn-edit" onclick="openEdit('vente',${item.id})">Modifier</button><button class="btn-delete" onclick="deleteItem('vente',${item.id})">✕</button></div></td></tr>`;
+
+  if (tab === 'location') return `<tr data-id="${item.id}">
+    <td style="font-size:1.3rem">${item.emoji||'🚗'}</td>
+    <td class="td-main">${item.brand} ${item.model}</td>
+    <td>${item.formule === 'chauffeur' ? '🧑‍✈️ Avec chauffeur' : '🔑 Sans chauffeur'}</td>
+    <td>${new Intl.NumberFormat('fr-CI').format(item.priceDay)} FCFA</td>
+    <td>${st(item.status)}</td>
+    <td><div class="td-actions"><button class="btn-edit" onclick="openEdit('location',${item.id})">Modifier</button><button class="btn-delete" onclick="deleteItem('location',${item.id})">✕</button></div></td></tr>`;
+
+  if (tab === 'immobilier') return `<tr data-id="${item.id}">
+    <td style="font-size:1.3rem">${item.emoji||'🏠'}</td>
+    <td class="td-main">${item.titre}</td>
+    <td>${item.mode === 'vente' ? 'À vendre' : item.mode === 'location' ? 'À louer' : 'Court séjour'}</td>
+    <td>${fmt(item.prix)}${item.unite||''}</td>
+    <td>${st(item.statut)}</td>
+    <td><div class="td-actions"><button class="btn-edit" onclick="openEdit('immobilier',${item.id})">Modifier</button><button class="btn-delete" onclick="deleteItem('immobilier',${item.id})">✕</button></div></td></tr>`;
+
+  if (tab === 'ameublement') return `<tr data-id="${item.id}">
+    <td style="font-size:1.3rem">${item.emoji||'🛋️'}</td>
+    <td class="td-main">${item.titre}</td>
+    <td>${item.cat}</td><td>${fmt(item.prix)}</td>
+    <td>${st(item.statut)}</td>
+    <td><div class="td-actions"><button class="btn-edit" onclick="openEdit('ameublement',${item.id})">Modifier</button><button class="btn-delete" onclick="deleteItem('ameublement',${item.id})">✕</button></div></td></tr>`;
+}
+
+function filterTable(tab, q) {
+  const rows = document.querySelectorAll(`#tbody-${tab} tr`);
+  q = q.toLowerCase();
+  rows.forEach(row => {
+    row.style.display = row.textContent.toLowerCase().includes(q) ? '' : 'none';
+  });
+}
+
+/* ═══════════════════════════════════════
+   FORMS
+═══════════════════════════════════════ */
+function getForm(tab, item = {}) {
+  const v = item;
+  const sel = (name, opts, val) => `<select name="${name}">${opts.map(o => `<option value="${o.v}" ${val==o.v?'selected':''}>${o.l}</option>`).join('')}</select>`;
+
+  if (tab === 'vente') return `<div class="form-grid">
+    <div class="form-group"><label>Marque *</label><input name="brand" value="${v.brand||''}" placeholder="Toyota" required></div>
+    <div class="form-group"><label>Modèle *</label><input name="model" value="${v.model||''}" placeholder="Land Cruiser" required></div>
+    <div class="form-group"><label>Année *</label><input name="year" type="number" value="${v.year||2023}" min="1990" max="2026" required></div>
+    <div class="form-group"><label>Kilométrage (km) *</label><input name="km" type="number" value="${v.km||0}" required></div>
+    <div class="form-group"><label>Prix (FCFA) *</label><input name="price" type="number" value="${v.price||0}" required></div>
+    <div class="form-group"><label>Couleur</label><input name="color" value="${v.color||''}" placeholder="Noir"></div>
+    <div class="form-group"><label>Carburant</label>${sel('fuel',[{v:'Diesel',l:'Diesel'},{v:'Essence',l:'Essence'},{v:'Hybride',l:'Hybride'},{v:'Électrique',l:'Électrique'}],v.fuel)}</div>
+    <div class="form-group"><label>Transmission</label>${sel('transmission',[{v:'Automatique',l:'Automatique'},{v:'Manuelle',l:'Manuelle'}],v.transmission)}</div>
+    <div class="form-group"><label>Type</label>${sel('type',[{v:'SUV',l:'SUV'},{v:'Berline',l:'Berline'},{v:'Pick-up',l:'Pick-up'},{v:'Minibus',l:'Minibus'},{v:'Coupé',l:'Coupé'},{v:'Break',l:'Break'}],v.type)}</div>
+    <div class="form-group"><label>Moteur</label><input name="engine" value="${v.engine||''}" placeholder="2.0L Turbo"></div>
+    <div class="form-group"><label>Portes</label><input name="doors" type="number" value="${v.doors||4}" min="2" max="9"></div>
+    <div class="form-group"><label>Statut</label>${sel('status',[{v:'available',l:'Disponible'},{v:'new',l:'Nouveau'},{v:'sold',l:'Vendu'}],v.status)}</div>
+    <div class="form-group"><label>Emoji</label><input name="emoji" value="${v.emoji||'🚗'}" placeholder="🚗" style="font-size:1.3rem"></div>
+    <div class="form-group full"><label>Description</label><textarea name="desc" placeholder="État, options, historique...">${v.desc||''}</textarea></div>
+  </div>`;
+
+  if (tab === 'location') return `<div class="form-grid">
+    <div class="form-group"><label>Marque *</label><input name="brand" value="${v.brand||''}" required></div>
+    <div class="form-group"><label>Modèle *</label><input name="model" value="${v.model||''}" required></div>
+    <div class="form-group"><label>Année</label><input name="year" type="number" value="${v.year||2022}" min="2010" max="2026"></div>
+    <div class="form-group"><label>Type</label>${sel('type',[{v:'Berline',l:'Berline'},{v:'SUV',l:'SUV'},{v:'Pick-up',l:'Pick-up'},{v:'Minibus',l:'Minibus'}],v.type)}</div>
+    <div class="form-group"><label>Formule</label>${sel('formule',[{v:'sans-chauffeur',l:'Sans chauffeur'},{v:'chauffeur',l:'Avec chauffeur'}],v.formule)}</div>
+    <div class="form-group"><label>Places</label><input name="places" type="number" value="${v.places||5}" min="1"></div>
+    <div class="form-group"><label>Prix / jour (FCFA) *</label><input name="priceDay" type="number" value="${v.priceDay||0}" required></div>
+    <div class="form-group"><label>Prix / semaine (FCFA)</label><input name="priceWeek" type="number" value="${v.priceWeek||0}"></div>
+    <div class="form-group"><label>Prix / mois (FCFA)</label><input name="priceMonth" type="number" value="${v.priceMonth||0}"></div>
+    <div class="form-group"><label>Carburant</label>${sel('fuel',[{v:'Diesel',l:'Diesel'},{v:'Essence',l:'Essence'}],v.fuel)}</div>
+    <div class="form-group"><label>Transmission</label>${sel('transmission',[{v:'Automatique',l:'Automatique'},{v:'Manuelle',l:'Manuelle'}],v.transmission)}</div>
+    <div class="form-group"><label>Statut</label>${sel('status',[{v:'available',l:'Disponible'},{v:'rented',l:'Loué'}],v.status)}</div>
+    <div class="form-group"><label>Emoji</label><input name="emoji" value="${v.emoji||'🚗'}" style="font-size:1.3rem"></div>
+    <div class="form-group full"><label>Équipements <small>(séparés par virgule)</small></label><input name="features" value="${(v.features||[]).join(', ')}" placeholder="Climatisation, GPS, Bluetooth"></div>
+  </div>`;
+
+  if (tab === 'immobilier') return `<div class="form-grid">
+    <div class="form-group full"><label>Titre *</label><input name="titre" value="${v.titre||''}" placeholder="Villa F5 avec piscine" required></div>
+    <div class="form-group"><label>Type de bien</label>${sel('type',[{v:'Villa',l:'Villa'},{v:'Appartement',l:'Appartement'},{v:'Maison',l:'Maison'},{v:'Studio',l:'Studio'},{v:'Duplex',l:'Duplex'},{v:'Résidence',l:'Résidence'}],v.type)}</div>
+    <div class="form-group"><label>Mode</label>${sel('mode',[{v:'vente',l:'À vendre'},{v:'location',l:'À louer'},{v:'court-sejour',l:'Court séjour'}],v.mode)}</div>
+    <div class="form-group"><label>Quartier</label><input name="quartier" value="${v.quartier||''}" placeholder="Cocody, Riviera..."></div>
+    <div class="form-group"><label>Prix (FCFA) *</label><input name="prix" type="number" value="${v.prix||0}" required></div>
+    <div class="form-group"><label>Unité de prix</label><input name="unite" value="${v.unite||''}" placeholder="/mois ou /nuit ou vide"></div>
+    <div class="form-group"><label>Chambres</label><input name="chambres" type="number" value="${v.chambres||1}" min="0"></div>
+    <div class="form-group"><label>Salles de bain</label><input name="sdb" type="number" value="${v.sdb||1}" min="0"></div>
+    <div class="form-group"><label>Surface (m²)</label><input name="surface" type="number" value="${v.surface||0}"></div>
+    <div class="form-group"><label>Statut</label>${sel('statut',[{v:'available',l:'Disponible'},{v:'rented',l:'Loué/Vendu'}],v.statut)}</div>
+    <div class="form-group"><label>Emoji</label><input name="emoji" value="${v.emoji||'🏠'}" style="font-size:1.3rem"></div>
+    <div class="form-group full"><label>Équipements <small>(séparés par virgule)</small></label><input name="equip" value="${(v.equip||[]).join(', ')}" placeholder="Piscine, Garage, Climatisation"></div>
+    <div class="form-group full"><label>Description</label><textarea name="desc" placeholder="Description du bien...">${v.desc||''}</textarea></div>
+  </div>`;
+
+  if (tab === 'ameublement') return `<div class="form-grid">
+    <div class="form-group full"><label>Titre *</label><input name="titre" value="${v.titre||''}" required placeholder="Canapé d'angle moderne"></div>
+    <div class="form-group"><label>Catégorie</label>${sel('cat',[{v:'Salon',l:'Salon'},{v:'Chambre',l:'Chambre'},{v:'Salle à manger',l:'Salle à manger'},{v:'Bureau',l:'Bureau'},{v:'Meuble TV',l:'Meuble TV'},{v:'Décoration',l:'Décoration'},{v:'Pack',l:'Pack'}],v.cat)}</div>
+    <div class="form-group"><label>Prix (FCFA) *</label><input name="prix" type="number" value="${v.prix||0}" required></div>
+    <div class="form-group"><label>Statut</label>${sel('statut',[{v:'available',l:'Disponible'},{v:'sold',l:'Vendu'}],v.statut)}</div>
+    <div class="form-group"><label>Emoji</label><input name="emoji" value="${v.emoji||'🛋️'}" style="font-size:1.3rem"></div>
+    <div class="form-group full"><label>Tags <small>(séparés par virgule)</small></label><input name="tags" value="${(v.tags||[]).join(', ')}" placeholder="Tissu premium, 6 places, Livraison incluse"></div>
+    <div class="form-group full"><label>Description</label><textarea name="desc" placeholder="Description du meuble...">${v.desc||''}</textarea></div>
+  </div>`;
+}
+
+/* ═══════════════════════════════════════
+   MODAL OPEN/CLOSE
+═══════════════════════════════════════ */
+function openAdd(tab) {
+  editingId = null;
+  currentTab = tab;
+  document.getElementById('modalTitle').textContent = 'Ajouter une annonce';
+  document.getElementById('modalFormContent').innerHTML = getForm(tab);
+  document.getElementById('formModal').classList.add('open');
+}
+
+function openEdit(tab, id) {
+  const item = DB[tab].find(x => x.id === id);
+  if (!item) return;
+  editingId = id;
+  currentTab = tab;
+  document.getElementById('modalTitle').textContent = 'Modifier l\'annonce';
+  document.getElementById('modalFormContent').innerHTML = getForm(tab, item);
+  document.getElementById('formModal').classList.add('open');
+}
+
+function closeModal() { document.getElementById('formModal').classList.remove('open'); editingId = null; }
+
+/* ═══════════════════════════════════════
+   SAVE / DELETE
+═══════════════════════════════════════ */
+function readForm() {
+  const form = document.getElementById('modalFormContent');
+  const inputs = form.querySelectorAll('input, select, textarea');
+  const data = {};
+  inputs.forEach(el => {
+    if (!el.name) return;
+    const v = el.value.trim();
+    if (['km','price','year','doors','places','priceDay','priceWeek','priceMonth','prix','chambres','sdb','surface'].includes(el.name)) {
+      data[el.name] = parseInt(v) || 0;
+    } else if (['features','equip','tags'].includes(el.name)) {
+      data[el.name] = v ? v.split(',').map(s => s.trim()).filter(Boolean) : [];
+    } else {
+      data[el.name] = v;
+    }
+  });
+  return data;
+}
+
+function saveItem() {
+  const tab = currentTab;
+  const formData = readForm();
+  if (editingId !== null) {
+    const idx = DB[tab].findIndex(x => x.id === editingId);
+    if (idx !== -1) DB[tab][idx] = { ...DB[tab][idx], ...formData };
+    toast('Annonce modifiée ✓', 'success');
+  } else {
+    formData.id = nextId(DB[tab]);
+    DB[tab].push(formData);
+    toast('Annonce ajoutée ✓', 'success');
+  }
+  closeModal();
+  renderAll();
+  document.getElementById('publishStatus').textContent = '⚠️ Modifications non publiées';
+  document.getElementById('publishStatus').style.color = '#F59E0B';
+}
+
+function deleteItem(tab, id) {
+  if (!confirm('Supprimer cette annonce ?')) return;
+  DB[tab] = DB[tab].filter(x => x.id !== id);
+  renderAll();
+  toast('Annonce supprimée', 'success');
+  document.getElementById('publishStatus').textContent = '⚠️ Modifications non publiées';
+  document.getElementById('publishStatus').style.color = '#F59E0B';
+}
+
+/* ═══════════════════════════════════════
+   GITHUB PUBLISH
+═══════════════════════════════════════ */
+async function commitFile(path, content) {
+  const token = localStorage.getItem('razak_gh_token');
+  if (!token) throw new Error('Token GitHub manquant');
+  const headers = { 'Authorization': `token ${token}`, 'Accept': 'application/vnd.github.v3+json', 'Content-Type': 'application/json' };
+  // Get SHA
+  const getRes = await fetch(`https://api.github.com/repos/${REPO}/contents/${path}`, { headers });
+  const fileData = await getRes.json();
+  const sha = fileData.sha;
+  // Commit
+  const encoded = btoa(unescape(encodeURIComponent(content)));
+  const putRes = await fetch(`https://api.github.com/repos/${REPO}/contents/${path}`, {
+    method: 'PUT', headers,
+    body: JSON.stringify({ message: `Admin: mise à jour ${path}`, content: encoded, sha })
+  });
+  if (!putRes.ok) throw new Error(`Erreur GitHub: ${putRes.status}`);
+  return putRes.json();
+}
+
+async function publishAll() {
+  const token = localStorage.getItem('razak_gh_token');
+  if (!token) { openSettings(); toast('Configurez d\'abord votre token GitHub', 'error'); return; }
+  const btn = document.getElementById('btnPublish');
+  btn.disabled = true; btn.textContent = '⏳ Publication...';
+  document.getElementById('publishStatus').textContent = '';
+  try {
+    for (const [key, path] of Object.entries(FILES)) {
+      await commitFile(path, JSON.stringify(DB[key], null, 2));
+    }
+    toast('✅ Publié ! Vercel redéploie en 1-2 min.', 'success');
+    document.getElementById('publishStatus').textContent = '✅ En ligne';
+    document.getElementById('publishStatus').style.color = '#16A34A';
+  } catch(e) {
+    toast('Erreur : ' + e.message, 'error');
+    document.getElementById('publishStatus').textContent = '❌ Échec';
+    document.getElementById('publishStatus').style.color = '#DC2626';
+  }
+  btn.disabled = false; btn.textContent = '🚀 Publier sur le site';
+}
+
+/* ═══════════════════════════════════════
+   SETTINGS
+═══════════════════════════════════════ */
+function openSettings() {
+  const token = localStorage.getItem('razak_gh_token') || '';
+  document.getElementById('ghToken').value = token ? '••••••••••••••' : '';
+  document.getElementById('newPwd').value = '';
+  const status = document.getElementById('tokenStatus');
+  if (token) {
+    status.innerHTML = '<div class="dot dot-green"></div> Token configuré';
+  } else {
+    status.innerHTML = '<div class="dot dot-red"></div> Aucun token — publication impossible';
+  }
+  document.getElementById('settingsModal').classList.add('open');
+}
+function closeSettings() { document.getElementById('settingsModal').classList.remove('open'); }
+
+async function saveSettings() {
+  const tokenInput = document.getElementById('ghToken').value.trim();
+  if (tokenInput && !tokenInput.startsWith('•')) {
+    localStorage.setItem('razak_gh_token', tokenInput);
+  }
+  const newPwd = document.getElementById('newPwd').value.trim();
+  if (newPwd) {
+    const hash = await sha256(newPwd);
+    localStorage.setItem('razak_admin_hash', hash);
+    toast('Mot de passe mis à jour', 'success');
+  }
+  closeSettings();
+  toast('Paramètres sauvegardés ✓', 'success');
+}
+
+/* ═══════════════════════════════════════
+   TOAST
+═══════════════════════════════════════ */
+let toastTimer;
+function toast(msg, type = '') {
+  const el = document.getElementById('toast');
+  el.textContent = msg;
+  el.className = 'show' + (type ? ' toast-' + type : '');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => { el.className = ''; }, 3500);
+}
+
+/* ── INIT ── */
+checkSession();
+</script>
+</body>
+</html>
