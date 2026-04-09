@@ -4,6 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Admin — RAZAK Multi Service</title>
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+  <link rel="shortcut icon" href="images/favicon.svg">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
@@ -100,6 +102,12 @@
     .form-group small { font-size: .75rem; color: var(--gray-400); }
     .photo-preview { width: 100%; height: 140px; object-fit: cover; border-radius: var(--radius); border: 1.5px solid var(--gray-200); display: none; margin-top: 6px; }
     .photo-preview.visible { display: block; }
+    .photo-input-row { display: flex; gap: 8px; align-items: center; }
+    .photo-input-row input[name="photo"] { flex: 1; }
+    .btn-file-upload { padding: 10px 14px; background: var(--navy); color: var(--white); border-radius: var(--radius); font-size: .82rem; font-weight: 700; cursor: pointer; white-space: nowrap; border: none; transition: .2s; }
+    .btn-file-upload:hover { background: var(--gold); color: var(--navy); }
+    .upload-progress { font-size: .78rem; color: var(--gold); margin-top: 4px; display: none; }
+    .upload-progress.show { display: block; }
     .modal-footer { display: flex; gap: 12px; justify-content: flex-end; margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--gray-100); }
     .btn-cancel { padding: 10px 20px; background: var(--gray-100); color: var(--gray-600); border: none; border-radius: var(--radius); font-weight: 600; cursor: pointer; }
     .btn-save { padding: 10px 24px; background: var(--navy); color: var(--white); border: none; border-radius: var(--radius); font-weight: 700; cursor: pointer; transition: .2s; }
@@ -408,7 +416,7 @@ function getForm(tab, item = {}) {
     <div class="form-group"><label>Portes</label><input name="doors" type="number" value="${v.doors||4}" min="2" max="9"></div>
     <div class="form-group"><label>Statut</label>${sel('status',[{v:'available',l:'Disponible'},{v:'new',l:'Nouveau'},{v:'sold',l:'Vendu'}],v.status)}</div>
     <div class="form-group"><label>Emoji</label><input name="emoji" value="${v.emoji||'🚗'}" placeholder="🚗" style="font-size:1.3rem"></div>
-    <div class="form-group full"><label>Photo <small>(URL de l'image)</small></label><input name="photo" value="${v.photo||''}" placeholder="https://..." oninput="previewPhoto(this)"><img class="photo-preview ${v.photo?'visible':''}" src="${v.photo||''}" alt="aperçu"></div>
+    <div class="form-group full"><label>Photo</label><div class="photo-input-row"><input name="photo" value="${v.photo||''}" placeholder="Coller une URL ou choisir un fichier…" oninput="previewPhoto(this)"><label class="btn-file-upload">📁 Fichier<input type="file" accept="image/*" style="display:none" onchange="uploadPhotoFile(this)"></label></div><div class="upload-progress" id="uploadProgress">⬆️ Upload en cours…</div><img class="photo-preview ${v.photo?'visible':''}" src="${v.photo||''}" alt="aperçu"></div>
     <div class="form-group full"><label>Description</label><textarea name="desc" placeholder="État, options, historique...">${v.desc||''}</textarea></div>
   </div>`;
 
@@ -426,7 +434,7 @@ function getForm(tab, item = {}) {
     <div class="form-group"><label>Transmission</label>${sel('transmission',[{v:'Automatique',l:'Automatique'},{v:'Manuelle',l:'Manuelle'}],v.transmission)}</div>
     <div class="form-group"><label>Statut</label>${sel('status',[{v:'available',l:'Disponible'},{v:'rented',l:'Loué'}],v.status)}</div>
     <div class="form-group"><label>Emoji</label><input name="emoji" value="${v.emoji||'🚗'}" style="font-size:1.3rem"></div>
-    <div class="form-group full"><label>Photo <small>(URL de l'image)</small></label><input name="photo" value="${v.photo||''}" placeholder="https://..." oninput="previewPhoto(this)"><img class="photo-preview ${v.photo?'visible':''}" src="${v.photo||''}" alt="aperçu"></div>
+    <div class="form-group full"><label>Photo</label><div class="photo-input-row"><input name="photo" value="${v.photo||''}" placeholder="Coller une URL ou choisir un fichier…" oninput="previewPhoto(this)"><label class="btn-file-upload">📁 Fichier<input type="file" accept="image/*" style="display:none" onchange="uploadPhotoFile(this)"></label></div><div class="upload-progress" id="uploadProgress">⬆️ Upload en cours…</div><img class="photo-preview ${v.photo?'visible':''}" src="${v.photo||''}" alt="aperçu"></div>
     <div class="form-group full"><label>Équipements <small>(séparés par virgule)</small></label><input name="features" value="${(v.features||[]).join(', ')}" placeholder="Climatisation, GPS, Bluetooth"></div>
   </div>`;
 
@@ -442,7 +450,7 @@ function getForm(tab, item = {}) {
     <div class="form-group"><label>Surface (m²)</label><input name="surface" type="number" value="${v.surface||0}"></div>
     <div class="form-group"><label>Statut</label>${sel('statut',[{v:'available',l:'Disponible'},{v:'rented',l:'Loué/Vendu'}],v.statut)}</div>
     <div class="form-group"><label>Emoji</label><input name="emoji" value="${v.emoji||'🏠'}" style="font-size:1.3rem"></div>
-    <div class="form-group full"><label>Photo <small>(URL de l'image)</small></label><input name="photo" value="${v.photo||''}" placeholder="https://..." oninput="previewPhoto(this)"><img class="photo-preview ${v.photo?'visible':''}" src="${v.photo||''}" alt="aperçu"></div>
+    <div class="form-group full"><label>Photo</label><div class="photo-input-row"><input name="photo" value="${v.photo||''}" placeholder="Coller une URL ou choisir un fichier…" oninput="previewPhoto(this)"><label class="btn-file-upload">📁 Fichier<input type="file" accept="image/*" style="display:none" onchange="uploadPhotoFile(this)"></label></div><div class="upload-progress" id="uploadProgress">⬆️ Upload en cours…</div><img class="photo-preview ${v.photo?'visible':''}" src="${v.photo||''}" alt="aperçu"></div>
     <div class="form-group full"><label>Équipements <small>(séparés par virgule)</small></label><input name="equip" value="${(v.equip||[]).join(', ')}" placeholder="Piscine, Garage, Climatisation"></div>
     <div class="form-group full"><label>Description</label><textarea name="desc" placeholder="Description du bien...">${v.desc||''}</textarea></div>
   </div>`;
@@ -453,7 +461,7 @@ function getForm(tab, item = {}) {
     <div class="form-group"><label>Prix (FCFA) *</label><input name="prix" type="number" value="${v.prix||0}" required></div>
     <div class="form-group"><label>Statut</label>${sel('statut',[{v:'available',l:'Disponible'},{v:'sold',l:'Vendu'}],v.statut)}</div>
     <div class="form-group"><label>Emoji</label><input name="emoji" value="${v.emoji||'🛋️'}" style="font-size:1.3rem"></div>
-    <div class="form-group full"><label>Photo <small>(URL de l'image)</small></label><input name="photo" value="${v.photo||''}" placeholder="https://..." oninput="previewPhoto(this)"><img class="photo-preview ${v.photo?'visible':''}" src="${v.photo||''}" alt="aperçu"></div>
+    <div class="form-group full"><label>Photo</label><div class="photo-input-row"><input name="photo" value="${v.photo||''}" placeholder="Coller une URL ou choisir un fichier…" oninput="previewPhoto(this)"><label class="btn-file-upload">📁 Fichier<input type="file" accept="image/*" style="display:none" onchange="uploadPhotoFile(this)"></label></div><div class="upload-progress" id="uploadProgress">⬆️ Upload en cours…</div><img class="photo-preview ${v.photo?'visible':''}" src="${v.photo||''}" alt="aperçu"></div>
     <div class="form-group full"><label>Tags <small>(séparés par virgule)</small></label><input name="tags" value="${(v.tags||[]).join(', ')}" placeholder="Tissu premium, 6 places, Livraison incluse"></div>
     <div class="form-group full"><label>Description</label><textarea name="desc" placeholder="Description du meuble...">${v.desc||''}</textarea></div>
   </div>`;
@@ -483,10 +491,55 @@ function openEdit(tab, id) {
 function closeModal() { document.getElementById('formModal').classList.remove('open'); editingId = null; }
 
 function previewPhoto(input) {
-  const img = input.nextElementSibling;
+  const row = input.closest('.photo-input-row');
+  const img = row.parentElement.querySelector('.photo-preview');
   const url = input.value.trim();
   if (url) { img.src = url; img.classList.add('visible'); }
   else { img.src = ''; img.classList.remove('visible'); }
+}
+
+async function uploadPhotoFile(fileInput) {
+  const token = localStorage.getItem('razak_gh_token');
+  if (!token) { toast('Configurez d\'abord le token GitHub dans ⚙️', 'error'); return; }
+  const file = fileInput.files[0];
+  if (!file) return;
+
+  const progress = fileInput.closest('.form-group').querySelector('.upload-progress');
+  progress.classList.add('show');
+
+  const reader = new FileReader();
+  reader.onload = async function(e) {
+    try {
+      const base64 = e.target.result.split(',')[1];
+      const ext = file.name.split('.').pop().toLowerCase();
+      const filename = Date.now() + '.' + ext;
+      const path = 'images/annonces/' + filename;
+      const headers = { 'Authorization': 'token ' + token, 'Accept': 'application/vnd.github.v3+json', 'Content-Type': 'application/json' };
+
+      // Check if file already exists (get SHA)
+      const getRes = await fetch('https://api.github.com/repos/' + REPO + '/contents/' + path, { headers });
+      const existing = getRes.ok ? await getRes.json() : {};
+      const body = { message: 'Upload photo: ' + filename, content: base64 };
+      if (existing.sha) body.sha = existing.sha;
+
+      const putRes = await fetch('https://api.github.com/repos/' + REPO + '/contents/' + path, {
+        method: 'PUT', headers, body: JSON.stringify(body)
+      });
+      if (!putRes.ok) throw new Error('Erreur ' + putRes.status);
+
+      const url = 'https://razak-multiservices.vercel.app/' + path;
+      const photoInput = fileInput.closest('.form-group').querySelector('input[name="photo"]');
+      photoInput.value = url;
+      previewPhoto(photoInput);
+      progress.textContent = '✅ Photo uploadée !';
+      setTimeout(() => { progress.classList.remove('show'); progress.textContent = '⬆️ Upload en cours…'; }, 3000);
+      toast('Photo uploadée ✓', 'success');
+    } catch(err) {
+      progress.classList.remove('show');
+      toast('Erreur upload : ' + err.message, 'error');
+    }
+  };
+  reader.readAsDataURL(file);
 }
 
 /* ═══════════════════════════════════════
