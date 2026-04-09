@@ -125,6 +125,29 @@ if (visiteForm) {
   });
 }
 
+// === COOKIE CONSENT BANNER ===
+(function() {
+  if (localStorage.getItem('razak_cookies_accepted')) return;
+  const banner = document.createElement('div');
+  banner.id = 'cookie-banner';
+  banner.innerHTML = `
+    <div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap">
+      <p style="margin:0;flex:1;min-width:220px;font-size:.88rem;color:#ccc;line-height:1.5">
+        🍪 Ce site utilise des cookies pour améliorer votre expérience (Google Analytics, Microsoft Clarity).
+        <a href="confidentialite.html" style="color:#C9A84C;text-decoration:underline">En savoir plus</a>
+      </p>
+      <div style="display:flex;gap:10px;flex-shrink:0">
+        <button id="cookie-decline" style="padding:9px 18px;border-radius:6px;border:1px solid rgba(255,255,255,.25);background:transparent;color:#ccc;font-size:.85rem;cursor:pointer">Refuser</button>
+        <button id="cookie-accept" style="padding:9px 20px;border-radius:6px;border:none;background:#C9A84C;color:#0A1F44;font-weight:700;font-size:.85rem;cursor:pointer">Accepter</button>
+      </div>
+    </div>`;
+  banner.style.cssText = 'position:fixed;bottom:0;left:0;right:0;background:rgba(6,15,34,.97);backdrop-filter:blur(8px);padding:16px 24px;z-index:9999;box-shadow:0 -4px 20px rgba(0,0,0,.3);border-top:1px solid rgba(201,168,76,.25)';
+  document.body.appendChild(banner);
+  function hideBanner() { banner.style.transform = 'translateY(100%)'; banner.style.transition = 'transform .3s ease'; setTimeout(() => banner.remove(), 350); }
+  document.getElementById('cookie-accept').addEventListener('click', () => { localStorage.setItem('razak_cookies_accepted', '1'); hideBanner(); });
+  document.getElementById('cookie-decline').addEventListener('click', () => { localStorage.setItem('razak_cookies_accepted', '0'); hideBanner(); });
+})();
+
 // === SMOOTH REVEAL ON SCROLL ===
 const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -40px 0px' };
 const observer = new IntersectionObserver((entries) => {

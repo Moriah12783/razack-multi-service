@@ -70,4 +70,26 @@
     <priority>0.7</priority>
   </url>
 
+  <!-- Légal -->
+  <url>
+    <loc>https://razak-multiservices.vercel.app/mentions-legales.html</loc>
+    <lastmod>2026-04-09</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+  <url>
+    <loc>https://razak-multiservices.vercel.app/confidentialite.html</loc>
+    <lastmod>2026-04-09</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+  <url>
+    <loc>https://razak-multiservices.vercel.app/cgu.html</loc>
+    <lastmod>2026-04-09</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
 </urlset>
