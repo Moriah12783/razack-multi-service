@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="fr">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-H188Z82BD6"></script>
+
+<script>
+
+  window.dataLayer = window.dataLayer || [];
+
+  function gtag(){dataLayer.push(arguments);}
+
+  gtag('js', new Date());
+
+  gtag('config', 'G-H188Z82BD6');
+
+</script>
+<!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-H188Z82BD6"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-H188Z82BD6');
+    </script>
+
+    <!-- Microsoft Clarity -->
+    <script type="text/javascript">
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "w8xfw2feix");
+    </script>
+
+<style>
+.page-hero { background: linear-gradient(135deg, rgba(6,15,34,0.45) 0%, rgba(10,31,68,0.40) 100%), url('images/hero-immo.jpg') center center / cover no-repeat !important; }
+</style>
+</head>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Immobilier — RAZAK Multi Service</title>
+  <meta name="description" content="Vente et location de biens immobiliers dans le Grand Abidjan. RAZAK Multi Service — maisons, appartements, villas, résidences à Cocody, Marcory, Plateau...">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <style>
+    .immo-tabs { display: flex; gap: 4px; background: var(--gray-100); padding: 4px; border-radius: var(--radius-sm); margin-bottom: 32px; }
+    .immo-tab { flex: 1; padding: 14px 20px; border-radius: 6px; font-weight: 600; font-size: .9rem; color: var(--gray-600); transition: var(--transition); cursor: pointer; text-align: center; font-family: var(--font-body); border: none; background: none; }
+    .immo-tab.active { background: var(--white); color: var(--navy); box-shadow: var(--shadow-sm); }
+    .immo-tab span { display: block; font-size: .7rem; font-weight: 400; color: var(--gray-400); margin-top: 2px; }
+    .immo-tab.active span { color: var(--gold); }
+    .listing-card-immo { background: var(--white); border-radius: var(--radius-md); overflow: hidden; box-shadow: var(--shadow-sm); transition: var(--transition); border: 1px solid var(--gray-200); }
+    .listing-card-immo:hover { transform: translateY(-6px); box-shadow: var(--shadow-md); }
+    .immo-image { height: 220px; position: relative; overflow: hidden; }
+    .immo-image-placeholder { width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; }
+    .immo-badges { position: absolute; top: 12px; left: 12px; display: flex; flex-direction: column; gap: 6px; }
+    .immo-body { padding: 20px; }
+    .immo-title { font-family: var(--font-display); font-size: 1.1rem; font-weight: 600; color: var(--navy); margin-bottom: 4px; }
+    .immo-location { font-size: .82rem; color: var(--gray-400); margin-bottom: 12px; display: flex; align-items: center; gap: 4px; }
+    .immo-features { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 14px; padding: 12px; background: var(--off-white); border-radius: var(--radius-sm); }
+    .immo-feature { text-align: center; }
+    .immo-feature-icon { font-size: 1.1rem; }
+    .immo-feature-value { font-weight: 700; color: var(--navy); font-size: .9rem; }
+    .immo-feature-label { font-size: .65rem; color: var(--gray-400); text-transform: uppercase; letter-spacing: .05em; }
+    .immo-price { font-family: var(--font-display); font-size: 1.25rem; font-weight: 700; color: var(--gold); margin-bottom: 14px; }
+    .immo-actions { display: flex; gap: 8px; }
+    .quartiers-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+    .quartier-btn { padding: 16px; border-radius: var(--radius-md); background: var(--white); border: 1.5px solid var(--gray-200); text-align: center; cursor: pointer; transition: var(--transition); font-family: var(--font-body); }
+    .quartier-btn:hover, .quartier-btn.active { border-color: var(--gold); background: rgba(201,168,76,.06); }
+    .quartier-btn .q-name { font-weight: 700; color: var(--navy); font-size: .9rem; }
+    .quartier-btn .q-count { font-size: .75rem; color: var(--gray-400); margin-top: 4px; }
+    .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,.6); z-index: 2000; align-items: center; justify-content: center; padding: 20px; }
+    .modal-overlay.open { display: flex; }
+    .modal-box { background: var(--white); border-radius: var(--radius-lg); padding: 40px; max-width: 560px; width: 100%; max-height: 90vh; overflow-y: auto; position: relative; }
+    .modal-close { position: absolute; top: 16px; right: 16px; width: 36px; height: 36px; border-radius: 50%; background: var(--gray-100); display: flex; align-items: center; justify-content: center; font-size: 1.2rem; cursor: pointer; transition: var(--transition); border: none; }
+    .modal-close:hover { background: var(--navy); color: var(--white); }
+    @media(max-width:768px) {
+      .quartiers-grid { grid-template-columns: repeat(2, 1fr); }
+      .immo-features { grid-template-columns: repeat(3, 1fr); }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav id="navbar">
+  <div class="container">
+    <div class="nav-inner">
+     <a href="index.html" class="nav-logo">
+  <img src="images/logo-navbar.png" alt="RAZAK Multi Service" style="height:110px;width:auto;object-fit:contain">
+</a>
+      <ul class="nav-menu">
+        <li class="nav-item"><a href="index.html" class="nav-link">Accueil</a></li>
+        <li class="nav-item">
+          <a href="#" class="nav-link">Automobile <span class="chevron">▼</span></a>
+          <div class="nav-dropdown">
+            <a href="vehicules-vente.html"><span>🚗</span> Véhicules à vendre</a>
+            <a href="vehicules-location.html"><span>🔑</span> Location de véhicules</a>
+            <a href="vendre-vehicule.html"><span>💰</span> Vendre mon véhicule</a>
+          </div>
+        </li>
+        <li class="nav-item"><a href="immobilier.html" class="nav-link active">Immobilier</a></li>
+        <li class="nav-item"><a href="ameublement.html" class="nav-link">Ameublement</a></li>
+        <li class="nav-item">
+          <a href="#" class="nav-link">À propos <span class="chevron">▼</span></a>
+          <div class="nav-dropdown">
+            <a href="about.html"><span>🏢</span> Notre entreprise</a>
+            <a href="directeur.html"><span>👤</span> Mot du Directeur</a>
+          </div>
+        </li>
+        <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+      </ul>
+      <a href="https://wa.me/2250797388202" target="_blank" class="btn btn-whatsapp btn-sm nav-cta">📱 WhatsApp</a>
+      <button class="hamburger" aria-label="Menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="container">
+    <div class="page-hero-content">
+      <div class="page-breadcrumb">Accueil › <span class="current">Immobilier</span></div>
+      <h1>Trouvez votre bien <span class="gold">idéal</span></h1>
+      <p>Vente, location, court et long séjour — tous les biens du Grand Abidjan sélectionnés avec soin par RAZAK Multi Service.</p>
+    </div>
+  </div>
+</section>
+
+<!-- MOTEUR DE RECHERCHE -->
+<section style="background:var(--off-white);padding:64px 0">
+  <div class="container">
+
+    <!-- TABS VENTE / LOCATION -->
+    <div class="immo-tabs" id="immoTabs">
+      <button class="immo-tab active" onclick="setImmoMode('all')" data-mode="all">
+        Tous les biens
+        <span id="countAll">0 biens</span>
+      </button>
+      <button class="immo-tab" onclick="setImmoMode('vente')" data-mode="vente">
+        🏠 À vendre
+        <span id="countVente">0 biens</span>
+      </button>
+      <button class="immo-tab" onclick="setImmoMode('location')" data-mode="location">
+        🔑 À louer
+        <span id="countLocation">0 biens</span>
+      </button>
+      <button class="immo-tab" onclick="setImmoMode('court-sejour')" data-mode="court-sejour">
+        🌙 Court séjour
+        <span id="countCourt">0 biens</span>
+      </button>
+    </div>
+
+    <!-- FILTRES -->
+    <div class="filters-section">
+      <div class="filters-top">
+        <div class="filters-title">🔍 Affiner votre recherche</div>
+        <button onclick="resetImmoFilters()" class="btn btn-outline btn-sm">Réinitialiser</button>
+      </div>
+      <div class="filters-grid">
+        <div class="filter-group">
+          <label class="filter-label">Type de bien</label>
+          <select class="filter-select" id="if-type">
+            <option value="">Tous les types</option>
+            <option value="Villa">Villa</option>
+            <option value="Appartement">Appartement</option>
+            <option value="Maison">Maison</option>
+            <option value="Studio">Studio</option>
+            <option value="Duplex">Duplex</option>
+            <option value="Résidence">Résidence</option>
+          </select>
+        </div>
+        <div class="filter-group">
+          <label class="filter-label">Quartier</label>
+          <select class="filter-select" id="if-quartier">
+            <option value="">Tous les quartiers</option>
+            <option value="Cocody">Cocody</option>
+            <option value="Riviera">Riviera</option>
+            <option value="Angré">Angré</option>
+            <option value="Deux-Plateaux">Deux-Plateaux</option>
+            <option value="Marcory">Marcory</option>
+            <option value="Zone 4">Zone 4</option>
+            <option value="Plateau">Plateau</option>
+            <option value="Yopougon">Yopougon</option>
+            <option value="Bingerville">Bingerville</option>
+            <option value="Grand-Bassam">Grand-Bassam</option>
+          </select>
+        </div>
+        <div class="filter-group">
+          <label class="filter-label">Chambres</label>
+          <select class="filter-select" id="if-chambres">
+            <option value="">Toutes</option>
+            <option value="1">1 chambre</option>
+            <option value="2">2 chambres</option>
+            <option value="3">3 chambres</option>
+            <option value="4">4+ chambres</option>
+          </select>
+        </div>
+        <div class="filter-group">
+          <label class="filter-label">Budget max</label>
+          <select class="filter-select" id="if-budget">
+            <option value="">Sans limite</option>
+            <option value="500000">500 000 FCFA / mois</option>
+            <option value="1000000">1 000 000 FCFA</option>
+            <option value="5000000">5 000 000 FCFA</option>
+            <option value="50000000">50 000 000 FCFA</option>
+            <option value="100000000">100 000 000 FCFA</option>
+          </select>
+        </div>
+        <div class="filter-group">
+          <label class="filter-label">Trier par</label>
+          <select class="filter-select" id="if-sort">
+            <option value="">Par défaut</option>
+            <option value="price-asc">Prix croissant</option>
+            <option value="price-desc">Prix décroissant</option>
+            <option value="surface-desc">Plus grand</option>
+          </select>
+        </div>
+      </div>
+      <div class="filters-actions" style="margin-top:12px">
+        <input type="text" class="filter-input" id="if-search" placeholder="🔍 Rechercher par quartier, type, description..." style="flex:1">
+      </div>
+    </div>
+
+    <!-- RÉSULTATS -->
+    <div class="result-count" id="immoResultCount" style="margin-bottom:24px"></div>
+    <div class="listing-grid" id="immoGrid"></div>
+
+  </div>
+</section>
+
+<!-- QUARTIERS -->
+<section class="section" style="background:var(--white)">
+  <div class="container">
+    <div class="section-header">
+      <span class="eyebrow">Grand Abidjan</span>
+      <h2>Nos zones de couverture</h2>
+      <p>Nous couvrons tous les quartiers du Grand Abidjan et ses environs.</p>
+    </div>
+    <div class="quartiers-grid">
+      <button class="quartier-btn" onclick="filterByQuartier('Cocody')"><div class="q-name">🏘️ Cocody</div><div class="q-count">Résidentiel haut standing</div></button>
+      <button class="quartier-btn" onclick="filterByQuartier('Riviera')"><div class="q-name">🌴 Riviera</div><div class="q-count">Quartier prisé d'Abidjan</div></button>
+      <button class="quartier-btn" onclick="filterByQuartier('Angré')"><div class="q-name">🏙️ Angré</div><div class="q-count">Dynamique et moderne</div></button>
+      <button class="quartier-btn" onclick="filterByQuartier('Deux-Plateaux')"><div class="q-name">🌿 Deux-Plateaux</div><div class="q-count">Calme et résidentiel</div></button>
+      <button class="quartier-btn" onclick="filterByQuartier('Marcory')"><div class="q-name">🏖️ Marcory</div><div class="q-count">Zone 4, bord de lagune</div></button>
+      <button class="quartier-btn" onclick="filterByQuartier('Zone 4')"><div class="q-name">🌊 Zone 4</div><div class="q-count">Vue mer, standing</div></button>
+      <button class="quartier-btn" onclick="filterByQuartier('Yopougon')"><div class="q-name">🏢 Yopougon</div><div class="q-count">Grande commune d'Abidjan</div></button>
+      <button class="quartier-btn" onclick="filterByQuartier('Bingerville')"><div class="q-name">🌳 Bingerville</div><div class="q-count">Verdure et tranquillité</div></button>
+      <button class="quartier-btn" onclick="filterByQuartier('Plateau')"><div class="q-name">🏛️ Plateau</div><div class="q-count">Centre des affaires</div></button>
+      <button class="quartier-btn" onclick="filterByQuartier('Grand-Bassam')"><div class="q-name">🏝️ Grand-Bassam</div><div class="q-count">Bord de mer, classé UNESCO</div></button>
+      <button class="quartier-btn" onclick="filterByQuartier('Abobo')"><div class="q-name">🏘️ Abobo</div><div class="q-count">Accessible et populaire</div></button>
+      <button class="quartier-btn" onclick="filterByQuartier('Songon')"><div class="q-name">🌾 Songon</div><div class="q-count">Nature, espace, quiétude</div></button>
+    </div>
+  </div>
+</section>
+
+<!-- MODAL RÉSERVER VISITE -->
+<div class="modal-overlay" id="visiteModal">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeVisiteModal()">✕</button>
+    <div style="font-family:var(--font-display);font-size:1.5rem;color:var(--navy);margin-bottom:8px">📅 Réserver une visite</div>
+    <p id="modalBienTitle" style="color:var(--gold);font-weight:600;margin-bottom:24px"></p>
+    <form id="visiteForm">
+      <div class="form-grid">
+        <div class="form-group">
+          <label class="form-label">Votre nom *</label>
+          <input type="text" class="form-input" id="vf-nom" placeholder="Nom complet" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label">WhatsApp *</label>
+          <input type="tel" class="form-input" id="vf-tel" placeholder="+225 07 XX XX XX XX" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Date souhaitée</label>
+          <input type="date" class="form-input" id="vf-date">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Heure préférée</label>
+          <select class="form-select" id="vf-heure">
+            <option value="">Choisir un créneau</option>
+            <option value="08h00 - 10h00">08h00 - 10h00</option>
+            <option value="10h00 - 12h00">10h00 - 12h00</option>
+            <option value="14h00 - 16h00">14h00 - 16h00</option>
+            <option value="16h00 - 18h00">16h00 - 18h00</option>
+          </select>
+        </div>
+        <div class="form-group full">
+          <label class="form-label">Message</label>
+          <textarea class="form-textarea" id="vf-message" rows="3" placeholder="Questions particulières sur ce bien..."></textarea>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-whatsapp btn-full btn-lg" style="margin-top:8px">📱 Confirmer via WhatsApp</button>
+    </form>
+  </div>
+</div>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="cta-content">
+    <span class="eyebrow">Vous ne trouvez pas ?</span>
+    <h2>Décrivez votre bien idéal</h2>
+    <p>Contactez-nous sur WhatsApp avec vos critères. Nous vous proposons des biens adaptés à votre budget et vos besoins.</p>
+    <div class="cta-actions">
+      <a href="https://wa.me/2250797388202?text=Bonjour%20RAZAK%2C%20je%20recherche%20un%20bien%20immobilier.%20Voici%20mes%20critères%20:" target="_blank" class="btn btn-whatsapp btn-lg">📱 Décrire ma recherche</a>
+      <a href="contact.html" class="btn btn-outline-white btn-lg">✉️ Formulaire de contact</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-top">
+      <div>
+        <img src="images/logo-navbar.png" alt="RAZAK Multi Service" style="height:200px;width:auto;object-fit:contain;margin-bottom:10px;display:block">
+        <p class="footer-desc">Entreprise ivoirienne spécialisée dans l'automobile, l'immobilier et l'ameublement.</p>
+        <a href="https://wa.me/2250797388202" target="_blank" class="btn btn-whatsapp btn-sm">📱 +225 07 97 38 82 02</a>
+      </div>
+      <div class="footer-col">
+        <h4>Automobile</h4>
+        <ul>
+          <li><a href="vehicules-vente.html">Véhicules à vendre</a></li>
+          <li><a href="vehicules-location.html">Location de véhicules</a></li>
+          <li><a href="vendre-vehicule.html">Vendre mon véhicule</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="immobilier.html">Immobilier</a></li>
+          <li><a href="ameublement.html">Ameublement</a></li>
+          <li><a href="about.html">À propos</a></li>
+          <li><a href="directeur.html">Mot du Directeur</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="https://wa.me/2250797388202" target="_blank">WhatsApp : 07 97 38 82 02</a></li>
+          <li><a href="contact.html">Formulaire de contact</a></li>
+          <li><a href="#">Abidjan, Côte d'Ivoire 🇨🇮</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2026 RAZAK Multi Service. Tous droits réservés. Côte d'Ivoire 🇨🇮</span>
+      <span class="footer-copy">Automobile · Immobilier · Ameublement</span>
+    </div>
+  </div>
+</footer>
+
+<a href="https://wa.me/2250797388202?text=Bonjour%20RAZAK%2C%20je%20cherche%20un%20bien%20immobilier." target="_blank" class="wa-float">
+  📱 <span class="wa-text">WhatsApp</span>
+</a>
+<button id="backToTop" aria-label="Retour en haut">↑</button>
+
+<script>
+const BIENS = [
+  { id:1, type:'Villa', mode:'vente', quartier:'Cocody', titre:'Villa F5 avec piscine', chambres:4, sdb:3, surface:280, prix:120000000, unite:'', desc:'Magnifique villa avec piscine, jardin paysagé, garage 2 voitures. Quartier résidentiel calme de Cocody.', equip:['Piscine','Jardin','Garage','Gardiennage','Groupe électrogène'], emoji:'🏡', statut:'available' },
+  { id:2, type:'Appartement', mode:'location', quartier:'Riviera', titre:'Appartement F3 meublé', chambres:2, sdb:2, surface:95, prix:450000, unite:'/mois', desc:'Bel appartement meublé et équipé, vue partielle sur la lagune. Résidence sécurisée avec gardien.', equip:['Meublé','Climatisé','Sécurisé','Parking'], emoji:'🏢', statut:'available' },
+  { id:3, type:'Résidence', mode:'court-sejour', quartier:'Zone 4', titre:'Résidence Vue Mer — Séjour', chambres:1, sdb:1, surface:55, prix:80000, unite:'/nuit', desc:'Studio haut de gamme avec vue sur la mer. Idéal pour séjours professionnels ou touristiques. Disponible à la nuitée.', equip:['Vue mer','WiFi','Ménage inclus','Breakfast'], emoji:'🌊', statut:'available' },
+  { id:4, type:'Maison', mode:'location', quartier:'Angré', titre:'Maison F4 standing', chambres:3, sdb:2, surface:150, prix:350000, unite:'/mois', desc:'Maison spacieuse bien entretenue avec terrasse, parking sécurisé et accès facile aux commodités.', equip:['Terrasse','Parking','Climatisation','Eau & électricité'], emoji:'🏠', statut:'available' },
+  { id:5, type:'Villa', mode:'vente', quartier:'Deux-Plateaux', titre:'Villa F6 prestige', chambres:5, sdb:4, surface:380, prix:180000000, unite:'', desc:'Villa d\'exception dans une résidence fermée des Deux-Plateaux. Finitions haut de gamme, domotique, piscine.', equip:['Piscine','Domotique','Résidence fermée','Garage triple'], emoji:'🏛️', statut:'available' },
+  { id:6, type:'Appartement', mode:'location', quartier:'Marcory', titre:'Appartement F2 moderne', chambres:1, sdb:1, surface:65, prix:200000, unite:'/mois', desc:'Appartement moderne et lumineux proche du centre commercial Playce Marcory. Quartier bien desservi.', equip:['Climatisation','Parking','Gardien','Ascenseur'], emoji:'🏢', statut:'available' },
+  { id:7, type:'Résidence', mode:'court-sejour', quartier:'Plateau', titre:'Studio Plateau — Court séjour', chambres:1, sdb:1, surface:40, prix:55000, unite:'/nuit', desc:'Studio fonctionnel en plein centre d\'Abidjan, idéal pour déplacements professionnels. À 5 min de toutes les administrations.', equip:['WiFi haut débit','Climatisation','Sécurisé','Kitchenette'], emoji:'🏙️', statut:'available' },
+  { id:8, type:'Villa', mode:'vente', quartier:'Bingerville', titre:'Belle villa avec terrain', chambres:4, sdb:3, surface:320, prix:95000000, unite:'', desc:'Villa construite sur grand terrain arboré à Bingerville. Cadre verdoyant, air pur, idéal pour famille.', equip:['Grand terrain','Jardin','Forage','Groupe électrogène'], emoji:'🌳', statut:'available' },
+  { id:9, type:'Duplex', mode:'location', quartier:'Riviera', titre:'Duplex F5 Riviera Golf', chambres:4, sdb:3, surface:200, prix:750000, unite:'/mois', desc:'Somptueux duplex dans résidence de standing proche du golf. Vue dégagée, terrasse panoramique.', equip:['Terrasse panoramique','Piscine commune','Sécurité 24h','Parking couvert'], emoji:'🏡', statut:'available' },
+  { id:10, type:'Appartement', mode:'court-sejour', quartier:'Cocody', titre:'Appartement cosy Cocody', chambres:2, sdb:1, surface:75, prix:65000, unite:'/nuit', desc:'Appartement confortable dans quartier calme de Cocody. Idéal pour familles en transit ou séjours de courte durée.', equip:['WiFi','Cuisine équipée','Climatisation','Parking'], emoji:'🏠', statut:'available' },
+  { id:11, type:'Maison', mode:'vente', quartier:'Yopougon', titre:'Maison F4 bien située', chambres:3, sdb:2, surface:120, prix:45000000, unite:'', desc:'Maison solide et bien construite dans quartier résidentiel de Yopougon. Idéale pour première acquisition.', equip:['Clôture','Forage','Parking','Quartier résidentiel'], emoji:'🏠', statut:'available' },
+  { id:12, type:'Villa', mode:'location', quartier:'Grand-Bassam', titre:'Villa balnéaire Grand-Bassam', chambres:3, sdb:2, surface:160, prix:500000, unite:'/mois', desc:'Villa en bord de mer à Grand-Bassam. Accès direct à la plage, environnement calme et reposant.', equip:['Accès plage','Terrasse','Jardin','Barbecue'], emoji:'🏝️', statut:'available' },
+];
+
+const fmtImmo = (n, unite) => {
+  if (n >= 1000000) return new Intl.NumberFormat('fr-CI').format(n) + ' FCFA' + unite;
+  return new Intl.NumberFormat('fr-CI').format(n) + ' FCFA' + unite;
+};
+const SC = { available:'badge-available', rented:'badge-rented', sold:'badge-sold' };
+const SL = { available:'Disponible', rented:'Loué', sold:'Vendu' };
+const ModeLabel = { vente:'À vendre', location:'À louer', 'court-sejour':'Court séjour' };
+const ModeColor = { vente:'badge-new', location:'badge-available', 'court-sejour':'badge-reserved' };
+
+let currentMode = 'all';
+let currentBienTitle = '';
+
+const waVisite = (titre) => {
+  const nom = document.getElementById('vf-nom')?.value || '';
+  const tel = document.getElementById('vf-tel')?.value || '';
+  const date = document.getElementById('vf-date')?.value || '';
+  const heure = document.getElementById('vf-heure')?.value || '';
+  const msg = document.getElementById('vf-message')?.value || '';
+  return `https://wa.me/2250797388202?text=${encodeURIComponent(`Bonjour RAZAK Multi Service,\n\nJe souhaite réserver une visite.\n\n🏠 Bien : ${titre}\n👤 Nom : ${nom}\n📱 WhatsApp : ${tel}\n📅 Date : ${date}\n🕐 Heure : ${heure}\n\n💬 ${msg}`)}`;
+};
+
+const waContact = (b) => `https://wa.me/2250797388202?text=${encodeURIComponent(`Bonjour RAZAK,\n\nJe suis intéressé(e) par ce bien immobilier :\n\n🏠 ${b.titre}\n📍 ${b.quartier}\n💰 ${fmtImmo(b.prix, b.unite)}\n\nPouvez-vous me donner plus d'informations ?`)}`;
+
+const renderBien = b => `
+<div class="listing-card-immo">
+  <div class="immo-image">
+    <div class="immo-image-placeholder" style="background:linear-gradient(135deg,var(--navy),var(--navy-light))">
+      <span style="font-size:4rem">${b.emoji}</span>
+      <span style="font-size:.7rem;color:rgba(255,255,255,.35);letter-spacing:.1em;text-transform:uppercase">Photo à venir</span>
+    </div>
+    <div class="immo-badges">
+      <span class="listing-badge ${SC[b.statut]}">${SL[b.statut]}</span>
+      <span class="listing-badge ${ModeColor[b.mode]}">${ModeLabel[b.mode]}</span>
+    </div>
+  </div>
+  <div class="immo-body">
+    <div class="immo-title">${b.titre}</div>
+    <div class="immo-location">📍 ${b.quartier} · ${b.type}</div>
+    <div class="immo-features">
+      <div class="immo-feature"><div class="immo-feature-icon">🛏️</div><div class="immo-feature-value">${b.chambres}</div><div class="immo-feature-label">Chambre${b.chambres > 1 ? 's' : ''}</div></div>
+      <div class="immo-feature"><div class="immo-feature-icon">🚿</div><div class="immo-feature-value">${b.sdb}</div><div class="immo-feature-label">SDB</div></div>
+      <div class="immo-feature"><div class="immo-feature-icon">📐</div><div class="immo-feature-value">${b.surface}</div><div class="immo-feature-label">m²</div></div>
+    </div>
+    <p style="font-size:.82rem;color:var(--gray-600);line-height:1.5;margin-bottom:10px">${b.desc.substring(0,100)}...</p>
+    <div style="display:flex;flex-wrap:wrap;gap:4px;margin-bottom:14px">
+      ${b.equip.slice(0,3).map(e => `<span style="background:var(--off-white);color:var(--gray-600);padding:3px 8px;border-radius:20px;font-size:.7rem">${e}</span>`).join('')}
+    </div>
+    <div class="immo-price">${fmtImmo(b.prix, b.unite)}</div>
+    <div class="immo-actions">
+      <button onclick="openVisiteModal('${b.titre.replace(/'/g, "\\'")}')" class="btn btn-navy btn-sm" style="flex:1">📅 Visite</button>
+      <a href="${waContact(b)}" target="_blank" class="btn btn-whatsapp btn-sm" style="flex:1">📱 Contact</a><a href="https://wa.me/?text=${encodeURIComponent('🏠 Regarde ce bien sur RAZAK Multi Service !\n\n' + b.titre + '\n📍 ' + b.quartier + '\n💰 ' + fmtImmo(b.prix, b.unite) + '\n\n👉 https://razak-multiservices.vercel.app/immobilier.html')}" target="_blank" class="btn btn-outline btn-sm btn-full" style="margin-top:6px">🔗 Partager</a>
+    </div>
+  </div>
+</div>`;
+
+const setImmoMode = (mode) => {
+  currentMode = mode;
+  document.querySelectorAll('.immo-tab').forEach(t => t.classList.toggle('active', t.dataset.mode === mode));
+  applyImmoFilters();
+};
+
+const filterByQuartier = (quartier) => {
+  document.getElementById('if-quartier').value = quartier;
+  currentMode = 'all';
+  document.querySelectorAll('.immo-tab').forEach(t => t.classList.toggle('active', t.dataset.mode === 'all'));
+  applyImmoFilters();
+  document.querySelector('.filters-section').scrollIntoView({ behavior: 'smooth' });
+};
+
+const applyImmoFilters = () => {
+  const type = document.getElementById('if-type').value;
+  const quartier = document.getElementById('if-quartier').value;
+  const chambres = document.getElementById('if-chambres').value;
+  const budget = document.getElementById('if-budget').value;
+  const sort = document.getElementById('if-sort').value;
+  const search = document.getElementById('if-search').value.toLowerCase().trim();
+
+  let list = BIENS.filter(b => {
+    if (currentMode !== 'all' && b.mode !== currentMode) return false;
+    if (type && b.type !== type) return false;
+    if (quartier && b.quartier !== quartier) return false;
+    if (chambres) {
+      const c = parseInt(chambres);
+      if (chambres === '4' && b.chambres < 4) return false;
+      else if (chambres !== '4' && b.chambres !== c) return false;
+    }
+    if (budget && b.prix > parseInt(budget)) return false;
+    if (search && !`${b.titre} ${b.quartier} ${b.type} ${b.desc}`.toLowerCase().includes(search)) return false;
+    return true;
+  });
+
+  if (sort === 'price-asc') list.sort((a,b) => a.prix - b.prix);
+  else if (sort === 'price-desc') list.sort((a,b) => b.prix - a.prix);
+  else if (sort === 'surface-desc') list.sort((a,b) => b.surface - a.surface);
+
+  const grid = document.getElementById('immoGrid');
+  const count = document.getElementById('immoResultCount');
+  count.textContent = `${list.length} bien${list.length !== 1 ? 's' : ''} trouvé${list.length !== 1 ? 's' : ''}`;
+  grid.innerHTML = list.length ? list.map(renderBien).join('') : `<div class="no-results" style="grid-column:1/-1"><div class="no-results-icon">🏠</div><h3>Aucun bien trouvé</h3><p>Modifiez vos critères ou contactez-nous pour des biens non répertoriés.</p><a href="https://wa.me/2250797388202" target="_blank" class="btn btn-whatsapp">📱 Nous contacter</a></div>`;
+
+  // Update counts
+  document.getElementById('countAll').textContent = BIENS.length + ' biens';
+  document.getElementById('countVente').textContent = BIENS.filter(b => b.mode === 'vente').length + ' biens';
+  document.getElementById('countLocation').textContent = BIENS.filter(b => b.mode === 'location').length + ' biens';
+  document.getElementById('countCourt').textContent = BIENS.filter(b => b.mode === 'court-sejour').length + ' biens';
+};
+
+const resetImmoFilters = () => {
+  ['if-type','if-quartier','if-chambres','if-budget','if-sort'].forEach(id => document.getElementById(id).value = '');
+  document.getElementById('if-search').value = '';
+  currentMode = 'all';
+  document.querySelectorAll('.immo-tab').forEach(t => t.classList.toggle('active', t.dataset.mode === 'all'));
+  applyImmoFilters();
+};
+
+const openVisiteModal = (titre) => {
+  currentBienTitle = titre;
+  document.getElementById('modalBienTitle').textContent = titre;
+  document.getElementById('visiteModal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+};
+
+const closeVisiteModal = () => {
+  document.getElementById('visiteModal').classList.remove('open');
+  document.body.style.overflow = '';
+};
+
+document.getElementById('visiteModal').addEventListener('click', (e) => {
+  if (e.target === e.currentTarget) closeVisiteModal();
+});
+
+document.getElementById('visiteForm').addEventListener('submit', (e) => {
+  e.preventDefault();
+  window.open(waVisite(currentBienTitle), '_blank');
+  closeVisiteModal();
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+  applyImmoFilters();
+  ['if-type','if-quartier','if-chambres','if-budget','if-sort'].forEach(id => document.getElementById(id).addEventListener('change', applyImmoFilters));
+  document.getElementById('if-search').addEventListener('input', applyImmoFilters);
+});
+</script>
+<script src="js/main.js"></script>
+</body>
+</html>

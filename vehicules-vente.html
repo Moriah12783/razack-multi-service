@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="fr">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-H188Z82BD6"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-H188Z82BD6');
+</script>
+<!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-H188Z82BD6"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-H188Z82BD6');
+    </script>
+
+    <!-- Microsoft Clarity -->
+    <script type="text/javascript">
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "w8xfw2feix");
+    </script>
+
+<style>
+.page-hero { background: linear-gradient(135deg, rgba(6,15,34,0.25) 0%, rgba(10,31,68,0.20) 100%), url('images/hero-auto.jpg') center center / cover no-repeat !important; }
+</style>
+</head>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Véhicules à vendre — RAZAK Multi Service</title>
+  <meta name="description" content="Catalogue de véhicules à vendre chez RAZAK Multi Service à Abidjan. SUV, berlines, pick-ups disponibles avec prix transparents.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav id="navbar">
+  <div class="container">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+  <img src="images/logo-navbar.png" alt="RAZAK Multi Service" style="height:110px;width:auto;object-fit:contain">
+</a>
+      <ul class="nav-menu">
+        <li class="nav-item"><a href="index.html" class="nav-link">Accueil</a></li>
+        <li class="nav-item">
+          <a href="#" class="nav-link active">Automobile <span class="chevron">▼</span></a>
+          <div class="nav-dropdown">
+            <a href="vehicules-vente.html"><span>🚗</span> Véhicules à vendre</a>
+            <a href="vehicules-location.html"><span>🔑</span> Location de véhicules</a>
+            <a href="vendre-vehicule.html"><span>💰</span> Vendre mon véhicule</a>
+          </div>
+        </li>
+        <li class="nav-item"><a href="immobilier.html" class="nav-link">Immobilier</a></li>
+        <li class="nav-item"><a href="ameublement.html" class="nav-link">Ameublement</a></li>
+        <li class="nav-item">
+          <a href="#" class="nav-link">À propos <span class="chevron">▼</span></a>
+          <div class="nav-dropdown">
+            <a href="about.html"><span>🏢</span> Notre entreprise</a>
+            <a href="directeur.html"><span>👤</span> Mot du Directeur</a>
+          </div>
+        </li>
+        <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+      </ul>
+      <a href="https://wa.me/2250797388202" target="_blank" class="btn btn-whatsapp btn-sm nav-cta">📱 WhatsApp</a>
+      <button class="hamburger" aria-label="Menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="container">
+    <div class="page-hero-content">
+      <div class="page-breadcrumb">Accueil › Automobile › <span class="current">Véhicules à vendre</span></div>
+      <h1>Véhicules à <span class="gold">vendre</span></h1>
+      <p>Catalogue complet de véhicules sélectionnés avec soin. Toutes les informations, prix transparents, contact direct.</p>
+    </div>
+  </div>
+</section>
+
+<!-- MAIN CONTENT -->
+<section class="section" style="background:var(--off-white)">
+  <div class="container">
+
+    <!-- FILTRES -->
+    <div class="filters-section">
+      <div class="filters-top">
+        <div class="filters-title">🔍 Filtrer les véhicules</div>
+        <button onclick="resetFilters()" class="btn btn-outline btn-sm">Réinitialiser</button>
+      </div>
+      <div class="filters-grid">
+        <div class="filter-group">
+          <label class="filter-label">Marque</label>
+          <select class="filter-select" id="f-brand">
+            <option value="">Toutes les marques</option>
+          </select>
+        </div>
+        <div class="filter-group">
+          <label class="filter-label">Type</label>
+          <select class="filter-select" id="f-type">
+            <option value="">Tous les types</option>
+          </select>
+        </div>
+        <div class="filter-group">
+          <label class="filter-label">Carburant</label>
+          <select class="filter-select" id="f-fuel">
+            <option value="">Tous</option>
+            <option value="Diesel">Diesel</option>
+            <option value="Essence">Essence</option>
+            <option value="Hybride">Hybride</option>
+          </select>
+        </div>
+        <div class="filter-group">
+          <label class="filter-label">Transmission</label>
+          <select class="filter-select" id="f-trans">
+            <option value="">Toutes</option>
+            <option value="Automatique">Automatique</option>
+            <option value="Manuelle">Manuelle</option>
+          </select>
+        </div>
+        <div class="filter-group">
+          <label class="filter-label">Budget max (FCFA)</label>
+          <select class="filter-select" id="f-price">
+            <option value="">Sans limite</option>
+            <option value="10000000">10 000 000</option>
+            <option value="15000000">15 000 000</option>
+            <option value="20000000">20 000 000</option>
+            <option value="25000000">25 000 000</option>
+            <option value="30000000">30 000 000</option>
+          </select>
+        </div>
+        <div class="filter-group">
+          <label class="filter-label">Trier par</label>
+          <select class="filter-select" id="f-sort">
+            <option value="">Par défaut</option>
+            <option value="price-asc">Prix croissant</option>
+            <option value="price-desc">Prix décroissant</option>
+            <option value="year-desc">Plus récent</option>
+            <option value="km-asc">Moins de km</option>
+          </select>
+        </div>
+      </div>
+      <div class="filters-actions">
+        <input type="text" class="filter-input" id="f-search" placeholder="🔍 Rechercher un modèle, une marque..." style="flex:1">
+      </div>
+    </div>
+
+    <!-- RÉSULTATS -->
+    <div class="result-count" id="resultCount" style="margin-bottom:24px"></div>
+
+    <!-- GRILLE -->
+    <div class="listing-grid" id="vehiclesGrid"></div>
+
+  </div>
+</section>
+
+<!-- CTA VENDRE -->
+<section style="background:var(--white);padding:64px 0;border-top:1px solid var(--gray-200)">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:center">
+      <div>
+        <span class="eyebrow">Particuliers</span>
+        <h2 style="font-family:var(--font-display);font-size:2rem;color:var(--navy);margin:12px 0">Vous souhaitez vendre votre véhicule ?</h2>
+        <p style="color:var(--gray-600);line-height:1.7;margin-bottom:24px">RAZAK Multi Service accompagne les particuliers dans la vente de leur véhicule. Estimation gratuite, mise en vente rapide, accompagnement complet.</p>
+        <a href="vendre-vehicule.html" class="btn btn-primary">💰 Vendre mon véhicule →</a>
+      </div>
+      <div style="background:var(--off-white);border-radius:var(--radius-lg);padding:40px;text-align:center">
+        <div style="font-size:4rem;margin-bottom:16px">🤝</div>
+        <h3 style="font-family:var(--font-display);color:var(--navy);margin-bottom:12px">Processus simple</h3>
+        <div style="display:flex;flex-direction:column;gap:10px;text-align:left">
+          <div style="display:flex;align-items:center;gap:12px;font-size:.9rem;color:var(--gray-600)"><span style="width:28px;height:28px;background:var(--gold);color:var(--navy);border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.8rem;flex-shrink:0">1</span> Remplissez le formulaire avec les infos de votre véhicule</div>
+          <div style="display:flex;align-items:center;gap:12px;font-size:.9rem;color:var(--gray-600)"><span style="width:28px;height:28px;background:var(--gold);color:var(--navy);border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.8rem;flex-shrink:0">2</span> Nous vous contactons pour une estimation</div>
+          <div style="display:flex;align-items:center;gap:12px;font-size:.9rem;color:var(--gray-600)"><span style="width:28px;height:28px;background:var(--gold);color:var(--navy);border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.8rem;flex-shrink:0">3</span> Votre véhicule est mis en vente sur notre catalogue</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="cta-section">
+  <div class="cta-content">
+    <span class="eyebrow">Vous ne trouvez pas ?</span>
+    <h2>Décrivez-nous votre recherche</h2>
+    <p>Si vous ne trouvez pas le véhicule idéal dans notre catalogue, contactez-nous. Nous pouvons vous aider à trouver ce que vous cherchez.</p>
+    <div class="cta-actions">
+      <a href="https://wa.me/2250797388202?text=Bonjour%20RAZAK%2C%20je%20recherche%20un%20v%C3%A9hicule%20sp%C3%A9cifique%20qui%20n%27est%20pas%20dans%20votre%20catalogue." target="_blank" class="btn btn-whatsapp btn-lg">📱 Nous décrire votre recherche</a>
+      <a href="contact.html" class="btn btn-outline-white btn-lg">✉️ Formulaire de contact</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-top">
+      <div>
+       <img src="images/logo-navbar.png" alt="RAZAK Multi Service" style="height:200px;width:auto;object-fit:contain;margin-bottom:10px;display:block">
+        <p class="footer-desc">Entreprise ivoirienne spécialisée dans l'automobile, l'immobilier et l'ameublement.</p>
+        <a href="https://wa.me/2250797388202" target="_blank" class="btn btn-whatsapp btn-sm">📱 +225 07 97 38 82 02</a>
+      </div>
+      <div class="footer-col">
+        <h4>Automobile</h4>
+        <ul>
+          <li><a href="vehicules-vente.html">Véhicules à vendre</a></li>
+          <li><a href="vehicules-location.html">Location de véhicules</a></li>
+          <li><a href="vendre-vehicule.html">Vendre mon véhicule</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="immobilier.html">Immobilier</a></li>
+          <li><a href="ameublement.html">Ameublement</a></li>
+          <li><a href="about.html">À propos</a></li>
+          <li><a href="directeur.html">Mot du Directeur</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="https://wa.me/2250797388202" target="_blank">WhatsApp : 07 97 38 82 02</a></li>
+          <li><a href="contact.html">Formulaire de contact</a></li>
+          <li><a href="#">Abidjan, Côte d'Ivoire 🇨🇮</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2026 RAZAK Multi Service. Tous droits réservés. Côte d'Ivoire 🇨🇮</span>
+      <span class="footer-copy">Automobile · Immobilier · Ameublement</span>
+    </div>
+  </div>
+</footer>
+
+<a href="https://wa.me/2250797388202?text=Bonjour%20RAZAK%20Multi%20Service%2C%20je%20souhaite%20avoir%20des%20informations%20sur%20un%20v%C3%A9hicule." target="_blank" class="wa-float">
+  📱 <span class="wa-text">WhatsApp</span>
+</a>
+<button id="backToTop" aria-label="Retour en haut">↑</button>
+
+<script>
+const VEHICLES = [
+  { id:1, brand:'Toyota', model:'Land Cruiser Prado', year:2020, km:45000, fuel:'Diesel', transmission:'Automatique', type:'SUV', price:28500000, status:'available', color:'Noir', engine:'3.0L V6', doors:5, emoji:'🚙', desc:'Excellent état, entretien suivi, climatisation, GPS, caméra de recul.' },
+  { id:2, brand:'Toyota', model:'Hilux Double Cab', year:2021, km:32000, fuel:'Diesel', transmission:'Manuelle', type:'Pick-up', price:18900000, status:'new', color:'Blanc', engine:'2.4L Turbo', doors:4, emoji:'🛻', desc:'Véhicule robuste idéal pour tous terrains. Très faible kilométrage.' },
+  { id:3, brand:'Mercedes-Benz', model:'C 220 AMG Line', year:2019, km:68000, fuel:'Essence', transmission:'Automatique', type:'Berline', price:22000000, status:'available', color:'Gris', engine:'2.0L Turbo', doors:4, emoji:'🚗', desc:'Finition AMG Line, toit ouvrant, sièges cuir chauffants, parfait état.' },
+  { id:4, brand:'Hyundai', model:'Tucson Prestige', year:2022, km:18000, fuel:'Essence', transmission:'Automatique', type:'SUV', price:16500000, status:'new', color:'Bleu', engine:'1.6L GDI', doors:5, emoji:'🚙', desc:'Quasi-neuf, garantie constructeur, équipements complets.' },
+  { id:5, brand:'Toyota', model:'Corolla Sedan', year:2020, km:55000, fuel:'Hybride', transmission:'Automatique', type:'Berline', price:12000000, status:'available', color:'Blanc', engine:'1.8L Hybride', doors:4, emoji:'🚗', desc:'Économique, fiable, faible consommation grâce au moteur hybride.' },
+  { id:6, brand:'Ford', model:'Ranger Wildtrak', year:2021, km:40000, fuel:'Diesel', transmission:'Automatique', type:'Pick-up', price:17800000, status:'available', color:'Gris', engine:'2.0L Bi-Turbo', doors:4, emoji:'🛻', desc:'4x4 puissant, barre de protection, treuil électrique, excellent état.' },
+  { id:7, brand:'Kia', model:'Sportage EX', year:2022, km:22000, fuel:'Essence', transmission:'Automatique', type:'SUV', price:14500000, status:'available', color:'Rouge', engine:'2.0L MPi', doors:5, emoji:'🚙', desc:'SUV moderne, nombreux équipements de sécurité, intérieur élégant.' },
+  { id:8, brand:'Mitsubishi', model:'Pajero Sport', year:2020, km:58000, fuel:'Diesel', transmission:'Automatique', type:'SUV', price:19500000, status:'available', color:'Noir', engine:'2.4L MIVEC', doors:5, emoji:'🚙', desc:'4x4 tout-terrain, 7 places, suspension robuste, idéal Abidjan.' },
+  { id:9, brand:'BMW', model:'Série 3 320i', year:2019, km:72000, fuel:'Essence', transmission:'Automatique', type:'Berline', price:20000000, status:'available', color:'Blanc', engine:'2.0L TwinPower', doors:4, emoji:'🚗', desc:'Berline premium, équipements haut de gamme, entretien BMW certifié.' },
+  { id:10, brand:'Nissan', model:'Patrol Y62', year:2018, km:85000, fuel:'Essence', transmission:'Automatique', type:'SUV', price:32000000, status:'available', color:'Blanc', engine:'5.6L V8', doors:5, emoji:'🚙', desc:'SUV de luxe 8 places, moteur V8, équipements premium complets.' },
+  { id:11, brand:'Honda', model:'CR-V EX', year:2021, km:28000, fuel:'Essence', transmission:'Automatique', type:'SUV', price:15800000, status:'new', color:'Gris', engine:'1.5L Turbo', doors:5, emoji:'🚙', desc:'SUV familial fiable, faible kilométrage, technologie Honda Sensing.' },
+  { id:12, brand:'Peugeot', model:'3008 GT Line', year:2020, km:42000, fuel:'Diesel', transmission:'Automatique', type:'SUV', price:13500000, status:'available', color:'Bleu', engine:'1.5L BlueHDi', doors:5, emoji:'🚙', desc:'Design distinctif, intérieur i-Cockpit, équipements modernes.' },
+];
+
+const fmt = n => new Intl.NumberFormat('fr-CI').format(n) + ' FCFA';
+const SL = { available:'Disponible', new:'Nouveau', sold:'Vendu' };
+const SC = { available:'badge-available', new:'badge-new', sold:'badge-sold' };
+
+const waVehicle = v => `https://wa.me/2250797388202?text=${encodeURIComponent(`Bonjour RAZAK Multi Service,\n\nJe suis intéressé(e) par ce véhicule :\n\n🚗 ${v.brand} ${v.model} ${v.year}\n🎨 Couleur : ${v.color}\n📍 Kilométrage : ${v.km.toLocaleString()} km\n⛽ Carburant : ${v.fuel}\n💰 Prix : ${fmt(v.price)}\n\nPouvez-vous me donner plus d'informations et organiser une visite ?`)}`;
+
+const renderCard = v => `
+<div class="listing-card">
+  <div class="listing-image">
+    <div class="listing-image-placeholder">
+      <span class="ph-icon">${v.emoji}</span>
+      <span class="ph-label">Photo à venir</span>
+    </div>
+    <span class="listing-badge ${SC[v.status]}">${SL[v.status]}</span>
+    ${v.status === 'sold' ? '<div style="position:absolute;inset:0;background:rgba(0,0,0,.5);display:flex;align-items:center;justify-content:center;font-size:1.5rem;font-weight:700;color:#fff;letter-spacing:.1em">VENDU</div>' : ''}
+  </div>
+  <div class="listing-body">
+    <div class="listing-title">${v.brand} ${v.model}</div>
+    <div class="listing-sub">${v.year} · ${v.color} · ${v.engine}</div>
+    <div class="listing-specs">
+      <div class="spec-item">📍 ${v.km.toLocaleString()} km</div>
+      <div class="spec-item">⛽ ${v.fuel}</div>
+      <div class="spec-item">⚙️ ${v.transmission}</div>
+      <div class="spec-item">🚪 ${v.doors} portes</div>
+    </div>
+    <p style="font-size:.82rem;color:var(--gray-600);line-height:1.5;margin-bottom:14px;border-top:1px solid var(--gray-200);padding-top:12px">${v.desc}</p>
+    <div class="listing-price">${fmt(v.price)}</div>
+    <div class="listing-actions">
+      ${v.status !== 'sold'
+        ? `<a href="${waVehicle(v)}" target="_blank" class="btn btn-whatsapp btn-sm btn-full">📱 Je suis intéressé(e)</a>
+<a href="https://wa.me/?text=${encodeURIComponent('🚗 Regarde cette offre sur RAZAK Multi Service !\n\n' + v.brand + ' ' + v.model + ' ' + v.year + '\n💰 ' + fmt(v.price) + '\n\n👉 https://razak-multiservices.vercel.app/vehicules-vente.html')}" target="_blank" class="btn btn-outline btn-sm btn-full" style="margin-top:6px">🔗 Partager</a>`
+        : `<button class="btn btn-sm btn-full" style="background:var(--gray-200);color:var(--gray-600);cursor:not-allowed" disabled>✅ Vendu</button>`}
+    </div>
+  </div>
+</div>`;
+
+const populateFilters = () => {
+  const brands = [...new Set(VEHICLES.map(v => v.brand))].sort();
+  const types = [...new Set(VEHICLES.map(v => v.type))].sort();
+  brands.forEach(b => document.getElementById('f-brand').insertAdjacentHTML('beforeend', `<option value="${b}">${b}</option>`));
+  types.forEach(t => document.getElementById('f-type').insertAdjacentHTML('beforeend', `<option value="${t}">${t}</option>`));
+};
+
+const applyFilters = () => {
+  const brand = document.getElementById('f-brand').value;
+  const type = document.getElementById('f-type').value;
+  const fuel = document.getElementById('f-fuel').value;
+  const trans = document.getElementById('f-trans').value;
+  const price = document.getElementById('f-price').value;
+  const sort = document.getElementById('f-sort').value;
+  const search = document.getElementById('f-search').value.toLowerCase().trim();
+
+  let list = VEHICLES.filter(v => {
+    if (brand && v.brand !== brand) return false;
+    if (type && v.type !== type) return false;
+    if (fuel && v.fuel !== fuel) return false;
+    if (trans && v.transmission !== trans) return false;
+    if (price && v.price > parseInt(price)) return false;
+    if (search && !`${v.brand} ${v.model} ${v.type} ${v.color} ${v.engine}`.toLowerCase().includes(search)) return false;
+    return true;
+  });
+
+  if (sort === 'price-asc') list.sort((a,b) => a.price - b.price);
+  else if (sort === 'price-desc') list.sort((a,b) => b.price - a.price);
+  else if (sort === 'year-desc') list.sort((a,b) => b.year - a.year);
+  else if (sort === 'km-asc') list.sort((a,b) => a.km - b.km);
+
+  const grid = document.getElementById('vehiclesGrid');
+  const count = document.getElementById('resultCount');
+  count.textContent = `${list.length} véhicule${list.length !== 1 ? 's' : ''} trouvé${list.length !== 1 ? 's' : ''}`;
+
+  if (list.length === 0) {
+    grid.innerHTML = `<div class="no-results" style="grid-column:1/-1">
+      <div class="no-results-icon">🔍</div>
+      <h3>Aucun véhicule trouvé</h3>
+      <p>Essayez d'autres critères ou contactez-nous directement.</p>
+      <a href="https://wa.me/2250797388202?text=Bonjour%20RAZAK%2C%20je%20recherche%20un%20v%C3%A9hicule%20sp%C3%A9cifique." target="_blank" class="btn btn-whatsapp">📱 Nous décrire votre recherche</a>
+    </div>`;
+  } else {
+    grid.innerHTML = list.map(renderCard).join('');
+  }
+};
+
+const resetFilters = () => {
+  ['f-brand','f-type','f-fuel','f-trans','f-price','f-sort'].forEach(id => document.getElementById(id).value = '');
+  document.getElementById('f-search').value = '';
+  applyFilters();
+};
+
+document.addEventListener('DOMContentLoaded', () => {
+  populateFilters();
+  applyFilters();
+  ['f-brand','f-type','f-fuel','f-trans','f-price','f-sort'].forEach(id => document.getElementById(id).addEventListener('change', applyFilters));
+  document.getElementById('f-search').addEventListener('input', applyFilters);
+});
+</script>
+<script src="js/main.js"></script>
+</body>
+</html>

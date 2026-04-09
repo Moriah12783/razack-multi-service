@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="fr">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-H188Z82BD6"></script>
+
+<script>
+
+  window.dataLayer = window.dataLayer || [];
+
+  function gtag(){dataLayer.push(arguments);}
+
+  gtag('js', new Date());
+
+  gtag('config', 'G-H188Z82BD6');
+
+</script>
+<!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-H188Z82BD6"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-H188Z82BD6');
+    </script>
+
+    <!-- Microsoft Clarity -->
+    <script type="text/javascript">
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "w8xfw2feix");
+    </script>
+
+</head>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Location de véhicules — RAZAK Multi Service</title>
+  <meta name="description" content="Location de véhicules avec ou sans chauffeur à Abidjan. RAZAK Multi Service propose des solutions de mobilité adaptées à vos besoins.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <style>
+    .location-type-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 48px; }
+    .location-type-card { border-radius: var(--radius-lg); padding: 36px; border: 2px solid var(--gray-200); background: var(--white); cursor: pointer; transition: var(--transition); text-align: center; }
+    .location-type-card.active { border-color: var(--gold); background: rgba(201,168,76,0.05); }
+    .location-type-card:hover { border-color: var(--gold); transform: translateY(-4px); box-shadow: var(--shadow-md); }
+    .location-type-icon { font-size: 3rem; margin-bottom: 16px; }
+    .location-type-card h3 { font-family: var(--font-display); font-size: 1.3rem; color: var(--navy); margin-bottom: 8px; }
+    .location-type-card p { color: var(--gray-600); font-size: .9rem; line-height: 1.6; }
+    .tarif-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .tarif-card { background: var(--white); border-radius: var(--radius-md); padding: 28px; border: 1px solid var(--gray-200); text-align: center; transition: var(--transition); }
+    .tarif-card:hover { border-color: var(--gold); box-shadow: var(--shadow-md); transform: translateY(-4px); }
+    .tarif-card.featured { border-color: var(--gold); background: var(--navy); color: var(--white); }
+    .tarif-duration { font-size: .78rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; }
+    .tarif-card.featured .tarif-duration { color: var(--gold-light); }
+    .tarif-price { font-family: var(--font-display); font-size: 2rem; font-weight: 700; color: var(--navy); margin: 8px 0; }
+    .tarif-card.featured .tarif-price { color: var(--white); }
+    .tarif-unit { font-size: .78rem; color: var(--gray-400); }
+    .tarif-card.featured .tarif-unit { color: rgba(255,255,255,.5); }
+    .tarif-features { margin: 20px 0; text-align: left; }
+    .tarif-feature { display: flex; align-items: center; gap: 8px; font-size: .85rem; color: var(--gray-600); padding: 6px 0; border-bottom: 1px solid var(--gray-200); }
+    .tarif-card.featured .tarif-feature { color: rgba(255,255,255,.7); border-color: rgba(255,255,255,.1); }
+    .avantages-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+    .avantage-card { text-align: center; padding: 28px 16px; }
+    .avantage-icon { font-size: 2.5rem; margin-bottom: 14px; }
+    .avantage-card h4 { font-family: var(--font-display); font-size: 1rem; color: var(--navy); margin-bottom: 8px; }
+    .avantage-card p { font-size: .85rem; color: var(--gray-600); line-height: 1.5; }
+    .devis-form { background: var(--white); border-radius: var(--radius-lg); padding: 48px; box-shadow: var(--shadow-md); max-width: 700px; margin: 0 auto; }
+    @media(max-width:768px) {
+      .location-type-cards { grid-template-columns: 1fr; }
+      .tarif-grid { grid-template-columns: 1fr; }
+      .avantages-grid { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+<style>
+.page-hero { background: linear-gradient(135deg, rgba(6,15,34,0.45) 0%, rgba(10,31,68,0.40) 100%), url('images/hero-auto.jpg') center center / cover no-repeat !important; }
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav id="navbar">
+  <div class="container">
+    <div class="nav-inner">
+     <a href="index.html" class="nav-logo">
+  <img src="images/logo-navbar.png" alt="RAZAK Multi Service" style="height:110px;width:auto;object-fit:contain">
+</a>
+      <ul class="nav-menu">
+        <li class="nav-item"><a href="index.html" class="nav-link">Accueil</a></li>
+        <li class="nav-item">
+          <a href="#" class="nav-link active">Automobile <span class="chevron">▼</span></a>
+          <div class="nav-dropdown">
+            <a href="vehicules-vente.html"><span>🚗</span> Véhicules à vendre</a>
+            <a href="vehicules-location.html"><span>🔑</span> Location de véhicules</a>
+            <a href="vendre-vehicule.html"><span>💰</span> Vendre mon véhicule</a>
+          </div>
+        </li>
+        <li class="nav-item"><a href="immobilier.html" class="nav-link">Immobilier</a></li>
+        <li class="nav-item"><a href="ameublement.html" class="nav-link">Ameublement</a></li>
+        <li class="nav-item">
+          <a href="#" class="nav-link">À propos <span class="chevron">▼</span></a>
+          <div class="nav-dropdown">
+            <a href="about.html"><span>🏢</span> Notre entreprise</a>
+            <a href="directeur.html"><span>👤</span> Mot du Directeur</a>
+          </div>
+        </li>
+        <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+      </ul>
+      <a href="https://wa.me/2250797388202" target="_blank" class="btn btn-whatsapp btn-sm nav-cta">📱 WhatsApp</a>
+      <button class="hamburger" aria-label="Menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="container">
+    <div class="page-hero-content">
+      <div class="page-breadcrumb">Accueil › Automobile › <span class="current">Location de véhicules</span></div>
+      <h1>Location de <span class="gold">véhicules</span></h1>
+      <p>Avec ou sans chauffeur, courte ou longue durée — des solutions de mobilité adaptées à vos besoins à Abidjan.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CHOIX TYPE LOCATION -->
+<section class="section" style="background:var(--off-white)">
+  <div class="container">
+
+    <!-- CARDS CHOIX -->
+    <div class="section-header">
+      <span class="eyebrow">Nos formules</span>
+      <h2>Choisissez votre formule</h2>
+      <p>Deux options adaptées à vos besoins — avec ou sans chauffeur.</p>
+    </div>
+
+    <div class="location-type-cards">
+      <div class="location-type-card active" onclick="filterByType('chauffeur')">
+        <div class="location-type-icon">🧑‍✈️</div>
+        <h3>Avec chauffeur</h3>
+        <p>Un conducteur professionnel mis à votre disposition. Idéal pour les déplacements professionnels, aéroport, événements et visites de la ville.</p>
+        <div style="margin-top:16px">
+          <span style="background:rgba(201,168,76,.15);color:var(--gold-dark);padding:4px 12px;border-radius:20px;font-size:.75rem;font-weight:700">Chauffeur inclus</span>
+        </div>
+      </div>
+      <div class="location-type-card" onclick="filterByType('sans-chauffeur')">
+        <div class="location-type-icon">🔑</div>
+        <h3>Sans chauffeur</h3>
+        <p>Conduisez vous-même le véhicule à votre rythme. Parfait pour les déplacements autonomes, week-ends ou missions de longue durée.</p>
+        <div style="margin-top:16px">
+          <span style="background:rgba(10,31,68,.08);color:var(--navy);padding:4px 12px;border-radius:20px;font-size:.75rem;font-weight:700">Liberté totale</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- FILTRES -->
+    <div class="filters-section">
+      <div class="filters-top">
+        <div class="filters-title">🔍 Filtrer les véhicules</div>
+        <button onclick="resetLocationFilters()" class="btn btn-outline btn-sm">Réinitialiser</button>
+      </div>
+      <div class="filters-grid">
+        <div class="filter-group">
+          <label class="filter-label">Formule</label>
+          <select class="filter-select" id="lf-type">
+            <option value="">Toutes les formules</option>
+            <option value="chauffeur">Avec chauffeur</option>
+            <option value="sans-chauffeur">Sans chauffeur</option>
+          </select>
+        </div>
+        <div class="filter-group">
+          <label class="filter-label">Durée</label>
+          <select class="filter-select" id="lf-duration">
+            <option value="">Toute durée</option>
+            <option value="journee">À la journée</option>
+            <option value="semaine">À la semaine</option>
+            <option value="mois">Au mois</option>
+          </select>
+        </div>
+        <div class="filter-group">
+          <label class="filter-label">Type véhicule</label>
+          <select class="filter-select" id="lf-vehicletype">
+            <option value="">Tous les types</option>
+            <option value="Berline">Berline</option>
+            <option value="SUV">SUV</option>
+            <option value="Minibus">Minibus</option>
+            <option value="Pick-up">Pick-up</option>
+          </select>
+        </div>
+        <div class="filter-group">
+          <label class="filter-label">Budget / jour (FCFA)</label>
+          <select class="filter-select" id="lf-budget">
+            <option value="">Sans limite</option>
+            <option value="30000">30 000</option>
+            <option value="50000">50 000</option>
+            <option value="75000">75 000</option>
+            <option value="100000">100 000</option>
+          </select>
+        </div>
+        <div class="filter-group">
+          <label class="filter-label">Trier par</label>
+          <select class="filter-select" id="lf-sort">
+            <option value="">Par défaut</option>
+            <option value="price-asc">Prix croissant</option>
+            <option value="price-desc">Prix décroissant</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <!-- RÉSULTATS -->
+    <div class="result-count" id="locationResultCount" style="margin-bottom:24px"></div>
+    <div class="listing-grid" id="locationGrid"></div>
+
+  </div>
+</section>
+
+<!-- TARIFS -->
+<section class="section" style="background:var(--white)">
+  <div class="container">
+    <div class="section-header">
+      <span class="eyebrow">Transparence</span>
+      <h2>Nos tarifs de référence</h2>
+      <p>Des prix clairs selon la durée et le type de véhicule. Contactez-nous pour un devis personnalisé.</p>
+    </div>
+    <div class="tarif-grid">
+      <div class="tarif-card">
+        <div class="tarif-duration">Location à la journée</div>
+        <div class="tarif-price">À partir de</div>
+        <div style="font-family:var(--font-display);font-size:2.2rem;font-weight:700;color:var(--gold)">25 000</div>
+        <div class="tarif-unit">FCFA / jour</div>
+        <div class="tarif-features">
+          <div class="tarif-feature">✅ Berlines et compactes</div>
+          <div class="tarif-feature">✅ Kilométrage inclus</div>
+          <div class="tarif-feature">✅ Assurance incluse</div>
+          <div class="tarif-feature">⚡ Disponibilité immédiate</div>
+        </div>
+        <a href="https://wa.me/2250797388202?text=Bonjour%20RAZAK%2C%20je%20souhaite%20louer%20un%20v%C3%A9hicule%20%C3%A0%20la%20journ%C3%A9e." target="_blank" class="btn btn-outline btn-full btn-sm">Réserver</a>
+      </div>
+      <div class="tarif-card featured">
+        <div style="background:var(--gold);color:var(--navy);font-size:.7rem;font-weight:700;padding:4px 12px;border-radius:20px;display:inline-block;margin-bottom:12px;letter-spacing:.05em">POPULAIRE</div>
+        <div class="tarif-duration">Location à la semaine</div>
+        <div class="tarif-price">À partir de</div>
+        <div style="font-family:var(--font-display);font-size:2.2rem;font-weight:700;color:var(--gold)">150 000</div>
+        <div class="tarif-unit">FCFA / semaine</div>
+        <div class="tarif-features">
+          <div class="tarif-feature">✅ Tous types de véhicules</div>
+          <div class="tarif-feature">✅ Kilométrage illimité</div>
+          <div class="tarif-feature">✅ Assurance incluse</div>
+          <div class="tarif-feature">✅ Assistance 24h/24</div>
+        </div>
+        <a href="https://wa.me/2250797388202?text=Bonjour%20RAZAK%2C%20je%20souhaite%20louer%20un%20v%C3%A9hicule%20%C3%A0%20la%20semaine." target="_blank" class="btn btn-whatsapp btn-full btn-sm">Réserver</a>
+      </div>
+      <div class="tarif-card">
+        <div class="tarif-duration">Location au mois</div>
+        <div class="tarif-price">À partir de</div>
+        <div style="font-family:var(--font-display);font-size:2.2rem;font-weight:700;color:var(--gold)">450 000</div>
+        <div class="tarif-unit">FCFA / mois</div>
+        <div class="tarif-features">
+          <div class="tarif-feature">✅ Tarif dégressif</div>
+          <div class="tarif-feature">✅ Kilométrage illimité</div>
+          <div class="tarif-feature">✅ Assurance incluse</div>
+          <div class="tarif-feature">✅ Entretien inclus</div>
+        </div>
+        <a href="https://wa.me/2250797388202?text=Bonjour%20RAZAK%2C%20je%20souhaite%20louer%20un%20v%C3%A9hicule%20au%20mois." target="_blank" class="btn btn-outline btn-full btn-sm">Réserver</a>
+      </div>
+    </div>
+    <p style="text-align:center;color:var(--gray-400);font-size:.82rem;margin-top:24px">* Les tarifs varient selon le type de véhicule et la formule choisie. Contactez-nous pour un devis précis.</p>
+  </div>
+</section>
+
+<!-- AVANTAGES -->
+<section class="section" style="background:var(--off-white)">
+  <div class="container">
+    <div class="section-header">
+      <span class="eyebrow">Pourquoi nous choisir</span>
+      <h2>La location RAZAK, c'est simple</h2>
+    </div>
+    <div class="avantages-grid">
+      <div class="avantage-card">
+        <div class="avantage-icon">⚡</div>
+        <h4>Disponibilité rapide</h4>
+        <p>Véhicule disponible en quelques heures après confirmation de votre réservation.</p>
+      </div>
+      <div class="avantage-card">
+        <div class="avantage-icon">🛡️</div>
+        <h4>Assurance incluse</h4>
+        <p>Tous nos véhicules de location sont assurés. Roulez en toute sérénité.</p>
+      </div>
+      <div class="avantage-card">
+        <div class="avantage-icon">📱</div>
+        <h4>Contact direct</h4>
+        <p>Réservez directement via WhatsApp sans formulaire compliqué ni attente.</p>
+      </div>
+      <div class="avantage-card">
+        <div class="avantage-icon">💰</div>
+        <h4>Prix transparents</h4>
+        <p>Pas de frais cachés. Le prix annoncé est le prix payé, toutes charges comprises.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FORMULAIRE DEVIS -->
+<section class="section" style="background:var(--white)">
+  <div class="container">
+    <div class="section-header">
+      <span class="eyebrow">Réservation</span>
+      <h2>Demandez votre devis</h2>
+      <p>Remplissez ce formulaire et nous vous recontactons via WhatsApp dans les meilleurs délais.</p>
+    </div>
+    <div class="devis-form">
+      <form id="devisForm">
+        <div class="form-grid">
+          <div class="form-group">
+            <label class="form-label">Nom complet *</label>
+            <input type="text" class="form-input" id="dv-nom" placeholder="Votre nom" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">WhatsApp *</label>
+            <input type="tel" class="form-input" id="dv-tel" placeholder="+225 07 XX XX XX XX" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Formule souhaitée</label>
+            <select class="form-select" id="dv-formule">
+              <option value="">Choisir une formule</option>
+              <option value="Avec chauffeur">Avec chauffeur</option>
+              <option value="Sans chauffeur">Sans chauffeur</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Durée</label>
+            <select class="form-select" id="dv-duree">
+              <option value="">Durée souhaitée</option>
+              <option value="1 journée">1 journée</option>
+              <option value="Plusieurs jours">Plusieurs jours</option>
+              <option value="1 semaine">1 semaine</option>
+              <option value="1 mois ou plus">1 mois ou plus</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Date de début</label>
+            <input type="date" class="form-input" id="dv-date">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Type de véhicule</label>
+            <select class="form-select" id="dv-type">
+              <option value="">Type souhaité</option>
+              <option value="Berline">Berline</option>
+              <option value="SUV">SUV</option>
+              <option value="Pick-up">Pick-up</option>
+              <option value="Minibus">Minibus</option>
+              <option value="Peu importe">Peu importe</option>
+            </select>
+          </div>
+          <div class="form-group full">
+            <label class="form-label">Destination / usage prévu</label>
+            <input type="text" class="form-input" id="dv-destination" placeholder="Ex: Aéroport, déplacements professionnels, voyage Abidjan-Yamoussoukro...">
+          </div>
+          <div class="form-group full">
+            <label class="form-label">Message complémentaire</label>
+            <textarea class="form-textarea" id="dv-message" placeholder="Précisez vos besoins particuliers..."></textarea>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-whatsapp btn-full btn-lg" style="margin-top:8px">📱 Envoyer ma demande via WhatsApp</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="cta-content">
+    <span class="eyebrow">Besoin urgent ?</span>
+    <h2>Contactez-nous directement</h2>
+    <p>Pour une réservation rapide ou une question, notre équipe répond sur WhatsApp.</p>
+    <div class="cta-actions">
+      <a href="https://wa.me/2250797388202?text=Bonjour%20RAZAK%2C%20je%20souhaite%20louer%20un%20v%C3%A9hicule%20rapidement." target="_blank" class="btn btn-whatsapp btn-lg">📱 WhatsApp maintenant</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-top">
+      <div>
+        <img src="images/logo-navbar.png" alt="RAZAK Multi Service" style="height:200px;width:auto;object-fit:contain;margin-bottom:10px;display:block">
+        <p class="footer-desc">Entreprise ivoirienne spécialisée dans l'automobile, l'immobilier et l'ameublement.</p>
+        <a href="https://wa.me/2250797388202" target="_blank" class="btn btn-whatsapp btn-sm">📱 +225 07 97 38 82 02</a>
+      </div>
+      <div class="footer-col">
+        <h4>Automobile</h4>
+        <ul>
+          <li><a href="vehicules-vente.html">Véhicules à vendre</a></li>
+          <li><a href="vehicules-location.html">Location de véhicules</a></li>
+          <li><a href="vendre-vehicule.html">Vendre mon véhicule</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="immobilier.html">Immobilier</a></li>
+          <li><a href="ameublement.html">Ameublement</a></li>
+          <li><a href="about.html">À propos</a></li>
+          <li><a href="directeur.html">Mot du Directeur</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="https://wa.me/2250797388202" target="_blank">WhatsApp : 07 97 38 82 02</a></li>
+          <li><a href="contact.html">Formulaire de contact</a></li>
+          <li><a href="#">Abidjan, Côte d'Ivoire 🇨🇮</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2026 RAZAK Multi Service. Tous droits réservés. Côte d'Ivoire 🇨🇮</span>
+      <span class="footer-copy">Automobile · Immobilier · Ameublement</span>
+    </div>
+  </div>
+</footer>
+
+<a href="https://wa.me/2250797388202?text=Bonjour%20RAZAK%2C%20je%20souhaite%20louer%20un%20v%C3%A9hicule." target="_blank" class="wa-float">
+  📱 <span class="wa-text">WhatsApp</span>
+</a>
+<button id="backToTop" aria-label="Retour en haut">↑</button>
+
+<script>
+const LOCATION_VEHICLES = [
+  { id:1, brand:'Toyota', model:'Corolla', year:2021, type:'Berline', formule:'sans-chauffeur', priceDay:25000, priceWeek:150000, priceMonth:450000, places:5, fuel:'Essence', transmission:'Automatique', status:'available', emoji:'🚗', features:['Climatisation','GPS','Bluetooth','Kilométrage inclus'] },
+  { id:2, brand:'Toyota', model:'Land Cruiser Prado', year:2020, type:'SUV', formule:'chauffeur', priceDay:80000, priceWeek:480000, priceMonth:1500000, places:7, fuel:'Diesel', transmission:'Automatique', status:'available', emoji:'🚙', features:['Chauffeur professionnel','Climatisation','GPS','Wi-Fi bord'] },
+  { id:3, brand:'Mercedes-Benz', model:'Classe E', year:2021, type:'Berline', formule:'chauffeur', priceDay:100000, priceWeek:600000, priceMonth:1800000, places:5, fuel:'Diesel', transmission:'Automatique', status:'available', emoji:'🚗', features:['Chauffeur VIP','Cuir','Climatisation','Wi-Fi','GPS'] },
+  { id:4, brand:'Toyota', model:'HiAce Minibus', year:2020, type:'Minibus', formule:'chauffeur', priceDay:70000, priceWeek:420000, priceMonth:1200000, places:14, fuel:'Diesel', transmission:'Manuelle', status:'available', emoji:'🚌', features:['Chauffeur inclus','Climatisation','Idéal groupes','Bagages'] },
+  { id:5, brand:'Ford', model:'Ranger Pick-up', year:2021, type:'Pick-up', formule:'sans-chauffeur', priceDay:45000, priceWeek:270000, priceMonth:800000, places:4, fuel:'Diesel', transmission:'Manuelle', status:'available', emoji:'🛻', features:['4x4','Benne','Climatisation','Tout terrain'] },
+  { id:6, brand:'Hyundai', model:'Tucson', year:2022, type:'SUV', formule:'sans-chauffeur', priceDay:40000, priceWeek:240000, priceMonth:700000, places:5, fuel:'Essence', transmission:'Automatique', status:'available', emoji:'🚙', features:['Climatisation','GPS','Bluetooth','Caméra recul'] },
+  { id:7, brand:'Kia', model:'Sportage', year:2022, type:'SUV', formule:'sans-chauffeur', priceDay:38000, priceWeek:228000, priceMonth:680000, places:5, fuel:'Essence', transmission:'Automatique', status:'available', emoji:'🚙', features:['Climatisation','GPS','Économique','Confortable'] },
+  { id:8, brand:'Toyota', model:'Camry VIP', year:2021, type:'Berline', formule:'chauffeur', priceDay:90000, priceWeek:540000, priceMonth:1600000, places:5, fuel:'Essence', transmission:'Automatique', status:'available', emoji:'🚗', features:['Chauffeur VIP','Très haut de gamme','Cuir','Wi-Fi','Minibar'] },
+];
+
+const fmtPrice = n => new Intl.NumberFormat('fr-CI').format(n);
+const SL = { available:'Disponible', rented:'Loué' };
+const SC = { available:'badge-available', rented:'badge-rented' };
+
+const waLocation = v => `https://wa.me/2250797388202?text=${encodeURIComponent(`Bonjour RAZAK Multi Service,\n\nJe souhaite louer ce véhicule :\n\n🚗 ${v.brand} ${v.model} ${v.year}\n👥 ${v.places} places\n🔑 Formule : ${v.formule === 'chauffeur' ? 'Avec chauffeur' : 'Sans chauffeur'}\n💰 Tarif jour : ${fmtPrice(v.priceDay)} FCFA\n\nPouvez-vous me confirmer la disponibilité et les modalités ?`)}`;
+
+const renderLocationCard = v => `
+<div class="listing-card" data-formule="${v.formule}" data-type="${v.type}">
+  <div class="listing-image">
+    <div class="listing-image-placeholder">
+      <span class="ph-icon">${v.emoji}</span>
+      <span class="ph-label">Photo à venir</span>
+    </div>
+    <span class="listing-badge ${SC[v.status]}">${SL[v.status]}</span>
+    <span style="position:absolute;top:12px;right:12px;background:${v.formule === 'chauffeur' ? 'var(--gold)' : 'var(--navy)'};color:${v.formule === 'chauffeur' ? 'var(--navy)' : 'var(--white)'};padding:4px 10px;border-radius:20px;font-size:.7rem;font-weight:700">${v.formule === 'chauffeur' ? '🧑‍✈️ Avec chauffeur' : '🔑 Sans chauffeur'}</span>
+  </div>
+  <div class="listing-body">
+    <div class="listing-title">${v.brand} ${v.model}</div>
+    <div class="listing-sub">${v.year} · ${v.type} · ${v.places} places</div>
+    <div class="listing-specs">
+      <div class="spec-item">⛽ ${v.fuel}</div>
+      <div class="spec-item">⚙️ ${v.transmission}</div>
+      <div class="spec-item">👥 ${v.places} places</div>
+      <div class="spec-item">📅 Disponible</div>
+    </div>
+    <div style="display:flex;flex-wrap:wrap;gap:4px;margin-bottom:14px">
+      ${v.features.map(f => `<span style="background:var(--off-white);color:var(--gray-600);padding:3px 8px;border-radius:20px;font-size:.72rem">${f}</span>`).join('')}
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:14px;padding:12px;background:var(--off-white);border-radius:var(--radius-sm)">
+      <div style="text-align:center"><div style="font-size:.65rem;color:var(--gray-400);text-transform:uppercase;letter-spacing:.05em">Jour</div><div style="font-family:var(--font-display);font-size:.95rem;font-weight:700;color:var(--gold)">${fmtPrice(v.priceDay)}</div></div>
+      <div style="text-align:center;border-left:1px solid var(--gray-200);border-right:1px solid var(--gray-200)"><div style="font-size:.65rem;color:var(--gray-400);text-transform:uppercase;letter-spacing:.05em">Semaine</div><div style="font-family:var(--font-display);font-size:.95rem;font-weight:700;color:var(--gold)">${fmtPrice(v.priceWeek)}</div></div>
+      <div style="text-align:center"><div style="font-size:.65rem;color:var(--gray-400);text-transform:uppercase;letter-spacing:.05em">Mois</div><div style="font-family:var(--font-display);font-size:.95rem;font-weight:700;color:var(--gold)">${fmtPrice(v.priceMonth)}</div></div>
+    </div>
+    <a href="${waLocation(v)}" target="_blank" class="btn btn-whatsapp btn-sm btn-full">📱 Réserver ce véhicule</a>
+  </div>
+</div>`;
+
+const filterByType = (type) => {
+  document.getElementById('lf-type').value = type;
+  applyLocationFilters();
+  document.querySelectorAll('.location-type-card').forEach(c => c.classList.remove('active'));
+  event.currentTarget.classList.add('active');
+};
+
+const applyLocationFilters = () => {
+  const type = document.getElementById('lf-type').value;
+  const duration = document.getElementById('lf-duration').value;
+  const vtype = document.getElementById('lf-vehicletype').value;
+  const budget = document.getElementById('lf-budget').value;
+  const sort = document.getElementById('lf-sort').value;
+
+  let list = LOCATION_VEHICLES.filter(v => {
+    if (type && v.formule !== type) return false;
+    if (vtype && v.type !== vtype) return false;
+    if (budget && v.priceDay > parseInt(budget)) return false;
+    return true;
+  });
+
+  if (sort === 'price-asc') list.sort((a,b) => a.priceDay - b.priceDay);
+  else if (sort === 'price-desc') list.sort((a,b) => b.priceDay - a.priceDay);
+
+  const grid = document.getElementById('locationGrid');
+  const count = document.getElementById('locationResultCount');
+  count.textContent = `${list.length} véhicule${list.length !== 1 ? 's' : ''} disponible${list.length !== 1 ? 's' : ''}`;
+  grid.innerHTML = list.length ? list.map(renderLocationCard).join('') : `<div class="no-results" style="grid-column:1/-1"><div class="no-results-icon">🔍</div><h3>Aucun résultat</h3><p>Contactez-nous pour une solution personnalisée.</p><a href="https://wa.me/2250797388202" target="_blank" class="btn btn-whatsapp">📱 Nous contacter</a></div>`;
+};
+
+const resetLocationFilters = () => {
+  ['lf-type','lf-duration','lf-vehicletype','lf-budget','lf-sort'].forEach(id => document.getElementById(id).value = '');
+  applyLocationFilters();
+};
+
+// Formulaire devis
+document.getElementById('devisForm').addEventListener('submit', e => {
+  e.preventDefault();
+  const nom = document.getElementById('dv-nom').value;
+  const tel = document.getElementById('dv-tel').value;
+  const formule = document.getElementById('dv-formule').value;
+  const duree = document.getElementById('dv-duree').value;
+  const date = document.getElementById('dv-date').value;
+  const type = document.getElementById('dv-type').value;
+  const destination = document.getElementById('dv-destination').value;
+  const message = document.getElementById('dv-message').value;
+  const text = `Bonjour RAZAK Multi Service,\n\nDemande de devis location :\n\n👤 Nom : ${nom}\n📱 WhatsApp : ${tel}\n🔑 Formule : ${formule}\n📅 Durée : ${duree}\n📆 Date début : ${date}\n🚗 Type véhicule : ${type}\n📍 Destination : ${destination}\n\n💬 ${message}`;
+  window.open(`https://wa.me/2250797388202?text=${encodeURIComponent(text)}`, '_blank');
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+  applyLocationFilters();
+  ['lf-type','lf-duration','lf-vehicletype','lf-budget','lf-sort'].forEach(id => document.getElementById(id).addEventListener('change', applyLocationFilters));
+});
+</script>
+<script src="js/main.js"></script>
+</body>
+</html>
