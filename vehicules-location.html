@@ -442,10 +442,9 @@ const waLocation = v => `https://wa.me/2250797388202?text=${encodeURIComponent(`
 const renderLocationCard = v => `
 <div class="listing-card" data-formule="${v.formule}" data-type="${v.type}">
   <div class="listing-image">
-    <div class="listing-image-placeholder">
-      <span class="ph-icon">${v.emoji}</span>
-      <span class="ph-label">Photo à venir</span>
-    </div>
+    ${v.photo
+      ? `<img src="${v.photo}" alt="${v.brand} ${v.model}" style="width:100%;height:100%;object-fit:cover;display:block">`
+      : `<div class="listing-image-placeholder"><span class="ph-icon">${v.emoji}</span><span class="ph-label">Photo à venir</span></div>`}
     <span class="listing-badge ${SC[v.status]}">${SL[v.status]}</span>
     <span style="position:absolute;top:12px;right:12px;background:${v.formule === 'chauffeur' ? 'var(--gold)' : 'var(--navy)'};color:${v.formule === 'chauffeur' ? 'var(--navy)' : 'var(--white)'};padding:4px 10px;border-radius:20px;font-size:.7rem;font-weight:700">${v.formule === 'chauffeur' ? '🧑‍✈️ Avec chauffeur' : '🔑 Sans chauffeur'}</span>
   </div>

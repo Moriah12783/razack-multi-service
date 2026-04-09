@@ -391,9 +391,10 @@ const waProduct = p => `https://wa.me/2250797388202?text=${encodeURIComponent(`B
 
 const renderMeuble = m => `
 <div class="meuble-card">
-  <div class="meuble-image ${m.img}">
-    <span style="font-size:4rem">${m.emoji}</span>
-    <span style="font-size:.7rem;color:rgba(255,255,255,.35);letter-spacing:.1em;text-transform:uppercase">Photo à venir</span>
+  <div class="meuble-image ${m.photo ? '' : m.img}" style="${m.photo ? 'background:none;padding:0' : ''}">
+    ${m.photo
+      ? `<img src="${m.photo}" alt="${m.titre}" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:inherit">`
+      : `<span style="font-size:4rem">${m.emoji}</span><span style="font-size:.7rem;color:rgba(255,255,255,.35);letter-spacing:.1em;text-transform:uppercase">Photo à venir</span>`}
     <span class="listing-badge badge-available" style="position:absolute;top:12px;left:12px">Disponible</span>
     ${m.cat === 'Pack' ? '<span style="position:absolute;top:12px;right:12px;background:var(--gold);color:var(--navy);padding:4px 10px;border-radius:20px;font-size:.7rem;font-weight:700">📦 PACK</span>' : ''}
   </div>
