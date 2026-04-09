@@ -297,6 +297,21 @@
             </div>
           </div>
 
+          <!-- SECTION 4: Photos -->
+          <div class="form-section-title">📸 Photos du véhicule</div>
+          <div style="margin-bottom:32px">
+            <label for="sf-photos" style="display:block;border:2px dashed var(--gray-200);border-radius:var(--radius-md);padding:32px 24px;text-align:center;cursor:pointer;transition:var(--transition);background:var(--off-white)" onmouseover="this.style.borderColor='var(--gold)';this.style.background='rgba(201,168,76,.04)'" onmouseout="this.style.borderColor='var(--gray-200)';this.style.background='var(--off-white)'">
+              <div style="font-size:2.5rem;margin-bottom:10px">📷</div>
+              <div style="font-weight:700;color:var(--navy);margin-bottom:6px">Sélectionnez vos photos</div>
+              <div style="font-size:.82rem;color:var(--gray-400)">JPG, PNG — Plusieurs fichiers acceptés</div>
+              <input type="file" id="sf-photos" name="photos" accept="image/*" multiple style="display:none" onchange="updatePhotoLabel(this)">
+            </label>
+            <div id="photo-count" style="margin-top:8px;font-size:.82rem;color:var(--gray-400);text-align:center"></div>
+            <div style="margin-top:12px;background:rgba(201,168,76,.08);border-left:3px solid var(--gold);border-radius:0 var(--radius-sm) var(--radius-sm) 0;padding:12px 16px;font-size:.82rem;color:var(--gray-600)">
+              💡 <strong>Note :</strong> Après envoi du formulaire, envoyez également vos photos directement sur WhatsApp pour accélérer le traitement.
+            </div>
+          </div>
+
           <!-- ENGAGEMENTS -->
           <div style="background:rgba(201,168,76,.06);border:1px solid rgba(201,168,76,.2);border-radius:var(--radius-md);padding:24px;margin-bottom:28px">
             <div style="font-weight:700;color:var(--navy);margin-bottom:16px;font-size:.9rem">✅ En soumettant ce formulaire, vous bénéficiez de :</div>
@@ -441,6 +456,17 @@ document.getElementById('sellForm').addEventListener('submit', function(e) {
 
   window.open(`https://wa.me/2250797388202?text=${encodeURIComponent(text)}`, '_blank');
 });
+</script>
+<script>
+function updatePhotoLabel(input) {
+  const count = input.files.length;
+  const label = document.getElementById('photo-count');
+  if (count > 0) {
+    label.textContent = count + ' photo' + (count > 1 ? 's' : '') + ' sélectionnée' + (count > 1 ? 's' : '');
+    label.style.color = 'var(--navy)';
+    label.style.fontWeight = '700';
+  }
+}
 </script>
 <script src="js/main.js"></script>
 </body>
