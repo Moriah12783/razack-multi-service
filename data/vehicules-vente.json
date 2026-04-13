@@ -1,21 +1,21 @@
 [
   {
     "id": 1,
-    "brand": "Peugeot",
-    "model": "3008",
-    "year": 2022,
-    "km": 45000,
+    "brand": "JETOUR",
+    "model": "T2 XWD TRAVEL",
+    "year": 2026,
+    "km": 92,
     "fuel": "Essence",
     "transmission": "Automatique",
-    "type": "SUV",
-    "price": 28500000,
+    "type": "Pick-up",
+    "price": 32000000,
     "status": "available",
-    "color": "Marron",
-    "engine": "3.0L V6",
-    "doors": 5,
+    "color": "NOIR",
+    "engine": "2.0L TURBO",
+    "doors": 4,
     "emoji": "🚙",
-    "desc": "Excellent état, entretien suivi, climatisation, GPS, caméra de recul.",
-    "photo": "https://razak-multiservices.vercel.app/images/annonces/1776092980858.jpg"
+    "desc": "FULL OPTIONS\nDCT A 7 VITESSES, SYSTEME INTELLIGENT",
+    "photo": "https://razak-multiservices.vercel.app/images/annonces/1776110595770.jpg"
   },
   {
     "id": 2,
