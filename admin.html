@@ -113,6 +113,20 @@
     .btn-save { padding: 10px 24px; background: var(--navy); color: var(--white); border: none; border-radius: var(--radius); font-weight: 700; cursor: pointer; transition: .2s; }
     .btn-save:hover { background: var(--gold); color: var(--navy); }
 
+    /* ── MULTI-PHOTO ── */
+    .photo-row{margin-bottom:10px}
+    .photo-row-controls{display:flex;gap:8px;align-items:center}
+    .photo-row-input{flex:1;padding:10px 12px;border:1.5px solid var(--gray-200);border-radius:var(--radius);font-size:.9rem;outline:none;font-family:inherit;transition:.2s}
+    .photo-row-input:focus{border-color:var(--gold)}
+    .btn-remove-photo{width:34px;height:34px;flex-shrink:0;background:#FEE2E2;color:var(--red);border:none;border-radius:6px;font-size:.88rem;font-weight:700;cursor:pointer;transition:.2s}
+    .btn-remove-photo:hover{background:var(--red);color:#fff}
+    .photo-thumb{width:100%;max-height:90px;object-fit:cover;border-radius:6px;border:1.5px solid var(--gray-200);margin-top:6px;display:none}
+    .photo-thumb.visible{display:block}
+    .upload-progress-row{font-size:.75rem;color:var(--gold);margin-top:4px;display:none}
+    .upload-progress-row.show{display:block}
+    .btn-add-photo{padding:9px 16px;background:var(--off-white);color:var(--navy);border:1.5px dashed var(--gray-200);border-radius:var(--radius);font-size:.82rem;font-weight:600;cursor:pointer;width:100%;margin-top:4px;transition:.2s;font-family:inherit}
+    .btn-add-photo:hover{border-color:var(--gold);background:var(--white)}
+
     /* ── SETTINGS MODAL ── */
     .settings-info { background: var(--off-white); border-left: 3px solid var(--gold); border-radius: 0 8px 8px 0; padding: 12px 16px; font-size: .82rem; color: var(--gray-600); margin-bottom: 20px; line-height: 1.6; }
     .token-status { display: flex; align-items: center; gap: 8px; font-size: .82rem; margin-top: 8px; }
@@ -398,6 +412,8 @@ function filterTable(tab, q) {
 /* ═══════════════════════════════════════
    FORMS
 ═══════════════════════════════════════ */
+const PHOTO_SECTION = `<div class="form-group full"><label>Photos <small>(jusqu'à 6 — URL ou fichier)</small></label><div id="photosContainer"></div><button type="button" class="btn-add-photo" onclick="addPhotoRow()">+ Ajouter une photo</button></div>`;
+
 function getForm(tab, item = {}) {
   const v = item;
   const sel = (name, opts, val) => `<select name="${name}">${opts.map(o => `<option value="${o.v}" ${val==o.v?'selected':''}>${o.l}</option>`).join('')}</select>`;
@@ -416,7 +432,7 @@ function getForm(tab, item = {}) {
     <div class="form-group"><label>Portes</label><input name="doors" type="number" value="${v.doors||4}" min="2" max="9"></div>
     <div class="form-group"><label>Statut</label>${sel('status',[{v:'available',l:'Disponible'},{v:'new',l:'Nouveau'},{v:'sold',l:'Vendu'}],v.status)}</div>
     <div class="form-group"><label>Emoji</label><input name="emoji" value="${v.emoji||'🚗'}" placeholder="🚗" style="font-size:1.3rem"></div>
-    <div class="form-group full"><label>Photo</label><div class="photo-input-row"><input name="photo" value="${v.photo||''}" placeholder="Coller une URL ou choisir un fichier…" oninput="previewPhoto(this)"><label class="btn-file-upload">📁 Fichier<input type="file" accept="image/*" style="display:none" onchange="uploadPhotoFile(this)"></label></div><div class="upload-progress" id="uploadProgress">⬆️ Upload en cours…</div><img class="photo-preview ${v.photo?'visible':''}" src="${v.photo||''}" alt="aperçu"></div>
+    ${PHOTO_SECTION}
     <div class="form-group full"><label>Description</label><textarea name="desc" placeholder="État, options, historique...">${v.desc||''}</textarea></div>
   </div>`;
 
@@ -434,7 +450,7 @@ function getForm(tab, item = {}) {
     <div class="form-group"><label>Transmission</label>${sel('transmission',[{v:'Automatique',l:'Automatique'},{v:'Manuelle',l:'Manuelle'}],v.transmission)}</div>
     <div class="form-group"><label>Statut</label>${sel('status',[{v:'available',l:'Disponible'},{v:'rented',l:'Loué'}],v.status)}</div>
     <div class="form-group"><label>Emoji</label><input name="emoji" value="${v.emoji||'🚗'}" style="font-size:1.3rem"></div>
-    <div class="form-group full"><label>Photo</label><div class="photo-input-row"><input name="photo" value="${v.photo||''}" placeholder="Coller une URL ou choisir un fichier…" oninput="previewPhoto(this)"><label class="btn-file-upload">📁 Fichier<input type="file" accept="image/*" style="display:none" onchange="uploadPhotoFile(this)"></label></div><div class="upload-progress" id="uploadProgress">⬆️ Upload en cours…</div><img class="photo-preview ${v.photo?'visible':''}" src="${v.photo||''}" alt="aperçu"></div>
+    ${PHOTO_SECTION}
     <div class="form-group full"><label>Équipements <small>(séparés par virgule)</small></label><input name="features" value="${(v.features||[]).join(', ')}" placeholder="Climatisation, GPS, Bluetooth"></div>
   </div>`;
 
@@ -450,7 +466,7 @@ function getForm(tab, item = {}) {
     <div class="form-group"><label>Surface (m²)</label><input name="surface" type="number" value="${v.surface||0}"></div>
     <div class="form-group"><label>Statut</label>${sel('statut',[{v:'available',l:'Disponible'},{v:'rented',l:'Loué/Vendu'}],v.statut)}</div>
     <div class="form-group"><label>Emoji</label><input name="emoji" value="${v.emoji||'🏠'}" style="font-size:1.3rem"></div>
-    <div class="form-group full"><label>Photo</label><div class="photo-input-row"><input name="photo" value="${v.photo||''}" placeholder="Coller une URL ou choisir un fichier…" oninput="previewPhoto(this)"><label class="btn-file-upload">📁 Fichier<input type="file" accept="image/*" style="display:none" onchange="uploadPhotoFile(this)"></label></div><div class="upload-progress" id="uploadProgress">⬆️ Upload en cours…</div><img class="photo-preview ${v.photo?'visible':''}" src="${v.photo||''}" alt="aperçu"></div>
+    ${PHOTO_SECTION}
     <div class="form-group full"><label>Équipements <small>(séparés par virgule)</small></label><input name="equip" value="${(v.equip||[]).join(', ')}" placeholder="Piscine, Garage, Climatisation"></div>
     <div class="form-group full"><label>Description</label><textarea name="desc" placeholder="Description du bien...">${v.desc||''}</textarea></div>
   </div>`;
@@ -461,7 +477,7 @@ function getForm(tab, item = {}) {
     <div class="form-group"><label>Prix (FCFA) *</label><input name="prix" type="number" value="${v.prix||0}" required></div>
     <div class="form-group"><label>Statut</label>${sel('statut',[{v:'available',l:'Disponible'},{v:'sold',l:'Vendu'}],v.statut)}</div>
     <div class="form-group"><label>Emoji</label><input name="emoji" value="${v.emoji||'🛋️'}" style="font-size:1.3rem"></div>
-    <div class="form-group full"><label>Photo</label><div class="photo-input-row"><input name="photo" value="${v.photo||''}" placeholder="Coller une URL ou choisir un fichier…" oninput="previewPhoto(this)"><label class="btn-file-upload">📁 Fichier<input type="file" accept="image/*" style="display:none" onchange="uploadPhotoFile(this)"></label></div><div class="upload-progress" id="uploadProgress">⬆️ Upload en cours…</div><img class="photo-preview ${v.photo?'visible':''}" src="${v.photo||''}" alt="aperçu"></div>
+    ${PHOTO_SECTION}
     <div class="form-group full"><label>Tags <small>(séparés par virgule)</small></label><input name="tags" value="${(v.tags||[]).join(', ')}" placeholder="Tissu premium, 6 places, Livraison incluse"></div>
     <div class="form-group full"><label>Description</label><textarea name="desc" placeholder="Description du meuble...">${v.desc||''}</textarea></div>
   </div>`;
@@ -476,6 +492,7 @@ function openAdd(tab) {
   document.getElementById('modalTitle').textContent = 'Ajouter une annonce';
   document.getElementById('modalFormContent').innerHTML = getForm(tab);
   document.getElementById('formModal').classList.add('open');
+  initPhotoRows([]);
 }
 
 function openEdit(tab, id) {
@@ -486,51 +503,88 @@ function openEdit(tab, id) {
   document.getElementById('modalTitle').textContent = 'Modifier l\'annonce';
   document.getElementById('modalFormContent').innerHTML = getForm(tab, item);
   document.getElementById('formModal').classList.add('open');
+  const existing = (item.photos && item.photos.length) ? item.photos : (item.photo ? [item.photo] : []);
+  initPhotoRows(existing);
 }
 
 function closeModal() { document.getElementById('formModal').classList.remove('open'); editingId = null; }
 
-function previewPhoto(input) {
-  const row = input.closest('.photo-input-row');
-  const img = row.parentElement.querySelector('.photo-preview');
-  const url = input.value.trim();
-  if (url) { img.src = url; img.classList.add('visible'); }
-  else { img.src = ''; img.classList.remove('visible'); }
+/* ── MULTI-PHOTO ── */
+function initPhotoRows(photos) {
+  const container = document.getElementById('photosContainer');
+  if (!container) return;
+  container.innerHTML = '';
+  const list = photos && photos.length ? photos : [];
+  list.forEach(url => addPhotoRow(url));
+  if (!list.length) addPhotoRow('');
 }
 
-async function uploadPhotoFile(fileInput) {
+function addPhotoRow(url = '') {
+  const container = document.getElementById('photosContainer');
+  if (!container) return;
+  if (container.querySelectorAll('.photo-row').length >= 6) {
+    toast('Maximum 6 photos par annonce', 'error'); return;
+  }
+  const row = document.createElement('div');
+  row.className = 'photo-row';
+  row.innerHTML = `
+    <div class="photo-row-controls">
+      <input type="text" class="photo-row-input" placeholder="Coller une URL ou choisir un fichier…" value="${url.replace(/"/g,'&quot;')}">
+      <label class="btn-file-upload" title="Choisir un fichier">📁<input type="file" accept="image/*" style="display:none" onchange="uploadPhotoRowFile(this)"></label>
+      <button type="button" class="btn-remove-photo" onclick="removePhotoRow(this)" title="Supprimer">✕</button>
+    </div>
+    <div class="upload-progress-row">⬆️ Upload en cours…</div>
+    <img class="photo-thumb${url ? ' visible' : ''}" src="${url.replace(/"/g,'&quot;')}" alt="aperçu">`;
+  const input = row.querySelector('.photo-row-input');
+  input.addEventListener('input', () => updatePhotoThumb(input));
+  container.appendChild(row);
+}
+
+function removePhotoRow(btn) {
+  const container = document.getElementById('photosContainer');
+  if (container.querySelectorAll('.photo-row').length <= 1) {
+    btn.closest('.photo-row').querySelector('.photo-row-input').value = '';
+    updatePhotoThumb(btn.closest('.photo-row').querySelector('.photo-row-input'));
+    return;
+  }
+  btn.closest('.photo-row').remove();
+}
+
+function updatePhotoThumb(input) {
+  const row = input.closest('.photo-row');
+  const thumb = row.querySelector('.photo-thumb');
+  const url = input.value.trim();
+  if (url) { thumb.src = url; thumb.classList.add('visible'); }
+  else { thumb.src = ''; thumb.classList.remove('visible'); }
+}
+
+async function uploadPhotoRowFile(fileInput) {
   const token = localStorage.getItem('razak_gh_token');
   if (!token) { toast('Configurez d\'abord le token GitHub dans ⚙️', 'error'); return; }
   const file = fileInput.files[0];
   if (!file) return;
-
-  const progress = fileInput.closest('.form-group').querySelector('.upload-progress');
+  const row = fileInput.closest('.photo-row');
+  const progress = row.querySelector('.upload-progress-row');
   progress.classList.add('show');
-
+  progress.textContent = '⬆️ Upload en cours…';
   const reader = new FileReader();
   reader.onload = async function(e) {
     try {
       const base64 = e.target.result.split(',')[1];
       const ext = file.name.split('.').pop().toLowerCase();
-      const filename = Date.now() + '.' + ext;
+      const filename = Date.now() + '_' + Math.random().toString(36).substr(2,5) + '.' + ext;
       const path = 'images/annonces/' + filename;
       const headers = { 'Authorization': 'token ' + token, 'Accept': 'application/vnd.github.v3+json', 'Content-Type': 'application/json' };
-
-      // Check if file already exists (get SHA)
       const getRes = await fetch('https://api.github.com/repos/' + REPO + '/contents/' + path, { headers });
-      const existing = getRes.ok ? await getRes.json() : {};
+      const existingFile = getRes.ok ? await getRes.json() : {};
       const body = { message: 'Upload photo: ' + filename, content: base64 };
-      if (existing.sha) body.sha = existing.sha;
-
-      const putRes = await fetch('https://api.github.com/repos/' + REPO + '/contents/' + path, {
-        method: 'PUT', headers, body: JSON.stringify(body)
-      });
+      if (existingFile.sha) body.sha = existingFile.sha;
+      const putRes = await fetch('https://api.github.com/repos/' + REPO + '/contents/' + path, { method: 'PUT', headers, body: JSON.stringify(body) });
       if (!putRes.ok) throw new Error('Erreur ' + putRes.status);
-
       const url = 'https://razak-multiservices.vercel.app/' + path;
-      const photoInput = fileInput.closest('.form-group').querySelector('input[name="photo"]');
-      photoInput.value = url;
-      previewPhoto(photoInput);
+      const input = row.querySelector('.photo-row-input');
+      input.value = url;
+      updatePhotoThumb(input);
       progress.textContent = '✅ Photo uploadée !';
       setTimeout(() => { progress.classList.remove('show'); progress.textContent = '⬆️ Upload en cours…'; }, 3000);
       toast('Photo uploadée ✓', 'success');
@@ -560,6 +614,9 @@ function readForm() {
       data[el.name] = v;
     }
   });
+  // Collecter les photos (tableau multi-photos)
+  const photoInputs = form.querySelectorAll('.photo-row-input');
+  data.photos = [...photoInputs].map(i => i.value.trim()).filter(Boolean);
   return data;
 }
 

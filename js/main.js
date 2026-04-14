@@ -166,3 +166,87 @@ document.querySelectorAll('.pole-card, .listing-card, .mission-card, .value-card
   el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
   observer.observe(el);
 });
+
+// === LIGHTBOX ===
+(function () {
+  document.addEventListener('DOMContentLoaded', () => {
+    if (document.getElementById('lightbox')) return;
+    document.body.insertAdjacentHTML('beforeend', `
+      <div id="lightbox" role="dialog" aria-modal="true">
+        <button id="lightbox-close" onclick="closeLightbox()" aria-label="Fermer">&#x2715;</button>
+        <button id="lightbox-prev" onclick="lbPrev()" aria-label="Précédent">&#8249;</button>
+        <img id="lb-img" src="" alt="Photo agrandie">
+        <button id="lightbox-next" onclick="lbNext()" aria-label="Suivant">&#8250;</button>
+        <div id="lightbox-counter"></div>
+      </div>`);
+    document.getElementById('lightbox').addEventListener('click', e => {
+      if (e.target.id === 'lightbox') closeLightbox();
+    });
+  });
+})();
+
+let _lbPhotos = [], _lbIdx = 0;
+
+window.openLightbox = function (imgEl) {
+  const carousel = imgEl.closest('[data-photos]');
+  const raw = carousel ? carousel.getAttribute('data-photos') : null;
+  _lbPhotos = raw ? JSON.parse(raw) : [imgEl.src];
+  _lbIdx = Math.max(_lbPhotos.indexOf(imgEl.src), 0);
+  _showLightbox();
+};
+
+function _showLightbox() {
+  const lb = document.getElementById('lightbox');
+  if (!lb) return;
+  lb.querySelector('#lb-img').src = _lbPhotos[_lbIdx];
+  lb.querySelector('#lightbox-counter').textContent = _lbPhotos.length > 1 ? (_lbIdx + 1) + ' / ' + _lbPhotos.length : '';
+  lb.querySelector('#lightbox-prev').style.display = _lbPhotos.length > 1 ? '' : 'none';
+  lb.querySelector('#lightbox-next').style.display = _lbPhotos.length > 1 ? '' : 'none';
+  lb.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+window.closeLightbox = function () {
+  document.getElementById('lightbox')?.classList.remove('open');
+  document.body.style.overflow = '';
+};
+window.lbPrev = function () { _lbIdx = (_lbIdx - 1 + _lbPhotos.length) % _lbPhotos.length; _showLightbox(); };
+window.lbNext = function () { _lbIdx = (_lbIdx + 1) % _lbPhotos.length; _showLightbox(); };
+
+document.addEventListener('keydown', e => {
+  if (!document.getElementById('lightbox')?.classList.contains('open')) return;
+  if (e.key === 'Escape') window.closeLightbox();
+  if (e.key === 'ArrowLeft') window.lbPrev();
+  if (e.key === 'ArrowRight') window.lbNext();
+});
+
+// === PHOTO CAROUSEL ===
+window.carouselMove = function (btn, dir) {
+  const carousel = btn.closest('.photo-carousel');
+  const photos = JSON.parse(carousel.getAttribute('data-photos'));
+  let idx = parseInt(carousel.getAttribute('data-index') || '0');
+  idx = (idx + dir + photos.length) % photos.length;
+  carousel.setAttribute('data-index', idx);
+  const img = carousel.querySelector('.carousel-img');
+  img.style.opacity = '0';
+  setTimeout(() => { img.src = photos[idx]; img.style.opacity = '1'; }, 150);
+  carousel.querySelectorAll('.dot').forEach((d, i) => d.classList.toggle('active', i === idx));
+};
+
+// === PHOTO HTML HELPER (partagé entre toutes les pages catalogue) ===
+window.photoHtml = function (item, altText) {
+  const photos = (item.photos && item.photos.length) ? item.photos : (item.photo ? [item.photo] : []);
+  if (!photos.length) {
+    return `<div class="listing-image-placeholder"><span class="ph-icon">${item.emoji || '📷'}</span><span class="ph-label">Photo à venir</span></div>`;
+  }
+  const photosJson = JSON.stringify(photos).replace(/'/g, '&#39;');
+  const dots = photos.length > 1 ? photos.map((_, i) => `<span class="dot${i === 0 ? ' active' : ''}"></span>`).join('') : '';
+  const nav = photos.length > 1 ? `
+    <button class="carousel-btn carousel-prev" onclick="event.stopPropagation();carouselMove(this,-1)">&#8249;</button>
+    <button class="carousel-btn carousel-next" onclick="event.stopPropagation();carouselMove(this,1)">&#8250;</button>
+    <div class="carousel-dots">${dots}</div>` : '';
+  return `<div class="photo-carousel" data-photos='${photosJson}' data-index="0">
+    <img src="${photos[0]}" alt="${altText}" class="carousel-img" onclick="openLightbox(this)">
+    ${nav}
+  </div>`;
+};
