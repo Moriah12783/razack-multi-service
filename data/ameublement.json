@@ -22,17 +22,21 @@
   },
   {
     "id": 2,
-    "cat": "Chambre",
-    "titre": "Lit king size avec tête de lit",
-    "desc": "Lit double 180x200 avec tête de lit capitonnée en simili cuir. Structure solide, design contemporain.",
-    "prix": 250000,
+    "cat": "Salon",
+    "titre": "FAUTEUILS L 5 PLACES",
+    "desc": "FAUTEUILS L EN VELOU OU DIN. PLUSIEURS COULEURS",
+    "prix": 120000,
     "tags": [
-      "180x200",
-      "Tête de lit",
-      "Simili cuir"
+      "FAUTEUILS L"
     ],
-    "emoji": "🛏️",
-    "statut": "available"
+    "emoji": "",
+    "statut": "available",
+    "photos": [
+      "/images/annonces/1776277510324_93n1r.jpg",
+      "/images/annonces/1776277611381_6koxa.jpg",
+      "/images/annonces/1776277623659_0o43d.jpg",
+      "/images/annonces/1776277640799_dzsow.jpg"
+    ]
   },
   {
     "id": 3,
