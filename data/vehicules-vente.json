@@ -53,20 +53,27 @@
   },
   {
     "id": 3,
-    "brand": "Mercedes-Benz",
-    "model": "C 220 AMG Line",
-    "year": 2019,
+    "brand": "HYUNDAI",
+    "model": "TUCSON",
+    "year": 2018,
     "km": 68000,
     "fuel": "Essence",
     "transmission": "Automatique",
-    "type": "Berline",
-    "price": 22000000,
+    "type": "Pick-up",
+    "price": 11500000,
     "status": "available",
-    "color": "Gris",
-    "engine": "2.0L Turbo",
+    "color": "MARRON",
+    "engine": "4 cylindres",
     "doors": 4,
     "emoji": "🚗",
-    "desc": "Finition AMG Line, toit ouvrant, sièges cuir chauffants, parfait état."
+    "desc": "climatisé, grand écran tactile androïde\ncapteur et camera de recul\npapier à jour\nvoiture en bon état",
+    "photos": [
+      "/images/annonces/1776249947043_h3n8i.jpg",
+      "/images/annonces/1776249981652_4ehxd.jpg",
+      "/images/annonces/1776250012086_zhqgd.jpg",
+      "/images/annonces/1776250201034_uspy7.jpg",
+      "/images/annonces/1776250290491_ktodb.jpg"
+    ]
   },
   {
     "id": 4,
