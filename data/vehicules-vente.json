@@ -101,20 +101,28 @@
   },
   {
     "id": 5,
-    "brand": "Toyota",
-    "model": "Corolla Sedan",
-    "year": 2020,
-    "km": 55000,
-    "fuel": "Hybride",
+    "brand": "KIA",
+    "model": "TELLERUDE X-LINE",
+    "year": 2024,
+    "km": 14000,
+    "fuel": "Essence",
     "transmission": "Automatique",
-    "type": "Berline",
-    "price": 12000000,
+    "type": "Pick-up",
+    "price": 36500000,
     "status": "available",
-    "color": "Blanc",
-    "engine": "1.8L Hybride",
+    "color": "Bleu nuit",
+    "engine": "V6",
     "doors": 4,
     "emoji": "🚗",
-    "desc": "Économique, fiable, faible consommation grâce au moteur hybride."
+    "desc": "Interieur cuir, toit ouvrant 7 places assises\nCaméra 360°, charges par induction ; capteur d'empreintes sur poignet, aide au stationnement",
+    "photos": [
+      "/images/annonces/1776251818116_rb833.jpg",
+      "/images/annonces/1776251874093_lfk9i.jpg",
+      "/images/annonces/1776251963238_rvifz.jpg",
+      "/images/annonces/1776252060281_hhqas.jpg",
+      "/images/annonces/1776252116883_jqiu4.jpg",
+      "/images/annonces/1776252191069_z7cp4.jpg"
+    ]
   },
   {
     "id": 6,
