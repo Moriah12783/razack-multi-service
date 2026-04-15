@@ -61,7 +61,7 @@
     "transmission": "Automatique",
     "type": "Pick-up",
     "price": 11500000,
-    "status": "available",
+    "status": "sold",
     "color": "MARRON",
     "engine": "4 cylindres",
     "doors": 4,
