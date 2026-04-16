@@ -405,6 +405,7 @@ const renderMeuble = m => `
     <div style="display:flex;gap:8px">
       <a href="${waProduct(m)}" target="_blank" class="btn btn-whatsapp btn-sm btn-full">📱 Je suis intéressé(e)</a>
     </div>
+    <a href="https://wa.me/?text=${encodeURIComponent('🛋️ Regarde ce meuble sur RAZAK Multi Service !\n\n' + m.titre + '\n💰 ' + fmt(m.prix) + '\n\n👉 https://razak-multiservices.com/ameublement.html')}" target="_blank" class="btn btn-outline btn-sm btn-full" style="margin-top:6px">🔗 Partager</a>
   </div>
 </div>`;
 

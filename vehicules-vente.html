@@ -283,7 +283,7 @@ const renderCard = v => `
     <div class="listing-actions">
       ${v.status !== 'sold'
         ? `<a href="${waVehicle(v)}" target="_blank" class="btn btn-whatsapp btn-sm btn-full">📱 Je suis intéressé(e)</a>
-<a href="https://wa.me/?text=${encodeURIComponent('🚗 Regarde cette offre sur RAZAK Multi Service !\n\n' + v.brand + ' ' + v.model + ' ' + v.year + '\n💰 ' + fmt(v.price) + '\n\n👉 https://razak-multiservices.vercel.app/vehicules-vente.html')}" target="_blank" class="btn btn-outline btn-sm btn-full" style="margin-top:6px">🔗 Partager</a>`
+<a href="https://wa.me/?text=${encodeURIComponent('🚗 Regarde cette offre sur RAZAK Multi Service !\n\n' + v.brand + ' ' + v.model + ' ' + v.year + '\n💰 ' + fmt(v.price) + '\n\n👉 https://razak-multiservices.com/vehicules-vente.html')}" target="_blank" class="btn btn-outline btn-sm btn-full" style="margin-top:6px">🔗 Partager</a>`
         : `<button class="btn btn-sm btn-full" style="background:var(--gray-200);color:var(--gray-600);cursor:not-allowed" disabled>✅ Vendu</button>`}
     </div>
   </div>
