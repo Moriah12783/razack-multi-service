@@ -62,15 +62,15 @@
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="RAZAK Multi Service">
   <meta property="og:locale" content="fr_FR">
-  <meta property="og:url" content="https://razak-multiservices.vercel.app/immobilier.html">
+  <meta property="og:url" content="https://razak-multiservices.com/immobilier.html">
   <meta property="og:title" content="Immobilier à Abidjan — RAZAK Multi Service">
   <meta property="og:description" content="Vente et location de biens immobiliers à Abidjan. Appartements, villas, bureaux — RAZAK Multi Service.">
-  <meta property="og:image" content="https://razak-multiservices.vercel.app/images/logo-razack.png">
+  <meta property="og:image" content="https://razak-multiservices.com/images/logo-razack.png">
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Immobilier à Abidjan — RAZAK Multi Service">
   <meta name="twitter:description" content="Vente et location de biens immobiliers à Abidjan. Appartements, villas, bureaux — RAZAK Multi Service.">
-  <meta name="twitter:image" content="https://razak-multiservices.vercel.app/images/logo-razack.png">
+  <meta name="twitter:image" content="https://razak-multiservices.com/images/logo-razack.png">
 </head>
 <body>
 
@@ -405,7 +405,7 @@ const renderBien = b => `
     <div class="immo-price">${fmtImmo(b.prix, b.unite)}</div>
     <div class="immo-actions">
       <button onclick="openVisiteModal('${b.titre.replace(/'/g, "\\'")}')" class="btn btn-navy btn-sm" style="flex:1">📅 Visite</button>
-      <a href="${waContact(b)}" target="_blank" class="btn btn-whatsapp btn-sm" style="flex:1">📱 Contact</a><a href="https://wa.me/?text=${encodeURIComponent('🏠 Regarde ce bien sur RAZAK Multi Service !\n\n' + b.titre + '\n📍 ' + b.quartier + '\n💰 ' + fmtImmo(b.prix, b.unite) + '\n\n👉 https://razak-multiservices.vercel.app/immobilier.html')}" target="_blank" class="btn btn-outline btn-sm btn-full" style="margin-top:6px">🔗 Partager</a>
+      <a href="${waContact(b)}" target="_blank" class="btn btn-whatsapp btn-sm" style="flex:1">📱 Contact</a><a href="https://wa.me/?text=${encodeURIComponent('🏠 Regarde ce bien sur RAZAK Multi Service !\n\n' + b.titre + '\n📍 ' + b.quartier + '\n💰 ' + fmtImmo(b.prix, b.unite) + '\n\n👉 https://razak-multiservices.com/immobilier.html')}" target="_blank" class="btn btn-outline btn-sm btn-full" style="margin-top:6px">🔗 Partager</a>
     </div>
   </div>
 </div>`;
