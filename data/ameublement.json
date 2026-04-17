@@ -175,17 +175,25 @@
   },
   {
     "id": 10,
-    "cat": "Bureau",
-    "titre": "Fauteuil ergonomique direction",
-    "desc": "Fauteuil de direction en cuir véritable, réglable en hauteur, accoudoirs rembourrés. Confort optimal.",
-    "prix": 120000,
+    "cat": "Pack",
+    "titre": "GAZINIERE FRANCE AUREVOIR",
+    "desc": "GAZINIERE 4 FEUX\nETAT : 10/10\nFRANCE AUREVOIR",
+    "prix": 75000,
     "tags": [
-      "Cuir véritable",
-      "Ergonomique",
-      "Réglable"
+      "GAZINIERE",
+      "4 FEUX",
+      "PROPRE"
     ],
     "emoji": "🪑",
-    "statut": "available"
+    "statut": "available",
+    "photos": [
+      "/images/annonces/1776439521270_7y716.jpg",
+      "/images/annonces/1776439535249_40fe3.jpg",
+      "/images/annonces/1776439548785_cyqoj.jpg",
+      "/images/annonces/1776439564015_bo3gl.jpg",
+      "/images/annonces/1776439577189_e4war.jpg",
+      "/images/annonces/1776439593743_dfpfj.jpg"
+    ]
   },
   {
     "id": 11,
