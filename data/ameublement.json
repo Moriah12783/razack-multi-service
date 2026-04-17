@@ -88,17 +88,25 @@
   },
   {
     "id": 6,
-    "cat": "Chambre",
-    "titre": "Armoire penderie 3 portes miroir",
-    "desc": "Grande armoire 3 portes avec miroir intégré. Nombreux rangements intérieurs, finition blanc mat.",
-    "prix": 220000,
+    "cat": "Pack",
+    "titre": "MICRO-ONDE FRANCE AUREVOIR",
+    "desc": "MICRO-ONDE FRANCE AUREVOIR\nETAT : 10/10",
+    "prix": 30000,
     "tags": [
-      "Miroir",
-      "3 portes",
-      "Blanc mat"
+      "Micro-onde",
+      "France Aurevoir",
+      "Différentes couleurs"
     ],
-    "emoji": "🚪",
-    "statut": "available"
+    "emoji": "",
+    "statut": "available",
+    "photos": [
+      "/images/annonces/1776436435724_3gy0b.jpg",
+      "/images/annonces/1776436450636_bg80y.jpg",
+      "/images/annonces/1776436467028_4my6j.jpg",
+      "/images/annonces/1776436479799_r2kii.jpg",
+      "/images/annonces/1776436493087_ykbi3.jpg",
+      "/images/annonces/1776436507603_7guwl.jpg"
+    ]
   },
   {
     "id": 7,
