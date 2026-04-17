@@ -1,14 +1,243 @@
 [
-  {"id":1,"room":"salon","cat":"Canapé","titre":"Salon complet 7 places en L","desc":"Canapé 7 places en L, tissu velou ou din, confortable et élégant. Disponible en plusieurs coloris.","prix":190000,"tags":["Tissu velou et din","7 places en L","Livraison incluse"],"emoji":"🛋️","statut":"available","photos":["/images/annonces/1776277012687_3k7lf.jpg","/images/annonces/1776277027535_d11su.jpg","/images/annonces/1776277046322_vzpw8.jpg","/images/annonces/1776277096008_k1m5u.jpg","/images/annonces/1776277123120_yz5kw.jpg"]},
-  {"id":2,"room":"salon","cat":"Fauteuils","titre":"Fauteuils L 5 places","desc":"Fauteuils L en velou ou din. Plusieurs couleurs disponibles.","prix":120000,"tags":["Fauteuils L","5 places","Plusieurs couleurs"],"emoji":"🪑","statut":"available","photos":["/images/annonces/1776277510324_93n1r.jpg","/images/annonces/1776277611381_6koxa.jpg","/images/annonces/1776277623659_0o43d.jpg","/images/annonces/1776277640799_dzsow.jpg"]},
-  {"id":3,"room":"salon","cat":"Canapé","titre":"Salon complet 6 places","desc":"Salon complet 6 places en velou ou din.","prix":160000,"tags":["6 places","Velou ou din"],"emoji":"🛋️","statut":"available","photos":["/images/annonces/1776277936591_bkkj2.jpg","/images/annonces/1776277971926_5tybk.jpg"]},
-  {"id":4,"room":"salon","cat":"Canapé","titre":"Salon complet 7 places Haut Standing","desc":"Haut standing, fait en velou ou din. Toutes couleurs confondues.","prix":250000,"tags":["Haut standing","7 places","Toutes couleurs"],"emoji":"🛋️","statut":"available","photos":["/images/annonces/1776278507824_pi0p2.jpg","/images/annonces/1776278520216_qiz67.jpg","/images/annonces/1776278531846_ab4xg.jpg"]},
-  {"id":5,"room":"salon","cat":"Canapé","titre":"Salon complet 7 places + table","desc":"Ensemble salon complet : canapé 3 places + 2 fauteuils + table basse + tapis. Livraison incluse.","prix":650000,"tags":["Complet","7 places","Tapis inclus","Livraison"],"emoji":"🛋️","statut":"available"},
-  {"id":6,"room":"cuisine","cat":"Électroménager","titre":"Micro-onde France Aurevoir","desc":"Micro-onde France Aurevoir. État : 10/10","prix":30000,"tags":["Micro-onde","France Aurevoir","Différentes couleurs"],"emoji":"🔌","statut":"available","photos":["/images/annonces/1776436435724_3gy0b.jpg","/images/annonces/1776436450636_bg80y.jpg","/images/annonces/1776436467028_4my6j.jpg","/images/annonces/1776436479799_r2kii.jpg","/images/annonces/1776436493087_ykbi3.jpg","/images/annonces/1776436507603_7guwl.jpg"]},
-  {"id":7,"room":"cuisine","cat":"Électroménager","titre":"Gazinière petit modèle France Aurevoir","desc":"Gazinière petit modèle France Aurevoir. État : 10/10","prix":40000,"tags":["4 feux","Petit modèle","Performant"],"emoji":"🔌","statut":"available","photos":["/images/annonces/1776436850050_yncct.jpg","/images/annonces/1776436860132_yf7fx.jpg","/images/annonces/1776436871839_tmpqn.jpg","/images/annonces/1776436886197_r6sxt.jpg","/images/annonces/1776436918051_lbckd.jpg","/images/annonces/1776436954983_2i5sv.jpg"]},
-  {"id":8,"room":"cuisine","cat":"Électroménager","titre":"Gazinière 4 feux France Aurevoir","desc":"Gazinière 4 feux France Aurevoir. État : 10/10","prix":50000,"tags":["Gazinière","Propre","4 feux"],"emoji":"🔌","statut":"available","photos":["/images/annonces/1776437928600_5ygld.jpg","/images/annonces/1776437944942_ah0rf.jpg","/images/annonces/1776437956698_3tcsk.jpg","/images/annonces/1776437973522_nqx3f.jpg","/images/annonces/1776437984758_itwxr.jpg","/images/annonces/1776437998632_vggrc.jpg"]},
-  {"id":9,"room":"cuisine","cat":"Électroménager","titre":"Gazinière 4 feux France Aurevoir (grande)","desc":"Gazinière 4 feux propre. France Aurevoir.","prix":65000,"tags":["Gazinière","4 feux","Propre"],"emoji":"🔌","statut":"available","photos":["/images/annonces/1776438198265_6436s.jpg","/images/annonces/1776438208434_2os90.jpg","/images/annonces/1776438227782_lqrgf.jpg","/images/annonces/1776438237751_kyd7w.jpg","/images/annonces/1776438254877_37dov.jpg"]},
-  {"id":10,"room":"cuisine","cat":"Électroménager","titre":"Gazinière France Aurevoir","desc":"Gazinière 4 feux. État : 10/10. France Aurevoir.","prix":75000,"tags":["Gazinière","4 feux","Propre"],"emoji":"🔌","statut":"available","photos":["/images/annonces/1776439521270_7y716.jpg","/images/annonces/1776439535249_40fe3.jpg","/images/annonces/1776439548785_cyqoj.jpg","/images/annonces/1776439564015_bo3gl.jpg","/images/annonces/1776439577189_e4war.jpg","/images/annonces/1776439593743_dfpfj.jpg"]},
-  {"id":11,"room":"salle-manger","cat":"Buffet / vaisselier","titre":"Buffet vaisselier moderne","desc":"Buffet 2 portes + 2 tiroirs + vitrine supérieure. Finition chêne clair, design contemporain.","prix":195000,"tags":["Vitrine","Chêne clair","Rangement"],"emoji":"🍽️","statut":"available"},
-  {"id":12,"room":"pack","cat":"Pack","titre":"Pack Bureau Complet PME","desc":"Aménagement complet pour 4 postes de travail : bureaux, fauteuils, caissons, armoire archives. Installation incluse.","prix":1200000,"tags":["4 postes","Professionnel","Installation incluse"],"emoji":"📦","statut":"available"}
+  {
+    "id": 1,
+    "room": "salon",
+    "cat": "Canapé",
+    "titre": "Salon complet 7 places en L",
+    "desc": "Canapé 7 places en L, tissu velou ou din, confortable et élégant. Disponible en plusieurs coloris.",
+    "prix": 190000,
+    "tags": [
+      "Tissu velou et din",
+      "7 places en L",
+      "Livraison incluse"
+    ],
+    "emoji": "🛋️",
+    "statut": "available",
+    "photos": [
+      "/images/annonces/1776277012687_3k7lf.jpg",
+      "/images/annonces/1776277027535_d11su.jpg",
+      "/images/annonces/1776277046322_vzpw8.jpg",
+      "/images/annonces/1776277096008_k1m5u.jpg",
+      "/images/annonces/1776277123120_yz5kw.jpg"
+    ]
+  },
+  {
+    "id": 2,
+    "room": "salon",
+    "cat": "Fauteuils",
+    "titre": "Fauteuils L 5 places",
+    "desc": "Fauteuils L en velou ou din. Plusieurs couleurs disponibles.",
+    "prix": 120000,
+    "tags": [
+      "Fauteuils L",
+      "5 places",
+      "Plusieurs couleurs"
+    ],
+    "emoji": "🪑",
+    "statut": "available",
+    "photos": [
+      "/images/annonces/1776277510324_93n1r.jpg",
+      "/images/annonces/1776277611381_6koxa.jpg",
+      "/images/annonces/1776277623659_0o43d.jpg",
+      "/images/annonces/1776277640799_dzsow.jpg"
+    ]
+  },
+  {
+    "id": 3,
+    "room": "salon",
+    "cat": "Canapé",
+    "titre": "Salon complet 6 places",
+    "desc": "Salon complet 6 places en velou ou din.",
+    "prix": 160000,
+    "tags": [
+      "6 places",
+      "Velou ou din"
+    ],
+    "emoji": "🛋️",
+    "statut": "available",
+    "photos": [
+      "/images/annonces/1776277936591_bkkj2.jpg",
+      "/images/annonces/1776277971926_5tybk.jpg"
+    ]
+  },
+  {
+    "id": 4,
+    "room": "salon",
+    "cat": "Canapé",
+    "titre": "Salon complet 7 places Haut Standing",
+    "desc": "Haut standing, fait en velou ou din. Toutes couleurs confondues.",
+    "prix": 250000,
+    "tags": [
+      "Haut standing",
+      "7 places",
+      "Toutes couleurs"
+    ],
+    "emoji": "🛋️",
+    "statut": "available",
+    "photos": [
+      "/images/annonces/1776278507824_pi0p2.jpg",
+      "/images/annonces/1776278520216_qiz67.jpg",
+      "/images/annonces/1776278531846_ab4xg.jpg"
+    ]
+  },
+  {
+    "id": 5,
+    "room": "salon",
+    "cat": "Canapé",
+    "titre": "Salon complet 7 places + table",
+    "desc": "Ensemble salon complet : canapé 3 places + 2 fauteuils + table basse + tapis. Livraison incluse.",
+    "prix": 650000,
+    "tags": [
+      "Complet",
+      "7 places",
+      "Tapis inclus",
+      "Livraison"
+    ],
+    "emoji": "🛋️",
+    "statut": "available"
+  },
+  {
+    "id": 6,
+    "room": "cuisine",
+    "cat": "Électroménager",
+    "titre": "Micro-onde France Aurevoir",
+    "desc": "Micro-onde France Aurevoir. État : 10/10",
+    "prix": 30000,
+    "tags": [
+      "Micro-onde",
+      "France Aurevoir",
+      "Différentes couleurs"
+    ],
+    "emoji": "🔌",
+    "statut": "available",
+    "photos": [
+      "/images/annonces/1776436435724_3gy0b.jpg",
+      "/images/annonces/1776436450636_bg80y.jpg",
+      "/images/annonces/1776436467028_4my6j.jpg",
+      "/images/annonces/1776436479799_r2kii.jpg",
+      "/images/annonces/1776436493087_ykbi3.jpg",
+      "/images/annonces/1776436507603_7guwl.jpg"
+    ]
+  },
+  {
+    "id": 7,
+    "room": "cuisine",
+    "cat": "Électroménager",
+    "titre": "Gazinière petit modèle France Aurevoir",
+    "desc": "Gazinière petit modèle France Aurevoir. État : 10/10",
+    "prix": 40000,
+    "tags": [
+      "4 feux",
+      "Petit modèle",
+      "Performant"
+    ],
+    "emoji": "🔌",
+    "statut": "available",
+    "photos": [
+      "/images/annonces/1776436850050_yncct.jpg",
+      "/images/annonces/1776436860132_yf7fx.jpg",
+      "/images/annonces/1776436871839_tmpqn.jpg",
+      "/images/annonces/1776436886197_r6sxt.jpg",
+      "/images/annonces/1776436918051_lbckd.jpg",
+      "/images/annonces/1776436954983_2i5sv.jpg"
+    ]
+  },
+  {
+    "id": 8,
+    "room": "cuisine",
+    "cat": "Électroménager",
+    "titre": "Gazinière 4 feux France Aurevoir",
+    "desc": "Gazinière 4 feux France Aurevoir. État : 10/10",
+    "prix": 50000,
+    "tags": [
+      "Gazinière",
+      "Propre",
+      "4 feux"
+    ],
+    "emoji": "🔌",
+    "statut": "available",
+    "photos": [
+      "/images/annonces/1776437928600_5ygld.jpg",
+      "/images/annonces/1776437944942_ah0rf.jpg",
+      "/images/annonces/1776437956698_3tcsk.jpg",
+      "/images/annonces/1776437973522_nqx3f.jpg",
+      "/images/annonces/1776437984758_itwxr.jpg",
+      "/images/annonces/1776437998632_vggrc.jpg"
+    ]
+  },
+  {
+    "id": 9,
+    "room": "cuisine",
+    "cat": "Électroménager",
+    "titre": "Gazinière 4 feux France Aurevoir (grande)",
+    "desc": "Gazinière 4 feux propre. France Aurevoir.",
+    "prix": 65000,
+    "tags": [
+      "Gazinière",
+      "4 feux",
+      "Propre"
+    ],
+    "emoji": "🔌",
+    "statut": "available",
+    "photos": [
+      "/images/annonces/1776438198265_6436s.jpg",
+      "/images/annonces/1776438208434_2os90.jpg",
+      "/images/annonces/1776438227782_lqrgf.jpg",
+      "/images/annonces/1776438237751_kyd7w.jpg",
+      "/images/annonces/1776438254877_37dov.jpg"
+    ]
+  },
+  {
+    "id": 10,
+    "room": "cuisine",
+    "cat": "Électroménager",
+    "titre": "Gazinière France Aurevoir",
+    "desc": "Gazinière 4 feux. État : 10/10. France Aurevoir.",
+    "prix": 75000,
+    "tags": [
+      "Gazinière",
+      "4 feux",
+      "Propre"
+    ],
+    "emoji": "🔌",
+    "statut": "available",
+    "photos": [
+      "/images/annonces/1776439521270_7y716.jpg",
+      "/images/annonces/1776439535249_40fe3.jpg",
+      "/images/annonces/1776439548785_cyqoj.jpg",
+      "/images/annonces/1776439564015_bo3gl.jpg",
+      "/images/annonces/1776439577189_e4war.jpg",
+      "/images/annonces/1776439593743_dfpfj.jpg"
+    ]
+  },
+  {
+    "id": 11,
+    "room": "salle-manger",
+    "cat": "Buffet / vaisselier",
+    "titre": "Buffet vaisselier moderne",
+    "desc": "Buffet 2 portes + 2 tiroirs + vitrine supérieure. Finition chêne clair, design contemporain.",
+    "prix": 195000,
+    "tags": [
+      "Vitrine",
+      "Chêne clair",
+      "Rangement"
+    ],
+    "emoji": "🍽️",
+    "statut": "available"
+  },
+  {
+    "id": 12,
+    "room": "pack",
+    "cat": "Pack",
+    "titre": "Pack Bureau Complet PME",
+    "desc": "Aménagement complet pour 4 postes de travail : bureaux, fauteuils, caissons, armoire archives. Installation incluse.",
+    "prix": 1200000,
+    "tags": [
+      "4 postes",
+      "Professionnel",
+      "Installation incluse"
+    ],
+    "emoji": "📦",
+    "statut": "available"
+  }
 ]
