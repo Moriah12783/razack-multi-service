@@ -212,18 +212,26 @@
   },
   {
     "id": 11,
-    "room": "salle-manger",
-    "cat": "Buffet / vaisselier",
-    "titre": "Buffet vaisselier moderne",
-    "desc": "Buffet 2 portes + 2 tiroirs + vitrine supérieure. Finition chêne clair, design contemporain.",
-    "prix": 195000,
+    "room": "cuisine",
+    "cat": "GAZINIERE",
+    "titre": "GAZINIERE FRANCE AUREVOIR 5 FEUX",
+    "desc": "GAZINIERE 5 FEUX\nFRANCE AUREVOIR \nETAT : 10/10\nMODERNE",
+    "prix": 150000,
     "tags": [
-      "Vitrine",
-      "Chêne clair",
-      "Rangement"
+      "GAZINIERE",
+      "5 FEUX",
+      "PROPRE"
     ],
-    "emoji": "🍽️",
-    "statut": "available"
+    "emoji": "",
+    "statut": "available",
+    "photos": [
+      "/images/annonces/1776534620159_vcmcg.jpg",
+      "/images/annonces/1776534635137_c47vb.jpg",
+      "/images/annonces/1776534650574_67vgz.jpg",
+      "/images/annonces/1776534663293_bysa6.jpg",
+      "/images/annonces/1776534677516_2i2et.jpg",
+      "/images/annonces/1776534693887_5hwwd.jpg"
+    ]
   },
   {
     "id": 12,
