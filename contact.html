@@ -361,6 +361,11 @@ document.getElementById('contactForm').addEventListener('submit', function(e) {
     const tel = document.getElementById('cf-tel').value;
     const text = `Bonjour RAZAK Multi Service !\n\n👤 Nom : ${nom}\n📱 WhatsApp : ${tel}\n📋 Sujet : ${sujet}\n\n💬 Message :\n${msg}`;
     window.open(`https://wa.me/2250797388202?text=${encodeURIComponent(text)}`, '_blank');
+fetch('https://clammy-flanked-monetary.ngrok-free.dev/webhook/razak-leads', {
+  method: 'POST',
+  headers: {'Content-Type': 'application/json', 'ngrok-skip-browser-warning': 'true'},
+  body: JSON.stringify({nom: nom, telephone: tel, sujet: sujet, message: msg})
+});
   } else {
     const email = document.getElementById('cf-email').value;
     const body = `Bonjour RAZAK Multi Service,\n\nNom : ${nom}\nEmail : ${email}\nSujet : ${sujet}\n\nMessage :\n${msg}`;
