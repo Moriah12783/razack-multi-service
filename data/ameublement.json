@@ -325,5 +325,22 @@
     "desc": "SALON COMPLETS 7 PLACES AVEC LA TABLE\nEN VELOU\nDESIGN\nAVEC MOTIF",
     "photos": [],
     "id": 16
+  },
+  {
+    "titre": "TABLE A MANGER + 6 CHAISES",
+    "room": "salon",
+    "cat": "TABLE A MANGER",
+    "prix": 180000,
+    "statut": "available",
+    "emoji": "🛋️",
+    "tags": [
+      "TABLE",
+      "6 CHAISES"
+    ],
+    "desc": "TABLE A MANGER\n6 CHAISES\nETAT : 10/10",
+    "photos": [
+      "/images/annonces/1776905427252_ndj8n.jpg"
+    ],
+    "id": 17
   }
 ]
