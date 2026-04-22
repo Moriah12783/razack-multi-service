@@ -25,24 +25,33 @@
   },
   {
     "id": 2,
-    "type": "Appartement",
-    "mode": "location",
-    "quartier": "Riviera",
-    "titre": "Appartement F3 meublé",
-    "chambres": 2,
+    "type": "Villa",
+    "mode": "vente",
+    "quartier": "COCODY RIVIERA FAYA",
+    "titre": "VILLA DUPLEX",
+    "chambres": 4,
     "sdb": 2,
-    "surface": 95,
-    "prix": 450000,
-    "unite": "/mois",
-    "desc": "Bel appartement meublé et équipé, vue partielle sur la lagune. Résidence sécurisée avec gardien.",
+    "surface": 300,
+    "prix": 180000000,
+    "unite": "",
+    "desc": "Somptueuse villa duplex\n5 pièces, cour avant et arrière\nGrand studio  américain avec cuisine buanderie\nUne 2 pièces très grande sur 300m² avec ACD",
     "equip": [
-      "Meublé",
-      "Climatisé",
-      "Sécurisé",
-      "Parking"
+      "Villa",
+      "Duplex",
+      "Garage",
+      "Cour arrière",
+      "Cour avant"
     ],
     "emoji": "🏢",
-    "statut": "available"
+    "statut": "available",
+    "photos": [
+      "/images/annonces/1776881178369_07hrs.jpg",
+      "/images/annonces/1776881194609_sn5a0.jpg",
+      "/images/annonces/1776881205044_1eds3.jpg",
+      "/images/annonces/1776881220611_uuiny.jpg",
+      "/images/annonces/1776881233278_4utbo.jpg",
+      "/images/annonces/1776881241455_fc1k5.jpg"
+    ]
   },
   {
     "id": 3,
