@@ -346,5 +346,30 @@
       "/images/annonces/1776998231183_xylnd.jpg"
     ],
     "id": 14
+  },
+  {
+    "brand": "KIA",
+    "model": "SORENTO EX",
+    "year": 2016,
+    "km": 78000,
+    "price": 10500000,
+    "color": "GRISE",
+    "fuel": "Essence",
+    "transmission": "Automatique",
+    "type": "Pick-up",
+    "engine": "V6",
+    "doors": 4,
+    "status": "available",
+    "emoji": "🚗",
+    "desc": "DEMARRAGE START/STOP\nINTERIEUR CUIR NOIR\nCLIMATISATION D'ORIGINE\nCAMERA DE RECUL\nTOUT DOCUMENT A JOUR\nPLACES ASSISES 7 PLACES\nSIEGE ELECTRIQUE",
+    "photos": [
+      "/images/annonces/1777028676940_ltg3f.jpg",
+      "/images/annonces/1777028688165_flog8.jpg",
+      "/images/annonces/1777028699465_foxe1.jpg",
+      "/images/annonces/1777028718265_of13x.jpg",
+      "/images/annonces/1777028726100_5i2ke.jpg",
+      "/images/annonces/1777028746791_g4pji.jpg"
+    ],
+    "id": 15
   }
 ]
