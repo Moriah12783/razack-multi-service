@@ -496,5 +496,30 @@
       "/images/annonces/1777311015664_0x9ys.jpg"
     ],
     "id": 20
+  },
+  {
+    "brand": "",
+    "model": "RAV4",
+    "year": 2022,
+    "km": 18000,
+    "price": 25000000,
+    "color": "BLANCHE",
+    "fuel": "Essence",
+    "transmission": "Automatique",
+    "type": "Pick-up",
+    "engine": "Hybride 4 Cylindres",
+    "doors": 4,
+    "status": "available",
+    "emoji": "🚗",
+    "desc": "Hybride \nDémarrage Sart/stop\nToit couvrant\nIntérieur Cuir\nSiège et coffre électrique",
+    "photos": [
+      "/images/annonces/1777324829824_j4cri.jpg",
+      "/images/annonces/1777324837895_nobyl.jpg",
+      "/images/annonces/1777324847753_7ddmc.jpg",
+      "/images/annonces/1777324869549_m4sgw.jpg",
+      "/images/annonces/1777324888305_2rqm0.jpg",
+      "/images/annonces/1777324905837_w42bx.jpg"
+    ],
+    "id": 21
   }
 ]
