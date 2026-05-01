@@ -595,5 +595,30 @@
       "/images/annonces/1777482059494_rqybl.jpg"
     ],
     "id": 24
+  },
+  {
+    "brand": "RANGE ROVER",
+    "model": "VOGUE AUTOBIOGRAPHY P525 LIMOUSINE",
+    "year": 2022,
+    "km": 8000,
+    "price": 75000000,
+    "color": "BLEUE NUIT",
+    "fuel": "Essence",
+    "transmission": "Automatique",
+    "type": "SUV",
+    "engine": "V8",
+    "doors": 4,
+    "status": "available",
+    "emoji": "🚗",
+    "desc": "Intérieur cuir\nToit ouvrant panoramique\nfull option\nEn cours d'immatriculation",
+    "photos": [
+      "/images/annonces/1777655735611_in3js.jpg",
+      "/images/annonces/1777655745969_e6tpk.jpg",
+      "/images/annonces/1777655755607_8ftb6.jpg",
+      "/images/annonces/1777655777722_n5qen.jpg",
+      "/images/annonces/1777655787301_4o0ir.jpg",
+      "/images/annonces/1777655800747_kz8id.jpg"
+    ],
+    "id": 25
   }
 ]
