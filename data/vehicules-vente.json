@@ -967,5 +967,30 @@
       "/images/annonces/1779795392823_y1duz.jpg"
     ],
     "id": 39
+  },
+  {
+    "brand": "KIA",
+    "model": "SOUL",
+    "year": 2017,
+    "km": 0,
+    "price": 8000000,
+    "color": "BLANCHE",
+    "fuel": "Essence",
+    "transmission": "Automatique",
+    "type": "SUV",
+    "engine": "4 CYLINDRES",
+    "doors": 4,
+    "status": "available",
+    "emoji": "🚗",
+    "desc": "INTERIEUR PROPRE\nINTERIEUR TISSU\nCLIMATISATION D'ORIGINE\nTOUT PAPIER A JOUR\nDEMARRAGE A CLE",
+    "photos": [
+      "/images/annonces/1779795776289_aojt9.jpg",
+      "/images/annonces/1779795784015_bpcwi.jpg",
+      "/images/annonces/1779795797063_g6whr.jpg",
+      "/images/annonces/1779795815403_ibe2j.jpg",
+      "/images/annonces/1779795836082_wwl9x.jpg",
+      "/images/annonces/1779795852263_i8vax.jpg"
+    ],
+    "id": 40
   }
 ]
