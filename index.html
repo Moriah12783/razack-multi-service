@@ -11,8 +11,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="canonical" href="https://razak-multiservices.com/">
-  <title>RAZAK Multi Service — Automobile · Immobilier · Ameublement</title>
-  <meta name="description" content="RAZAK Multi Service, votre partenaire de confiance à Abidjan. Vente et location de véhicules, immobilier, ameublement de maison en Côte d'Ivoire.">
+  <title>RAZAK Multi Service — Automobile, Immobilier &amp; Ameublement à Abidjan | Côte d'Ivoire</title>
+  <meta name="description" content="Votre partenaire de confiance à Abidjan : achat/vente de véhicules, location avec ou sans chauffeur, immobilier et ameublement. Cocody, Plateau, Marcory, Riviera, Angré. WhatsApp +225 07 97 38 82 02.">
   <meta name="keywords" content="RAZAK Multi Service, vente véhicule Abidjan, immobilier Côte d'Ivoire, ameublement Abidjan, location voiture Abidjan">
   <meta name="theme-color" content="#0A1F44">
   <link rel="stylesheet" href="css/style.css">
@@ -80,6 +80,20 @@
     }
   }
   </script>
+  <style>
+    .zones-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; }
+    .zone-card { background: var(--white); border: 1.5px solid var(--gray-200); border-radius: var(--radius-md); padding: 16px 12px; text-align: center; transition: var(--transition); }
+    .zone-card:hover { border-color: var(--gold); transform: translateY(-3px); box-shadow: var(--shadow-sm); }
+    .zone-card .zone-icon { font-size: 1.6rem; margin-bottom: 8px; }
+    .zone-card .zone-name { font-family: var(--font-display); font-size: .9rem; font-weight: 700; color: var(--navy); }
+    .faq-item { border-bottom: 1px solid var(--gray-200); }
+    .faq-question { width: 100%; background: none; border: none; text-align: left; padding: 20px 0; font-family: var(--font-display); font-size: 1rem; font-weight: 600; color: var(--navy); cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 16px; }
+    .faq-question::after { content: '+'; font-size: 1.4rem; color: var(--gold); flex-shrink: 0; transition: transform .3s; }
+    .faq-question.open::after { transform: rotate(45deg); }
+    .faq-answer { max-height: 0; overflow: hidden; transition: max-height .35s ease; }
+    .faq-answer p { padding-bottom: 18px; color: var(--gray-600); line-height: 1.7; }
+    @media(max-width:768px) { .zones-grid { grid-template-columns: repeat(2, 1fr); } }
+  </style>
 </head>
 <body>
 
@@ -393,6 +407,74 @@
   </div>
 </section>
 
+<!-- ZONES COUVERTES -->
+<section class="section" style="background:var(--off-white)">
+  <div class="container">
+    <div class="section-header">
+      <span class="eyebrow">Présence locale</span>
+      <h2>Zones couvertes à Abidjan</h2>
+      <p>RAZAK Multi Service intervient dans tout le Grand Abidjan pour la vente de véhicules, la location, l'immobilier et l'ameublement.</p>
+    </div>
+    <div class="zones-grid">
+      <div class="zone-card"><div class="zone-icon">🌿</div><div class="zone-name">Cocody</div></div>
+      <div class="zone-card"><div class="zone-icon">🏙️</div><div class="zone-name">Plateau</div></div>
+      <div class="zone-card"><div class="zone-icon">🌊</div><div class="zone-name">Marcory</div></div>
+      <div class="zone-card"><div class="zone-icon">🏘️</div><div class="zone-name">Yopougon</div></div>
+      <div class="zone-card"><div class="zone-icon">🌴</div><div class="zone-name">Riviera</div></div>
+      <div class="zone-card"><div class="zone-icon">🏡</div><div class="zone-name">Angré</div></div>
+      <div class="zone-card"><div class="zone-icon">🌆</div><div class="zone-name">Abobo</div></div>
+      <div class="zone-card"><div class="zone-icon">🌅</div><div class="zone-name">Bingerville</div></div>
+      <div class="zone-card"><div class="zone-icon">⚓</div><div class="zone-name">Treichville</div></div>
+      <div class="zone-card"><div class="zone-icon">🏖️</div><div class="zone-name">Grand-Bassam</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ ACCUEIL -->
+<section class="section" style="background:var(--white)">
+  <div class="container">
+    <div class="section-header">
+      <span class="eyebrow">Questions fréquentes</span>
+      <h2>Tout savoir sur RAZAK Multi Service</h2>
+    </div>
+    <div style="max-width:800px;margin:0 auto">
+      <div class="faq-item">
+        <button class="faq-question">Quels services propose RAZAK Multi Service ?</button>
+        <div class="faq-answer"><p>RAZAK Multi Service est une entreprise ivoirienne spécialisée dans trois pôles : <strong>l'automobile</strong> (vente et location de véhicules avec ou sans chauffeur), <strong>l'immobilier</strong> (vente, location longue durée et court séjour) et <strong>l'ameublement</strong> (meubles et packs clé en main pour maison et bureau).</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">Comment contacter RAZAK Multi Service rapidement ?</button>
+        <div class="faq-answer"><p>Le moyen le plus rapide est WhatsApp au <strong>+225 07 97 38 82 02</strong>. Notre équipe répond généralement en quelques minutes. Vous pouvez aussi utiliser le formulaire de contact disponible sur la page <a href="/contact">Contact</a>.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">RAZAK Multi Service intervient-il dans tout Abidjan ?</button>
+        <div class="faq-answer"><p>Oui, nous couvrons l'ensemble du Grand Abidjan : Cocody, Plateau, Marcory, Yopougon, Riviera, Angré, Abobo, Bingerville, Treichville et Grand-Bassam. Précisez votre quartier dans votre message et nous adaptons notre intervention.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">Les prix sont-ils négociables ?</button>
+        <div class="faq-answer"><p>Nous pratiquons des prix transparents et compétitifs. Selon le service (achat de véhicule, bien immobilier, commande ameublement importante), une discussion est possible. Contactez-nous directement sur WhatsApp pour obtenir la meilleure offre.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">RAZAK Multi Service est-il une entreprise sérieuse et enregistrée ?</button>
+        <div class="faq-answer"><p>Oui, RAZAK Multi Service est une entreprise ivoirienne officielle, active depuis plusieurs années sur le marché d'Abidjan. Notre directeur général est présenté sur la page <a href="/directeur">À propos du directeur</a>. Nous nous engageons sur la transparence et la satisfaction de chaque client.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"Quels services propose RAZAK Multi Service ?","acceptedAnswer":{"@type":"Answer","text":"RAZAK Multi Service est spécialisé dans l'automobile (vente et location de véhicules), l'immobilier (vente et location) et l'ameublement (meubles et packs clé en main) à Abidjan, Côte d'Ivoire."}},
+    {"@type":"Question","name":"Comment contacter RAZAK Multi Service rapidement ?","acceptedAnswer":{"@type":"Answer","text":"Via WhatsApp au +225 07 97 38 82 02. Notre équipe répond généralement en quelques minutes."}},
+    {"@type":"Question","name":"RAZAK Multi Service intervient-il dans tout Abidjan ?","acceptedAnswer":{"@type":"Answer","text":"Oui : Cocody, Plateau, Marcory, Yopougon, Riviera, Angré, Abobo, Bingerville, Treichville et Grand-Bassam."}},
+    {"@type":"Question","name":"Les prix sont-ils négociables ?","acceptedAnswer":{"@type":"Answer","text":"Nous pratiquons des prix transparents et compétitifs. Une discussion est possible selon le service — contactez-nous sur WhatsApp."}},
+    {"@type":"Question","name":"RAZAK Multi Service est-il une entreprise sérieuse et enregistrée ?","acceptedAnswer":{"@type":"Answer","text":"Oui, RAZAK Multi Service est une entreprise ivoirienne officielle, active depuis plusieurs années sur le marché d'Abidjan."}}
+  ]
+}
+</script>
+
 <!-- CTA FINAL -->
 <section class="cta-section">
   <div class="cta-content">
@@ -501,6 +583,14 @@ if (grid) {
     </div>
   </div>`).join('');
 }
+
+document.querySelectorAll('.faq-question').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const isOpen = btn.classList.contains('open');
+    document.querySelectorAll('.faq-question').forEach(b => { b.classList.remove('open'); b.nextElementSibling.style.maxHeight = null; });
+    if (!isOpen) { btn.classList.add('open'); btn.nextElementSibling.style.maxHeight = btn.nextElementSibling.scrollHeight + 'px'; }
+  });
+});
 </script>
 <script src="js/main.js"></script>
 </body>
