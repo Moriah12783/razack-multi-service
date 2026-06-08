@@ -4,92 +4,70 @@
   <!-- Accueil -->
   <url>
     <loc>https://razak-multiservices.com/</loc>
-    <lastmod>2026-04-17</lastmod>
+    <lastmod>2026-06-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
 
   <!-- Automobile -->
   <url>
-    <loc>https://razak-multiservices.com/vehicules-vente.html</loc>
-    <lastmod>2026-04-17</lastmod>
+    <loc>https://razak-multiservices.com/vehicules-vente</loc>
+    <lastmod>2026-06-08</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
-    <loc>https://razak-multiservices.com/vehicules-location.html</loc>
-    <lastmod>2026-04-17</lastmod>
+    <loc>https://razak-multiservices.com/vehicules-location</loc>
+    <lastmod>2026-06-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://razak-multiservices.com/vendre-vehicule.html</loc>
-    <lastmod>2026-04-17</lastmod>
+    <loc>https://razak-multiservices.com/vendre-vehicule</loc>
+    <lastmod>2026-06-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <!-- Immobilier -->
   <url>
-    <loc>https://razak-multiservices.com/immobilier.html</loc>
-    <lastmod>2026-04-17</lastmod>
+    <loc>https://razak-multiservices.com/immobilier</loc>
+    <lastmod>2026-06-08</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
 
   <!-- Ameublement -->
   <url>
-    <loc>https://razak-multiservices.com/ameublement.html</loc>
-    <lastmod>2026-04-17</lastmod>
+    <loc>https://razak-multiservices.com/ameublement</loc>
+    <lastmod>2026-06-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <!-- À propos -->
   <url>
-    <loc>https://razak-multiservices.com/about.html</loc>
-    <lastmod>2026-04-17</lastmod>
+    <loc>https://razak-multiservices.com/about</loc>
+    <lastmod>2026-06-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <url>
-    <loc>https://razak-multiservices.com/directeur.html</loc>
-    <lastmod>2026-04-17</lastmod>
+    <loc>https://razak-multiservices.com/directeur</loc>
+    <lastmod>2026-06-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
 
   <!-- Contact -->
   <url>
-    <loc>https://razak-multiservices.com/contact.html</loc>
-    <lastmod>2026-04-17</lastmod>
+    <loc>https://razak-multiservices.com/contact</loc>
+    <lastmod>2026-06-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-  </url>
-
-  <!-- Légal -->
-  <url>
-    <loc>https://razak-multiservices.com/mentions-legales.html</loc>
-    <lastmod>2026-04-17</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
-  </url>
-
-  <url>
-    <loc>https://razak-multiservices.com/confidentialite.html</loc>
-    <lastmod>2026-04-17</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
-  </url>
-
-  <url>
-    <loc>https://razak-multiservices.com/cgu.html</loc>
-    <lastmod>2026-04-17</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
   </url>
 
 </urlset>
