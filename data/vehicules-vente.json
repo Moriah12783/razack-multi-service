@@ -992,5 +992,29 @@
       "/images/annonces/1779795852263_i8vax.jpg"
     ],
     "id": 40
+  },
+  {
+    "brand": "TOYOTA",
+    "model": "RAV4 HYBRIDE",
+    "year": 2021,
+    "km": 50000,
+    "price": 20500000,
+    "color": "BLANCHE",
+    "fuel": "Essence",
+    "transmission": "Automatique",
+    "type": "SUV",
+    "engine": "4 CYLINDRES",
+    "doors": 4,
+    "status": "available",
+    "emoji": "🚗",
+    "desc": "DEMARRAGE START\nCHARGE A INDUCTION\nCAPTEUR A PROXIMITE\nINTERIEUR CUIR",
+    "photos": [
+      "/images/annonces/1781033022747_5uv3y.jpg",
+      "/images/annonces/1781033036153_jf7vj.jpg",
+      "/images/annonces/1781033045266_b5hdv.jpg",
+      "/images/annonces/1781033059030_rtkl8.jpg",
+      "/images/annonces/1781033072771_fpy17.jpg"
+    ],
+    "id": 41
   }
 ]
