@@ -331,7 +331,7 @@ const renderCard = v => `
     ${v.status === 'sold' ? '<div style="position:absolute;inset:0;background:rgba(0,0,0,.5);display:flex;align-items:center;justify-content:center;font-size:1.5rem;font-weight:700;color:#fff;letter-spacing:.1em">VENDU</div>' : ''}
   </div>
   <div class="listing-body">
-    <div class="listing-title"><a href="${itemUrl(v,'vehicules-vente')}" class="listing-title-link">${v.brand} ${v.model}</a></div>
+    <div class="listing-title"><a href="${v.url}" class="listing-title-link">${v.brand} ${v.model}</a></div>
     <div class="listing-sub">${v.year} · ${v.color} · ${v.engine}</div>
     <div class="listing-specs">
       <div class="spec-item">📍 ${v.km.toLocaleString()} km</div>
@@ -342,7 +342,7 @@ const renderCard = v => `
     <p style="font-size:.82rem;color:var(--gray-600);line-height:1.5;margin-bottom:14px;border-top:1px solid var(--gray-200);padding-top:12px">${v.desc}</p>
     <div class="listing-price">${fmt(v.price)}</div>
     <div class="listing-actions">
-      <a href="${itemUrl(v,'vehicules-vente')}" class="btn btn-outline btn-sm btn-full">Voir la fiche</a>
+      <a href="${v.url}" class="btn btn-outline btn-sm btn-full">Voir la fiche</a>
       ${v.status !== 'sold'
         ? `<a href="${waVehicle(v)}" target="_blank" class="btn btn-whatsapp btn-sm btn-full" style="margin-top:6px">📱 Je suis intéressé(e)</a>
 <a href="https://wa.me/?text=${encodeURIComponent('🚗 Regarde cette offre sur RAZAK Multi Service !\n\n' + v.brand + ' ' + v.model + ' ' + v.year + '\n💰 ' + fmt(v.price) + '\n\n👉 https://www.razak-multiservices.com/vehicules-vente')}" target="_blank" class="btn btn-outline btn-sm btn-full" style="margin-top:6px">🔗 Partager</a>`
@@ -408,7 +408,7 @@ document.addEventListener('DOMContentLoaded', () => {
   fetch('data/vehicules-vente.json?v=' + Date.now())
     .then(r => r.json())
     .then(data => {
-      VEHICLES = data;
+      VEHICLES = assignSlugs(data, 'vehicules-vente');
       populateFilters();
       applyFilters();
     });

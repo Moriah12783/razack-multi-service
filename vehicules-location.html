@@ -515,7 +515,7 @@ const renderLocationCard = v => `
     <span style="position:absolute;top:12px;right:12px;background:${v.formule === 'chauffeur' ? 'var(--gold)' : 'var(--navy)'};color:${v.formule === 'chauffeur' ? 'var(--navy)' : 'var(--white)'};padding:4px 10px;border-radius:20px;font-size:.7rem;font-weight:700">${v.formule === 'chauffeur' ? '🧑‍✈️ Avec chauffeur' : '🔑 Sans chauffeur'}</span>
   </div>
   <div class="listing-body">
-    <div class="listing-title"><a href="${itemUrl(v,'vehicules-location')}" class="listing-title-link">${v.brand} ${v.model}</a></div>
+    <div class="listing-title"><a href="${v.url}" class="listing-title-link">${v.brand} ${v.model}</a></div>
     <div class="listing-sub">${v.year} · ${v.type} · ${v.places} places</div>
     <div class="listing-specs">
       <div class="spec-item">⛽ ${v.fuel}</div>
@@ -531,7 +531,7 @@ const renderLocationCard = v => `
       <div style="text-align:center;border-left:1px solid var(--gray-200);border-right:1px solid var(--gray-200)"><div style="font-size:.65rem;color:var(--gray-400);text-transform:uppercase;letter-spacing:.05em">Semaine</div><div style="font-family:var(--font-display);font-size:.95rem;font-weight:700;color:var(--gold)">${fmtPrice(v.priceWeek)}</div></div>
       <div style="text-align:center"><div style="font-size:.65rem;color:var(--gray-400);text-transform:uppercase;letter-spacing:.05em">Mois</div><div style="font-family:var(--font-display);font-size:.95rem;font-weight:700;color:var(--gold)">${fmtPrice(v.priceMonth)}</div></div>
     </div>
-    <a href="${itemUrl(v,'vehicules-location')}" class="btn btn-outline btn-sm btn-full">Voir la fiche</a>
+    <a href="${v.url}" class="btn btn-outline btn-sm btn-full">Voir la fiche</a>
     <a href="${waLocation(v)}" target="_blank" class="btn btn-whatsapp btn-sm btn-full" style="margin-top:6px">📱 Réserver ce véhicule</a>
     <a href="https://wa.me/?text=${encodeURIComponent('🚗 Regarde cette offre de location sur RAZAK Multi Service !\n\n' + v.brand + ' ' + v.model + ' ' + v.year + '\n💰 ' + fmtPrice(v.priceDay) + ' / jour\n\n👉 https://www.razak-multiservices.com/vehicules-location')}" target="_blank" class="btn btn-outline btn-sm btn-full" style="margin-top:6px">🔗 Partager</a>
   </div>
@@ -590,7 +590,7 @@ document.getElementById('devisForm').addEventListener('submit', e => {
 document.addEventListener('DOMContentLoaded', () => {
   fetch('data/vehicules-location.json?v=' + Date.now())
     .then(r => r.json())
-    .then(data => { LOCATION_VEHICLES = data; applyLocationFilters(); });
+    .then(data => { LOCATION_VEHICLES = assignSlugs(data, 'vehicules-location'); applyLocationFilters(); });
   ['lf-type','lf-duration','lf-vehicletype','lf-budget','lf-sort'].forEach(id => document.getElementById(id).addEventListener('change', applyLocationFilters));
 });
 

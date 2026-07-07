@@ -512,11 +512,11 @@ const renderMeuble = m => `
   </div>
   <div class="meuble-body">
     <div class="meuble-cat">${m.cat}</div>
-    <div class="meuble-title"><a href="${itemUrl(m,'ameublement')}" class="listing-title-link">${m.titre}</a></div>
+    <div class="meuble-title"><a href="${m.url}" class="listing-title-link">${m.titre}</a></div>
     <div class="meuble-desc">${m.desc}</div>
     <div class="meuble-tags">${(m.tags||[]).map(t=>`<span class="meuble-tag">${t}</span>`).join('')}</div>
     <div class="meuble-price">${fmt(m.prix)}</div>
-    <a href="${itemUrl(m,'ameublement')}" class="btn btn-outline btn-sm btn-full" style="margin-bottom:6px">Voir la fiche</a>
+    <a href="${m.url}" class="btn btn-outline btn-sm btn-full" style="margin-bottom:6px">Voir la fiche</a>
     <a href="${waProduct(m)}" target="_blank" class="btn btn-whatsapp btn-sm btn-full">📱 Je suis intéressé(e)</a>
     <a href="https://wa.me/?text=${encodeURIComponent('🛋️ Regarde ce meuble sur RAZAK Multi Service !\n\n'+m.titre+'\n💰 '+fmt(m.prix)+'\n\n👉 https://www.razak-multiservices.com/ameublement')}" target="_blank" class="btn btn-outline btn-sm btn-full" style="margin-top:6px">🔗 Partager</a>
   </div>
@@ -643,7 +643,7 @@ document.getElementById('devisAmeubleForm').addEventListener('submit', e => {
 document.addEventListener('DOMContentLoaded', () => {
   fetch('data/ameublement.json?v=' + Date.now())
     .then(r => r.json())
-    .then(data => { MEUBLES = data; renderCatalog(); });
+    .then(data => { MEUBLES = assignSlugs(data, 'ameublement'); renderCatalog(); });
   ['af-budget','af-sort'].forEach(id => document.getElementById(id).addEventListener('change', renderCatalog));
   document.getElementById('af-search').addEventListener('input', renderCatalog);
 });

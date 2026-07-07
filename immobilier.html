@@ -459,7 +459,7 @@ const renderBien = b => `
     </div>
   </div>
   <div class="immo-body">
-    <div class="immo-title"><a href="${itemUrl(b,'immobilier')}" class="listing-title-link">${b.titre}</a></div>
+    <div class="immo-title"><a href="${b.url}" class="listing-title-link">${b.titre}</a></div>
     <div class="immo-location">📍 ${b.quartier} · ${b.type}</div>
     <div class="immo-features">
       <div class="immo-feature"><div class="immo-feature-icon">🛏️</div><div class="immo-feature-value">${b.chambres}</div><div class="immo-feature-label">Chambre${b.chambres > 1 ? 's' : ''}</div></div>
@@ -472,7 +472,7 @@ const renderBien = b => `
     </div>
     <div class="immo-price">${fmtImmo(b.prix, b.unite)}</div>
     <div class="immo-actions">
-      <a href="${itemUrl(b,'immobilier')}" class="btn btn-outline btn-sm btn-full" style="margin-bottom:6px">Voir la fiche</a>
+      <a href="${b.url}" class="btn btn-outline btn-sm btn-full" style="margin-bottom:6px">Voir la fiche</a>
       <button onclick="openVisiteModal('${b.titre.replace(/'/g, "\\'")}')" class="btn btn-navy btn-sm" style="flex:1">📅 Visite</button>
       <a href="${waContact(b)}" target="_blank" class="btn btn-whatsapp btn-sm" style="flex:1">📱 Contact</a><a href="https://wa.me/?text=${encodeURIComponent('🏠 Regarde ce bien sur RAZAK Multi Service !\n\n' + b.titre + '\n📍 ' + b.quartier + '\n💰 ' + fmtImmo(b.prix, b.unite) + '\n\n👉 https://www.razak-multiservices.com/immobilier')}" target="_blank" class="btn btn-outline btn-sm btn-full" style="margin-top:6px">🔗 Partager</a>
     </div>
@@ -564,7 +564,7 @@ document.getElementById('visiteForm').addEventListener('submit', (e) => {
 document.addEventListener('DOMContentLoaded', () => {
   fetch('data/immobilier.json?v=' + Date.now())
     .then(r => r.json())
-    .then(data => { BIENS = data; applyImmoFilters(); });
+    .then(data => { BIENS = assignSlugs(data, 'immobilier'); applyImmoFilters(); });
   ['if-type','if-quartier','if-chambres','if-budget','if-sort'].forEach(id => document.getElementById(id).addEventListener('change', applyImmoFilters));
   document.getElementById('if-search').addEventListener('input', applyImmoFilters);
 });
