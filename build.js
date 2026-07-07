@@ -17,8 +17,26 @@ function writePage(urlPath, html) {
   fs.writeFileSync(file, html, 'utf8');
 }
 
+function rmDist() {
+  // Windows: a watcher/dev server holding a handle inside dist/ can make a
+  // single rmSync throw EBUSY/ENOTEMPTY/EPERM. Retry with a short backoff so a
+  // transient lock (e.g. a live-reload watcher) has time to release.
+  if (!fs.existsSync(DIST)) return;
+  for (let attempt = 0; attempt < 8; attempt++) {
+    try {
+      fs.rmSync(DIST, { recursive: true, force: true, maxRetries: 5, retryDelay: 120 });
+      return;
+    } catch (err) {
+      if (attempt === 7) throw err;
+      // brief synchronous backoff before retrying
+      const until = Date.now() + 150;
+      while (Date.now() < until) { /* spin */ }
+    }
+  }
+}
+
 function run() {
-  if (fs.existsSync(DIST)) fs.rmSync(DIST, { recursive: true, force: true });
+  rmDist();
   copyStatic(ROOT, DIST);
 
   const sitemap = [
