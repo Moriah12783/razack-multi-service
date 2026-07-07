@@ -11,8 +11,17 @@ const ROOT = __dirname;
 const DIST = path.join(ROOT, 'dist');
 const TODAY = new Date().toISOString().slice(0, 10);
 
+const writtenPaths = new Set();
+
 function writePage(urlPath, html) {
   const file = path.join(DIST, urlPath.replace(/^\//, '') + '.html');
+  // Collision guard: fail loudly if two pages resolve to the same output file
+  // (e.g. a detail slug colliding with a landing slug) rather than silently
+  // overwriting one with the other.
+  if (writtenPaths.has(file)) {
+    throw new Error(`page collision: two pages map to the same output file: ${file} (url ${urlPath})`);
+  }
+  writtenPaths.add(file);
   fs.mkdirSync(path.dirname(file), { recursive: true });
   fs.writeFileSync(file, html, 'utf8');
 }
@@ -54,7 +63,7 @@ function run() {
     // detail pages
     for (const item of items) {
       const related = items.filter(r => r.slug !== item.slug && r[cfg.groupBy] === item[cfg.groupBy] && r.status !== 'sold').slice(0, 3);
-      writePage(item.url, renderDetail(item, key, related, { available: item.status !== 'sold' }));
+      writePage(item.url, renderDetail(item, key, related));
       sitemap.push({ path: item.url, priority: '0.7', changefreq: 'weekly' });
     }
 

@@ -6,9 +6,13 @@ const items = [
   { slug: 'a', url: '/vehicules-vente/a', category: 'vente', brand: 'Toyota', model: 'Hilux', year: 2021, price: 18900000, type: 'Pick-up', photos: ['/images/annonces/a.jpg'] }
 ];
 
-test('landingUrl builds a slugged path under the category', () => {
+test('landingUrl builds a slugged path under a distinct landing namespace', () => {
   assert.strictEqual(landingUrl('vente', 'type', 'Pick-up'), '/voitures/pick-up');
-  assert.strictEqual(landingUrl('immobilier', 'quartier', 'Cocody'), '/immobilier/cocody');
+  assert.strictEqual(landingUrl('location', 'type', 'Berline'), '/location/berline');
+  // immobilier and ameublement landings live under a sub-prefix so they can
+  // never collide with detail-page slugs in the same top-level directory.
+  assert.strictEqual(landingUrl('immobilier', 'quartier', 'Cocody'), '/immobilier/quartier/cocody');
+  assert.strictEqual(landingUrl('ameublement', 'room', 'Salon'), '/ameublement/piece/salon');
 });
 
 test('renderLanding lists items and includes intro + h1', () => {
