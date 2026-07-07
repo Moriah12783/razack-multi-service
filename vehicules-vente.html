@@ -312,6 +312,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </a>
 <button id="backToTop" aria-label="Retour en haut">↑</button>
 
+<script src="js/slug.js"></script>
 <script>
 let VEHICLES = [];
 
@@ -330,7 +331,7 @@ const renderCard = v => `
     ${v.status === 'sold' ? '<div style="position:absolute;inset:0;background:rgba(0,0,0,.5);display:flex;align-items:center;justify-content:center;font-size:1.5rem;font-weight:700;color:#fff;letter-spacing:.1em">VENDU</div>' : ''}
   </div>
   <div class="listing-body">
-    <div class="listing-title">${v.brand} ${v.model}</div>
+    <div class="listing-title"><a href="${itemUrl(v,'vehicules-vente')}" class="listing-title-link">${v.brand} ${v.model}</a></div>
     <div class="listing-sub">${v.year} · ${v.color} · ${v.engine}</div>
     <div class="listing-specs">
       <div class="spec-item">📍 ${v.km.toLocaleString()} km</div>
@@ -341,10 +342,11 @@ const renderCard = v => `
     <p style="font-size:.82rem;color:var(--gray-600);line-height:1.5;margin-bottom:14px;border-top:1px solid var(--gray-200);padding-top:12px">${v.desc}</p>
     <div class="listing-price">${fmt(v.price)}</div>
     <div class="listing-actions">
+      <a href="${itemUrl(v,'vehicules-vente')}" class="btn btn-outline btn-sm btn-full">Voir la fiche</a>
       ${v.status !== 'sold'
-        ? `<a href="${waVehicle(v)}" target="_blank" class="btn btn-whatsapp btn-sm btn-full">📱 Je suis intéressé(e)</a>
+        ? `<a href="${waVehicle(v)}" target="_blank" class="btn btn-whatsapp btn-sm btn-full" style="margin-top:6px">📱 Je suis intéressé(e)</a>
 <a href="https://wa.me/?text=${encodeURIComponent('🚗 Regarde cette offre sur RAZAK Multi Service !\n\n' + v.brand + ' ' + v.model + ' ' + v.year + '\n💰 ' + fmt(v.price) + '\n\n👉 https://www.razak-multiservices.com/vehicules-vente')}" target="_blank" class="btn btn-outline btn-sm btn-full" style="margin-top:6px">🔗 Partager</a>`
-        : `<button class="btn btn-sm btn-full" style="background:var(--gray-200);color:var(--gray-600);cursor:not-allowed" disabled>✅ Vendu</button>`}
+        : `<button class="btn btn-sm btn-full" style="background:var(--gray-200);color:var(--gray-600);cursor:not-allowed;margin-top:6px" disabled>✅ Vendu</button>`}
     </div>
   </div>
 </div>`;
