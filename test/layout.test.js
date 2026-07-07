@@ -15,3 +15,22 @@ test('renderPage injects SEO head and body', () => {
   assert.match(html, /GTM-KP7FCM8K/);
   assert.match(html, /<script>1<\/script>/);
 });
+
+test('renderPage emits og:image when image is provided', () => {
+  const html = renderPage({
+    title: 'T', description: 'd',
+    canonical: 'https://www.razak-multiservices.com/x',
+    image: 'https://www.razak-multiservices.com/images/annonces/a.jpg',
+    main: '<h1>x</h1>'
+  });
+  assert.match(html, /<meta property="og:image" content="https:\/\/www\.razak-multiservices\.com\/images\/annonces\/a\.jpg">/);
+});
+
+test('renderPage omits og:image when no image is provided', () => {
+  const html = renderPage({
+    title: 'T', description: 'd',
+    canonical: 'https://www.razak-multiservices.com/x',
+    main: '<h1>x</h1>'
+  });
+  assert.ok(!/og:image/.test(html), 'no og:image tag when image absent');
+});

@@ -11,7 +11,7 @@ const item = {
 };
 
 test('renderDetail produces indexable HTML with price, specs, gallery, schema', () => {
-  const html = renderDetail(item, 'vente', [], { available: true });
+  const html = renderDetail(item, 'vente', []);
   assert.match(html, /<h1[^>]*>JETOUR T2 XWD TRAVEL 2026<\/h1>/);
   assert.match(html, /32 000 000 FCFA/);
   assert.match(html, /Kilométrage/);
@@ -20,11 +20,12 @@ test('renderDetail produces indexable HTML with price, specs, gallery, schema', 
   assert.match(html, /"@type":"BreadcrumbList"/);
   assert.match(html, /wa\.me\/2250797388202/);
   assert.match(html, /canonical" href="https:\/\/www\.razak-multiservices\.com\/vehicules-vente\/jetour-t2-xwd-travel-2026"/);
+  assert.match(html, /<meta property="og:image" content="https:\/\/www\.razak-multiservices\.com\/images\/annonces\/a\.jpg">/);
 });
 
 test('renderDetail marks a sold item and does not show InStock', () => {
   const sold = { ...item, status: 'sold' };
-  const html = renderDetail(sold, 'vente', [], { available: false });
+  const html = renderDetail(sold, 'vente', []);
   assert.match(html, /Vendu/i);
   assert.match(html, /"availability":"https:\/\/schema\.org\/SoldOut"/);
 });
