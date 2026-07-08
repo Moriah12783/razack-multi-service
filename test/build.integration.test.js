@@ -48,3 +48,12 @@ test('build.js génère /blog et les pages articles + sitemap', () => {
   assert.match(sm, /\/blog<\/loc>/);
   assert.match(sm, /\/blog\//);
 });
+
+test('build.js écrit dist/assistant-kb.txt avec le catalogue et les guides', () => {
+  const dist = path.join(__dirname, '..', 'dist');
+  const kb = fs.readFileSync(path.join(dist, 'assistant-kb.txt'), 'utf8');
+  assert.match(kb, /RAZAK Multi Service/);
+  assert.match(kb, /VÉHICULES À VENDRE/);
+  assert.match(kb, /\/vehicules-vente\//);
+  assert.match(kb, /GUIDES/);
+});

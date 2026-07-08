@@ -9,6 +9,7 @@ const { renderArticle } = require('./lib/render/article');
 const { renderBlogIndex } = require('./lib/render/blog-index');
 const { buildSitemap } = require('./lib/sitemap');
 const { copyStatic } = require('./lib/copy-static');
+const { buildKb } = require('./lib/kb');
 
 const ROOT = __dirname;
 const DIST = path.join(ROOT, 'dist');
@@ -93,6 +94,17 @@ function run() {
 
   fs.writeFileSync(path.join(DIST, 'sitemap.xml'), buildSitemap(sitemap, TODAY), 'utf8');
   console.log(`[build] sitemap: ${sitemap.length} URLs → dist/`);
+
+  // Connaissance de l'assistant Razaki
+  const kb = buildKb({
+    vente: loadCategory('vente'),
+    location: loadCategory('location'),
+    immobilier: loadCategory('immobilier'),
+    ameublement: loadCategory('ameublement'),
+    articles: loadArticles()
+  });
+  fs.writeFileSync(path.join(DIST, 'assistant-kb.txt'), kb, 'utf8');
+  console.log(`[build] assistant-kb.txt écrit (${kb.length} caractères)`);
 }
 
 run();
