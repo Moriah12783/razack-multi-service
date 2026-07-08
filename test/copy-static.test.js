@@ -13,7 +13,9 @@ test('EXCLUDES contains the generator dev files (never ship them to dist)', () =
   // dist/ must contain only the deployable site — not the generator itself.
   // Shipping test/ + build.js caused node --test to recursively re-run tests
   // inside dist/ and spawn nested builds. Guard against regression.
-  for (const d of ['test', 'lib', 'build.js', 'package.json']) assert.ok(EXCLUDES.has(d), `EXCLUDES should contain ${d}`);
+  // 'functions' is a Cloudflare Pages Functions dir read from the project root,
+  // not the build output, so it must never be copied into dist/.
+  for (const d of ['test', 'lib', 'build.js', 'package.json', 'functions']) assert.ok(EXCLUDES.has(d), `EXCLUDES should contain ${d}`);
 });
 
 test('copyStatic copies files but skips excluded dirs', () => {
