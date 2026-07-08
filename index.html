@@ -248,7 +248,7 @@
   <div class="container">
     <div class="directeur-inner">
       <div class="directeur-photo">
-        <div class="directeur-avatar">👔</div>
+        <div class="directeur-avatar" style="overflow:hidden;padding:0"><img src="/images/directeur.jpg" alt="Le Directeur — RAZAK Multi Service" loading="lazy" style="width:100%;height:100%;object-fit:cover;border-radius:inherit"></div>
         <div class="directeur-name">Le Directeur</div>
         <div class="directeur-role">RAZAK Multi Service</div>
       </div>
@@ -545,13 +545,10 @@
 <!-- BACK TO TOP -->
 <button id="backToTop" aria-label="Retour en haut">↑</button>
 
+<script src="js/slug.js"></script>
 <script>
-// Véhicules vedettes
-const FEATURED = [
-  { brand:'Toyota', model:'Land Cruiser Prado', year:2020, km:45000, fuel:'Diesel', transmission:'Automatique', type:'SUV', price:28500000, status:'available', engine:'3.0L V6', doors:5, emoji:'🚙' },
-  { brand:'Toyota', model:'Hilux Double Cab', year:2021, km:32000, fuel:'Diesel', transmission:'Manuelle', type:'Pick-up', price:18900000, status:'new', engine:'2.4L Turbo', doors:4, emoji:'🛻' },
-  { brand:'Mercedes-Benz', model:'C 220 AMG Line', year:2019, km:68000, fuel:'Essence', transmission:'Automatique', type:'Berline', price:22000000, status:'available', engine:'2.0L Turbo', doors:4, emoji:'🚗' },
-];
+// Véhicules à la une — 3 véhicules réels du catalogue (curation par slug)
+const FEATURED_SLUGS = ['bmw-x5-m-competion-2020', 'toyota-land-cruiser-prado-vx-2020', 'kia-tellerude-x-line-2024'];
 const fmt = n => new Intl.NumberFormat('fr-CI').format(n) + ' FCFA';
 const statusLabel = { available:'Disponible', new:'Nouveau', sold:'Vendu' };
 const statusClass = { available:'badge-available', new:'badge-new', sold:'badge-sold' };
@@ -559,30 +556,38 @@ const wa = (v) => `https://wa.me/2250797388202?text=${encodeURIComponent(`Bonjou
 
 const grid = document.getElementById('featuredVehicles');
 if (grid) {
-  grid.innerHTML = FEATURED.map(v => `
-  <div class="listing-card">
-    <div class="listing-image">
-      <div class="listing-image-placeholder">
-        <span class="ph-icon">${v.emoji}</span>
-        <span class="ph-label">Photo à venir</span>
-      </div>
-      <span class="listing-badge ${statusClass[v.status]}">${statusLabel[v.status]}</span>
-    </div>
-    <div class="listing-body">
-      <div class="listing-title">${v.brand} ${v.model}</div>
-      <div class="listing-sub">${v.year} · ${v.engine} · ${v.type}</div>
-      <div class="listing-specs">
-        <div class="spec-item">📍 ${v.km.toLocaleString()} km</div>
-        <div class="spec-item">⛽ ${v.fuel}</div>
-        <div class="spec-item">⚙️ ${v.transmission}</div>
-        <div class="spec-item">🚪 ${v.doors} portes</div>
-      </div>
-      <div class="listing-price">${fmt(v.price)}</div>
-      <div class="listing-actions">
-        <a href="${wa(v)}" target="_blank" class="btn btn-whatsapp btn-sm btn-full">📱 Contacter</a>
-      </div>
-    </div>
-  </div>`).join('');
+  fetch('data/vehicules-vente.json?v=' + Date.now())
+    .then(r => r.json())
+    .then(data => {
+      const all = assignSlugs(data, 'vehicules-vente');
+      const picked = FEATURED_SLUGS.map(s => all.find(v => v.slug === s)).filter(Boolean);
+      const mk = (tag, cls, txt) => { const e = document.createElement(tag); if (cls) e.className = cls; if (txt != null) e.textContent = txt; return e; };
+      picked.forEach(v => {
+        const src = (v.photos && v.photos[0]) || v.photo || '';
+        const sold = (v.statut || v.status) === 'sold';
+        const card = mk('a', 'listing-card');
+        card.href = v.url; card.style.cssText = 'text-decoration:none;color:inherit;display:block';
+        const media = mk('div', 'listing-image');
+        if (src) { const im = document.createElement('img'); im.src = src; im.alt = v.brand + ' ' + v.model + ' ' + v.year; im.loading = 'lazy'; media.appendChild(im); }
+        else { const ph = mk('div', 'listing-image-placeholder'); ph.appendChild(mk('span', 'ph-icon', '🚗')); media.appendChild(ph); }
+        media.appendChild(mk('span', 'listing-badge ' + (sold ? 'badge-sold' : 'badge-available'), sold ? 'Vendu' : 'Disponible'));
+        card.appendChild(media);
+        const body = mk('div', 'listing-body');
+        body.appendChild(mk('div', 'listing-title', v.brand + ' ' + v.model));
+        body.appendChild(mk('div', 'listing-sub', v.year + (v.engine ? ' · ' + v.engine : '') + ' · ' + v.type));
+        const specs = mk('div', 'listing-specs');
+        [['📍 ', (v.km != null ? v.km : 0).toLocaleString() + ' km'], ['⛽ ', v.fuel], ['⚙️ ', v.transmission], ['🚪 ', v.doors + ' portes']]
+          .forEach(p => specs.appendChild(mk('div', 'spec-item', p[0] + p[1])));
+        body.appendChild(specs);
+        body.appendChild(mk('div', 'listing-price', fmt(v.price)));
+        const actions = mk('div', 'listing-actions');
+        actions.appendChild(mk('span', 'btn btn-primary btn-sm btn-full', 'Voir la fiche →'));
+        body.appendChild(actions);
+        card.appendChild(body);
+        grid.appendChild(card);
+      });
+    })
+    .catch(() => {});
 }
 
 document.querySelectorAll('.faq-question').forEach(btn => {
