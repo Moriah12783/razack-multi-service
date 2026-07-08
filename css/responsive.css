@@ -74,7 +74,7 @@ img { max-width: 100%; height: auto; }
   .footer-bottom .footer-copy { font-size: .75rem; }
 
   /* Bouton WhatsApp flottant */
-  .wa-float { bottom: 20px; right: 16px; padding: 14px; }
+  .wa-float { bottom: 20px; left: 16px; padding: 14px; }
   .wa-float .wa-text { display: none; }
 
   /* CTA section */
