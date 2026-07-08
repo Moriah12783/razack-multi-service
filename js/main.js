@@ -250,3 +250,11 @@ window.photoHtml = function (item, altText) {
     ${nav}
   </div>`;
 };
+
+/* Assistant Razaki — chargé sur toutes les pages */
+(function () {
+  var s = document.createElement('script');
+  s.src = '/js/chat-widget.js';
+  s.defer = true;
+  document.head.appendChild(s);
+})();
