@@ -23,3 +23,8 @@ test('renderArticle affiche un header dégradé quand pas de cover', () => {
   assert.match(html, /linear-gradient/);
   assert.match(html, /Acheter une voiture à Abidjan/);
 });
+
+test('renderArticle émet og:type=article', () => {
+  const html = renderArticle(art);
+  assert.match(html, /<meta property="og:type" content="article">/);
+});

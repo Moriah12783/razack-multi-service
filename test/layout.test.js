@@ -34,3 +34,22 @@ test('renderPage omits og:image when no image is provided', () => {
   });
   assert.ok(!/og:image/.test(html), 'no og:image tag when image absent');
 });
+
+test('renderPage defaults og:type to website', () => {
+  const html = renderPage({
+    title: 'T', description: 'd',
+    canonical: 'https://www.razak-multiservices.com/x',
+    main: '<h1>x</h1>'
+  });
+  assert.match(html, /<meta property="og:type" content="website">/);
+});
+
+test('renderPage emits og:type=article when ogType is article', () => {
+  const html = renderPage({
+    title: 'T', description: 'd',
+    canonical: 'https://www.razak-multiservices.com/blog/x',
+    ogType: 'article', main: '<h1>x</h1>'
+  });
+  assert.match(html, /<meta property="og:type" content="article">/);
+  assert.ok(!/content="website"/.test(html), 'no leftover website og:type');
+});
