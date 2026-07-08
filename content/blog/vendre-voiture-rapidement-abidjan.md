@@ -13,7 +13,7 @@ La première impression est décisive. Un acheteur qui découvre une voiture pro
 
 ### Nettoyer en profondeur
 
-Commencez par un nettoyage complet, intérieur comme extérieur. Un lavage soigné de la carrosserie, des jantes et des vitres, un aspirateur méticuleux de l'habitatcle, un traitement des sièges et des plastiques : ces gestes simples changent radicalement la perception de l'acheteur. Videz tous vos effets personnels et neutralisez les odeurs. Un véhicule qui sent le propre inspire confiance.
+Commencez par un nettoyage complet, intérieur comme extérieur. Un lavage soigné de la carrosserie, des jantes et des vitres, un aspirateur méticuleux de l'habitacle, un traitement des sièges et des plastiques : ces gestes simples changent radicalement la perception de l'acheteur. Videz tous vos effets personnels et neutralisez les odeurs. Un véhicule qui sent le propre inspire confiance.
 
 ### Régler les petits défauts
 
