@@ -1,10 +1,13 @@
-# Cloudflare Pages — réplique des headers de vercel.json
+# Cloudflare Pages — en-têtes du site
 /*
   X-Content-Type-Options: nosniff
   X-Frame-Options: SAMEORIGIN
 
+# CSS/JS : nos fichiers changent (main.js, style.css, chat-widget.js…) et gardent
+# un nom fixe → PAS d'immutable (sinon le CDN sert une version périmée après un
+# changement). On revalide à chaque requête (ETag → 304 si inchangé = léger).
 /css/*
-  Cache-Control: public, max-age=31536000, immutable
+  Cache-Control: public, max-age=0, must-revalidate
 
 /js/*
-  Cache-Control: public, max-age=31536000, immutable
+  Cache-Control: public, max-age=0, must-revalidate
