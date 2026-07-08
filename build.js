@@ -4,6 +4,9 @@ const { CATEGORIES } = require('./lib/categories');
 const { loadCategory, groupItems } = require('./lib/data');
 const { renderDetail } = require('./lib/render/detail');
 const { renderLanding, landingUrl } = require('./lib/render/landing');
+const { loadArticles } = require('./lib/blog');
+const { renderArticle } = require('./lib/render/article');
+const { renderBlogIndex } = require('./lib/render/blog-index');
 const { buildSitemap } = require('./lib/sitemap');
 const { copyStatic } = require('./lib/copy-static');
 
@@ -74,6 +77,18 @@ function run() {
       sitemap.push({ path: url, priority: '0.7', changefreq: 'weekly' });
     }
     console.log(`[build] ${key}: ${items.length} fiches + ${groupItems(items, cfg.groupBy).size} landing`);
+  }
+
+  // Blog
+  const articles = loadArticles();
+  if (articles.length) {
+    writePage('/blog', renderBlogIndex(articles));
+    sitemap.push({ path: '/blog', priority: '0.6', changefreq: 'weekly' });
+    for (const a of articles) {
+      writePage(a.url, renderArticle(a));
+      sitemap.push({ path: a.url, priority: '0.6', changefreq: 'monthly' });
+    }
+    console.log(`[build] blog: ${articles.length} articles + /blog`);
   }
 
   fs.writeFileSync(path.join(DIST, 'sitemap.xml'), buildSitemap(sitemap, TODAY), 'utf8');

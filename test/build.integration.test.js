@@ -39,3 +39,12 @@ test('landing pages live under distinct namespaces and do not collide with detai
   assert.match(sm, /\/immobilier\/quartier\//, 'sitemap has immobilier landing namespace');
   assert.match(sm, /\/ameublement\/piece\//, 'sitemap has ameublement landing namespace');
 });
+
+test('build.js génère /blog et les pages articles + sitemap', () => {
+  assert.ok(fs.existsSync(path.join(DIST, 'blog.html')), 'index /blog généré');
+  const arts = fs.readdirSync(path.join(DIST, 'blog')).filter(f => f.endsWith('.html'));
+  assert.ok(arts.length >= 1, 'au moins 1 article généré');
+  const sm = fs.readFileSync(path.join(DIST, 'sitemap.xml'), 'utf8');
+  assert.match(sm, /\/blog<\/loc>/);
+  assert.match(sm, /\/blog\//);
+});
