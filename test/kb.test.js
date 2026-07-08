@@ -31,3 +31,10 @@ test('buildKb liste les guides blog', () => {
   assert.match(kb, /Acheter une voiture à Abidjan/);
   assert.match(kb, /\/blog\/acheter-voiture-occasion-abidjan/);
 });
+
+test('buildKb marque un bien vendu comme indisponible (champ réel statut)', () => {
+  const kb = buildKb({
+    immobilier: [{ titre: 'Villa Riviera', type: 'Villa', quartier: 'Riviera', prix: 500000, unite: 'mois', statut: 'sold', url: '/immobilier/villa-riviera' }]
+  });
+  assert.match(kb, /Villa Riviera .*indisponible/);
+});
