@@ -53,16 +53,16 @@
   },
   {
     "id": 3,
-    "brand": "Mercedes-Benz",
-    "model": "Classe E",
-    "year": 2021,
-    "type": "Berline",
+    "brand": "KIA",
+    "model": "SPORTAGE",
+    "year": 2025,
+    "type": "SUV",
     "formule": "chauffeur",
-    "priceDay": 100000,
-    "priceWeek": 600000,
-    "priceMonth": 1800000,
+    "priceDay": 120000,
+    "priceWeek": 840000,
+    "priceMonth": 3600000,
     "places": 5,
-    "fuel": "Diesel",
+    "fuel": "Essence",
     "transmission": "Automatique",
     "status": "available",
     "emoji": "🚗",
@@ -72,6 +72,10 @@
       "Climatisation",
       "Wi-Fi",
       "GPS"
+    ],
+    "photos": [
+      "/images/annonces/1783783213653_zgvxw.jpg",
+      "/images/annonces/1783783223242_5spx6.jpg"
     ]
   },
   {
