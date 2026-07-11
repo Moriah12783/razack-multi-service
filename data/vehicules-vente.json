@@ -1040,5 +1040,30 @@
       "/images/annonces/1781033411864_xu9zh.jpg"
     ],
     "id": 42
+  },
+  {
+    "brand": "MITSUBISHI",
+    "model": "ECLIPSE CROSS",
+    "year": 2021,
+    "km": 51858,
+    "price": 20000000,
+    "color": "GRISE",
+    "fuel": "Essence",
+    "transmission": "Automatique",
+    "type": "SUV",
+    "engine": "4 CYLINDRES",
+    "doors": 4,
+    "status": "available",
+    "emoji": "🚗",
+    "desc": "ETAT : 10/10\nTOUT TERRAIN",
+    "photos": [
+      "/images/annonces/1783782074579_0d8fb.jpg",
+      "/images/annonces/1783782083695_27tqc.jpg",
+      "/images/annonces/1783782092216_hxoia.jpg",
+      "/images/annonces/1783782107101_o9zi2.jpg",
+      "/images/annonces/1783782116599_t1ehv.jpg",
+      "/images/annonces/1783782128607_p1qe0.jpg"
+    ],
+    "id": 43
   }
 ]
