@@ -57,22 +57,29 @@
     "id": 3,
     "type": "Résidence",
     "mode": "court-sejour",
-    "quartier": "Zone 4",
-    "titre": "Résidence Vue Mer — Séjour",
+    "quartier": "RIVIERA PALMERAIE",
+    "titre": "Résidence HÔTEL MEUBLES",
     "chambres": 1,
     "sdb": 1,
     "surface": 55,
-    "prix": 80000,
-    "unite": "/nuit",
-    "desc": "Studio haut de gamme avec vue sur la mer. Idéal pour séjours professionnels ou touristiques.",
+    "prix": 30000,
+    "unite": "1 JOUR",
+    "desc": "CONFORT, SECURUTE, ET ELEGANCE",
     "equip": [
-      "Vue mer",
       "WiFi",
       "Ménage inclus",
       "Breakfast"
     ],
     "emoji": "🌊",
-    "statut": "available"
+    "statut": "available",
+    "photos": [
+      "/images/annonces/1783783914710_micum.jpg",
+      "/images/annonces/1783783926898_jhuzy.jpg",
+      "/images/annonces/1783783936359_42q4w.jpg",
+      "/images/annonces/1783783946912_hfpvb.jpg",
+      "/images/annonces/1783783966699_r925q.jpg",
+      "/images/annonces/1783783974100_1yp7o.jpg"
+    ]
   },
   {
     "id": 4,
