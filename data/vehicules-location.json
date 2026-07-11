@@ -27,16 +27,16 @@
   },
   {
     "id": 2,
-    "brand": "Toyota",
-    "model": "Land Cruiser Prado",
-    "year": 2020,
+    "brand": "SUZIKI",
+    "model": "VITARA",
+    "year": 2023,
     "type": "SUV",
     "formule": "chauffeur",
-    "priceDay": 80000,
-    "priceWeek": 480000,
-    "priceMonth": 1500000,
-    "places": 7,
-    "fuel": "Diesel",
+    "priceDay": 85000,
+    "priceWeek": 595000,
+    "priceMonth": 2550000,
+    "places": 4,
+    "fuel": "Essence",
     "transmission": "Automatique",
     "status": "available",
     "emoji": "🚙",
@@ -45,6 +45,10 @@
       "Climatisation",
       "GPS",
       "Wi-Fi bord"
+    ],
+    "photos": [
+      "/images/annonces/1783782920739_h28ho.jpg",
+      "/images/annonces/1783782929234_co2qe.jpg"
     ]
   },
   {
