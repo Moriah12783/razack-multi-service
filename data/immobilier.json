@@ -269,5 +269,34 @@
     ],
     "emoji": "🏝️",
     "statut": "available"
+  },
+  {
+    "titre": "RESIDENCE MEUBLEE",
+    "type": "Maison",
+    "mode": "court-sejour",
+    "quartier": "RIVIERA PALMERAIE SAINT-VIATEUR",
+    "prix": 40000,
+    "unite": "1 JOUR",
+    "chambres": 2,
+    "sdb": 1,
+    "surface": 0,
+    "statut": "available",
+    "emoji": "🏠",
+    "equip": [
+      "Wi-Fi",
+      "Canal+",
+      "Netflix",
+      "Prime Video",
+      "IPTV"
+    ],
+    "desc": "Confort, sécurité et élégance\nClimatisation, Chauffe-eau\nParking sécurisé\nLit confortable\nDouche moderne\nAmbiance personnalisée",
+    "photos": [
+      "/images/annonces/1783784566117_7r2la.jpg",
+      "/images/annonces/1783784576086_hsvdz.jpg",
+      "/images/annonces/1783784583686_v2hb7.jpg",
+      "/images/annonces/1783784601485_7sigt.jpg",
+      "/images/annonces/1783784612722_vub4h.jpg"
+    ],
+    "id": 13
   }
 ]
