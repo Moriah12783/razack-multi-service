@@ -1,14 +1,14 @@
 [
   {
     "id": 1,
-    "brand": "Toyota",
-    "model": "Corolla",
-    "year": 2021,
-    "type": "Berline",
+    "brand": "SUZIKI",
+    "model": "VITARA",
+    "year": 2022,
+    "type": "SUV",
     "formule": "sans-chauffeur",
-    "priceDay": 25000,
-    "priceWeek": 150000,
-    "priceMonth": 450000,
+    "priceDay": 65000,
+    "priceWeek": 455000,
+    "priceMonth": 1950000,
     "places": 5,
     "fuel": "Essence",
     "transmission": "Automatique",
@@ -19,6 +19,10 @@
       "GPS",
       "Bluetooth",
       "Kilométrage inclus"
+    ],
+    "photos": [
+      "/images/annonces/1783782775419_tmuat.jpg",
+      "/images/annonces/1783782782450_gelqd.jpg"
     ]
   },
   {
