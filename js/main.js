@@ -134,7 +134,7 @@ if (visiteForm) {
     <div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap">
       <p style="margin:0;flex:1;min-width:220px;font-size:.88rem;color:#ccc;line-height:1.5">
         🍪 Ce site utilise des cookies pour améliorer votre expérience (Google Analytics, Microsoft Clarity).
-        <a href="confidentialite.html" style="color:#C9A84C;text-decoration:underline">En savoir plus</a>
+        <a href="/confidentialite" style="color:#C9A84C;text-decoration:underline">En savoir plus</a>
       </p>
       <div style="display:flex;gap:10px;flex-shrink:0">
         <button id="cookie-decline" style="padding:9px 18px;border-radius:6px;border:1px solid rgba(255,255,255,.25);background:transparent;color:#ccc;font-size:.85rem;cursor:pointer">Refuser</button>
