@@ -1114,5 +1114,30 @@
       "/images/annonces/1784569766660_1j352.jpg"
     ],
     "id": 45
+  },
+  {
+    "brand": "FORD  RANGER",
+    "model": "CREW CAB LARIAT",
+    "year": 2021,
+    "km": 34502,
+    "price": 28000000,
+    "color": "NOIRE",
+    "fuel": "Essence",
+    "transmission": "Automatique",
+    "type": "Pick-up",
+    "engine": "4 CYLINDRES",
+    "doors": 4,
+    "status": "available",
+    "emoji": "🚗",
+    "desc": "CLIMATISATION BI-ZONE\nDEMARRAGE START ET A DISTANCE\nREGULATEUR DE VITESSE\nSIEGE CUIR ET CHAUFFANTS\nSYSTEME DE FREINAGE AUTOMATIQUE",
+    "photos": [
+      "/images/annonces/1785762669749_pwat2.jpg",
+      "/images/annonces/1785762680861_cxxbi.jpg",
+      "/images/annonces/1785762688374_4c97r.jpg",
+      "/images/annonces/1785762707148_0tkl4.jpg",
+      "/images/annonces/1785762714992_1n7c2.jpg",
+      "/images/annonces/1785762722364_lechh.jpg"
+    ],
+    "id": 46
   }
 ]
