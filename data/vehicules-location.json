@@ -191,5 +191,30 @@
       "Wi-Fi",
       "Minibar"
     ]
+  },
+  {
+    "brand": "SUZIKI",
+    "model": "",
+    "year": 2022,
+    "type": "Berline",
+    "formule": "sans-chauffeur",
+    "places": 4,
+    "priceDay": 45000,
+    "priceWeek": 315000,
+    "priceMonth": 1350000,
+    "fuel": "Essence",
+    "transmission": "Manuelle",
+    "status": "available",
+    "emoji": "🚗",
+    "features": [
+      "Climatisation",
+      "GPS",
+      "Bluetooth",
+      "Kilométrage inclus"
+    ],
+    "photos": [
+      "/images/annonces/1785763537158_7hne9.jpg"
+    ],
+    "id": 9
   }
 ]
