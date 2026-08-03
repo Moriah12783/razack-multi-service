@@ -471,5 +471,21 @@
       "/images/annonces/1778066707308_kpz7b.jpg"
     ],
     "id": 24
+  },
+  {
+    "titre": "LIT",
+    "room": "chambre",
+    "cat": "LIT",
+    "prix": 500000,
+    "statut": "available",
+    "emoji": "🛋️",
+    "tags": [
+      "LIT 3 PLACES"
+    ],
+    "desc": "TISSU VELOU, MOUSSE PLIMESSE, MOUSSE IMPORTEE",
+    "photos": [
+      "/images/annonces/1785763660660_w28hc.jpg"
+    ],
+    "id": 25
   }
 ]
