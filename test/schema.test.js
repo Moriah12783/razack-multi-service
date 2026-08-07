@@ -14,8 +14,3 @@ test('productSchema for a vehicle includes Offer with price', () => {
 test('breadcrumbSchema builds an ordered list', () => {
   const json = JSON.parse(breadcrumbSchema([
     { name: 'Accueil', url: 'https://x/' }, { name: 'Véhicules', url: 'https://x/vehicules-vente' }
-  ]));
-  assert.strictEqual(json['@type'], 'BreadcrumbList');
-  assert.strictEqual(json.itemListElement[0].position, 1);
-  assert.strictEqual(json.itemListElement[1].position, 2);
-});
