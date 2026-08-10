@@ -616,5 +616,21 @@
       "/images/annonces/1786372478752_jt4gr.jpg"
     ],
     "id": 33
+  },
+  {
+    "titre": "FAUTEUILS 2 PLACES",
+    "room": "salon",
+    "cat": "FAUTEUILS",
+    "prix": 50000,
+    "statut": "available",
+    "emoji": "🛋️",
+    "tags": [
+      "FAUTEUIL 2 PLACES"
+    ],
+    "desc": "FAUTEUILS DEUX PLACES \nEN TRES BONNE QUALITE",
+    "photos": [
+      "/images/annonces/1786372642608_ip7iy.jpg"
+    ],
+    "id": 34
   }
 ]
