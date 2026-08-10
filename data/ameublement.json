@@ -632,5 +632,21 @@
       "/images/annonces/1786372642608_ip7iy.jpg"
     ],
     "id": 34
+  },
+  {
+    "titre": "ARMOIRE DE RANGEMENT DE VERRE",
+    "room": "salon",
+    "cat": "ARMOIRE",
+    "prix": 100000,
+    "statut": "available",
+    "emoji": "🛋️",
+    "tags": [
+      "ARMOIRE DE RANGEMENT DE VERRE"
+    ],
+    "desc": "ARMOIRE DE QUALITE",
+    "photos": [
+      "/images/annonces/1786372792307_2et6w.jpg"
+    ],
+    "id": 35
   }
 ]
