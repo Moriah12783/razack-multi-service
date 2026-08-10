@@ -600,5 +600,21 @@
       "/images/annonces/1786372348280_g02ky.jpg"
     ],
     "id": 32
+  },
+  {
+    "titre": "ARMOIRE DE RANGEMENT DE VETEMENTS",
+    "room": "chambre",
+    "cat": "ARMOIRE",
+    "prix": 100000,
+    "statut": "available",
+    "emoji": "🛋️",
+    "tags": [
+      "ARMOIRE DE RANGEMENT DE VETEMENTS"
+    ],
+    "desc": "ARMOIRE DE RANGEMENT DE VETEMENTS\nEN TRES BONNE QUALITE",
+    "photos": [
+      "/images/annonces/1786372478752_jt4gr.jpg"
+    ],
+    "id": 33
   }
 ]
