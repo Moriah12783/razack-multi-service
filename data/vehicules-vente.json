@@ -1139,5 +1139,30 @@
       "/images/annonces/1785762722364_lechh.jpg"
     ],
     "id": 46
+  },
+  {
+    "brand": "SUZUKI",
+    "model": "VITARA",
+    "year": 2021,
+    "km": 20000,
+    "price": 9500000,
+    "color": "BLANCHE",
+    "fuel": "Essence",
+    "transmission": "Automatique",
+    "type": "SUV",
+    "engine": "4 CYLINDRES",
+    "doors": 4,
+    "status": "available",
+    "emoji": "🚗",
+    "desc": "ETAT : 10/10\nBELLE COULEUR BLANCHE\nPRATIQUE POUR LA VILLE ET LES CAMPAGNES",
+    "photos": [
+      "/images/annonces/1786542211290_pvor6.jpg",
+      "/images/annonces/1786542217436_ss55t.jpg",
+      "/images/annonces/1786542226719_jo6tp.jpg",
+      "/images/annonces/1786542238893_h09x9.jpg",
+      "/images/annonces/1786542246447_b09jz.jpg",
+      "/images/annonces/1786542256855_rrszz.jpg"
+    ],
+    "id": 47
   }
 ]
