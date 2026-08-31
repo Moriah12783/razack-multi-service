@@ -744,5 +744,24 @@
       "/images/annonces/1786541476566_5yq1i.jpg"
     ],
     "id": 41
+  },
+  {
+    "titre": "Salon complet 7 places",
+    "room": "salon",
+    "cat": "FAUTEUILS",
+    "prix": 180000,
+    "statut": "available",
+    "emoji": "🛋️",
+    "tags": [
+      "TISSU PREMIUM",
+      "7 PLACES"
+    ],
+    "desc": "FAUTEUIL 7 PLACES EN FER\nStructure en fer très robuste\nExcellente résistance et grande stabilité\nIdéal pour la maison, terrasse, cour ou espace professionnel\nTrès durable et adapté à une utilisation régulière\nDesign pratique pour accueillir toute la famille",
+    "photos": [
+      "/images/annonces/1788184774660_mrpw5.jpg",
+      "/images/annonces/1788184791593_38y1d.jpg",
+      "/images/annonces/1788184816690_8kep2.jpg"
+    ],
+    "id": 42
   }
 ]
