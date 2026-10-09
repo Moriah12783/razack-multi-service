@@ -1002,5 +1002,23 @@
       "/images/annonces/1791567969170_y1p4v.jpg"
     ],
     "id": 55
+  },
+  {
+    "titre": "BUFFET VASSELIER",
+    "room": "salle-manger",
+    "cat": "BUFFET VASSELIER",
+    "prix": 170000,
+    "statut": "available",
+    "emoji": "🛋️",
+    "tags": [
+      "BUFFET",
+      "VASSELIER",
+      "RANGEMENT"
+    ],
+    "desc": "DESIGN ELEGANT ET PRATIQUE\nFABRICATION EN MELAMINE OU EN PANNEAUX DE BOIS RECONSTITUE\nESPACES DE RANGEMENT FONCTIONNELS\nIDEAL POUR RANGER ASSIETTES, VERRES ET ACCESSOIRES DE TABLE\nPARFAIT POUR LA SALLE A MANGER OU LE SEJOUR",
+    "photos": [
+      "/images/annonces/1791568088729_kpoou.jpg"
+    ],
+    "id": 56
   }
 ]
