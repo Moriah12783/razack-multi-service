@@ -1038,5 +1038,22 @@
       "/images/annonces/1791568600920_krkmv.jpg"
     ],
     "id": 57
+  },
+  {
+    "titre": "CANAPE D'ANGLE MODERNE",
+    "room": "salon",
+    "cat": "CANAPE",
+    "prix": 650000,
+    "statut": "available",
+    "emoji": "🛋️",
+    "tags": [
+      "TISSU PREMIUM",
+      "6 PLACES"
+    ],
+    "desc": "Revêtement en velours élégant et doux au toucher\nDesign haut standing et moderne\nAssises confortables et spacieuses\nFinitions soignées\nIdéal pour le salon, le séjour ou un espace de réception",
+    "photos": [
+      "/images/annonces/1791569089962_rso7u.jpg"
+    ],
+    "id": 58
   }
 ]
