@@ -1169,5 +1169,22 @@
       "/images/annonces/1792429886061_6grcw.jpg"
     ],
     "id": 65
+  },
+  {
+    "titre": "TABLE A MANGER + 6 CHAISES",
+    "room": "salon",
+    "cat": "TABLE A MANGER",
+    "prix": 350000,
+    "statut": "available",
+    "emoji": "🛋️",
+    "tags": [
+      "Bois massif? bonne finition",
+      "chaise design"
+    ],
+    "desc": "Bois massif\nfinition impeccable\nbon design\nchaises design",
+    "photos": [
+      "/images/annonces/1792430091082_zjoep.jpg"
+    ],
+    "id": 66
   }
 ]
