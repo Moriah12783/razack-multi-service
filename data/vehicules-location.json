@@ -216,5 +216,32 @@
       "/images/annonces/1785763537158_7hne9.jpg"
     ],
     "id": 9
+  },
+  {
+    "brand": "MERCEDES",
+    "model": "MAYBACH",
+    "year": 2025,
+    "type": "Berline",
+    "formule": "chauffeur",
+    "places": 5,
+    "priceDay": 950000,
+    "priceWeek": 6650000,
+    "priceMonth": 28500000,
+    "fuel": "Essence",
+    "transmission": "Automatique",
+    "status": "available",
+    "emoji": "🚗",
+    "features": [
+      "Climatisation",
+      "GPS",
+      "Bluetooth",
+      "Kilométrage inclus"
+    ],
+    "photos": [
+      "/images/annonces/1792428424289_31wea.jpg",
+      "/images/annonces/1792428443666_o61iv.jpg",
+      "/images/annonces/1792428458983_9aac6.jpg"
+    ],
+    "id": 10
   }
 ]
