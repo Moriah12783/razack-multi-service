@@ -243,5 +243,31 @@
       "/images/annonces/1792428458983_9aac6.jpg"
     ],
     "id": 10
+  },
+  {
+    "brand": "TOYOTA",
+    "model": "LAND CRUISER",
+    "year": 2024,
+    "type": "SUV",
+    "formule": "sans-chauffeur",
+    "places": 5,
+    "priceDay": 450000,
+    "priceWeek": 3150000,
+    "priceMonth": 13500000,
+    "fuel": "Diesel",
+    "transmission": "Automatique",
+    "status": "available",
+    "emoji": "🚗",
+    "features": [
+      "Chauffeur professionnel",
+      "Climatisation",
+      "GPS",
+      "Wi-Fi bord"
+    ],
+    "photos": [
+      "/images/annonces/1792428801110_1lzrl.jpg",
+      "/images/annonces/1792428809369_jbcag.jpg"
+    ],
+    "id": 11
   }
 ]
