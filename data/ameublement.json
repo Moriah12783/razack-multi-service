@@ -1088,5 +1088,21 @@
       "/images/annonces/1792429403974_04shp.jpg"
     ],
     "id": 60
+  },
+  {
+    "titre": "TABLE A MANGER + 4 CHAISES",
+    "room": "salon",
+    "cat": "TABLE A MANGER",
+    "prix": 180000,
+    "statut": "available",
+    "emoji": "🛋️",
+    "tags": [
+      "Bois massif"
+    ],
+    "desc": "Bois massif\nfinition impeccable\nbon design",
+    "photos": [
+      "/images/annonces/1792429519011_kfwmw.jpg"
+    ],
+    "id": 61
   }
 ]
