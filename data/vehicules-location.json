@@ -249,7 +249,7 @@
     "model": "LAND CRUISER",
     "year": 2024,
     "type": "SUV",
-    "formule": "sans-chauffeur",
+    "formule": "chauffeur",
     "places": 5,
     "priceDay": 450000,
     "priceWeek": 3150000,
