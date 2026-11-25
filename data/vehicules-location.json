@@ -645,5 +645,34 @@
       "/images/annonces/1795650358817_m5yu0.jpg"
     ],
     "id": 24
+  },
+  {
+    "brand": "LAND CRUISER",
+    "model": "70 ANNIVERSAIRE",
+    "year": 2025,
+    "type": "SUV",
+    "formule": "chauffeur",
+    "places": 5,
+    "priceDay": 400000,
+    "priceWeek": 0,
+    "priceMonth": 0,
+    "fuel": "Essence",
+    "transmission": "Automatique",
+    "status": "available",
+    "emoji": "🚗",
+    "features": [
+      "Chauffeur professionnel",
+      "Climatisation",
+      "GPS",
+      "Wi-Fi bord"
+    ],
+    "photos": [
+      "/images/annonces/1795650570168_bh6mg.jpg",
+      "/images/annonces/1795650578726_m0wb7.jpg",
+      "/images/annonces/1795650591021_tyb7g.jpg",
+      "/images/annonces/1795650603741_820n7.jpg",
+      "/images/annonces/1795650610048_p51oe.jpg"
+    ],
+    "id": 25
   }
 ]
