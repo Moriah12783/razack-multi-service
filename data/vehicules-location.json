@@ -587,5 +587,34 @@
       "/images/annonces/1795649729363_atolb.jpg"
     ],
     "id": 22
+  },
+  {
+    "brand": "SUZUKI",
+    "model": "GRAND VITARA",
+    "year": 2024,
+    "type": "SUV",
+    "formule": "sans-chauffeur",
+    "places": 5,
+    "priceDay": 65000,
+    "priceWeek": 0,
+    "priceMonth": 0,
+    "fuel": "Essence",
+    "transmission": "Automatique",
+    "status": "available",
+    "emoji": "🚗",
+    "features": [
+      "Climatisation",
+      "GPS",
+      "Bluetooth",
+      "Kilométrage inclus"
+    ],
+    "photos": [
+      "/images/annonces/1795650067068_8gq4e.jpg",
+      "/images/annonces/1795650073085_ntl09.jpg",
+      "/images/annonces/1795650079656_nugxw.jpg",
+      "/images/annonces/1795650092611_hvudk.jpg",
+      "/images/annonces/1795650099561_knxff.jpg"
+    ],
+    "id": 23
   }
 ]
