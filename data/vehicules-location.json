@@ -674,5 +674,34 @@
       "/images/annonces/1795650610048_p51oe.jpg"
     ],
     "id": 25
+  },
+  {
+    "brand": "",
+    "model": "",
+    "year": 2026,
+    "type": "Berline",
+    "formule": "chauffeur",
+    "places": 5,
+    "priceDay": 85000,
+    "priceWeek": 0,
+    "priceMonth": 0,
+    "fuel": "Essence",
+    "transmission": "Automatique",
+    "status": "available",
+    "emoji": "🚗",
+    "features": [
+      "Chauffeur professionnel",
+      "Climatisation",
+      "GPS",
+      "Wi-Fi bord"
+    ],
+    "photos": [
+      "/images/annonces/1795650832750_y01bb.jpg",
+      "/images/annonces/1795650839765_mgpyc.jpg",
+      "/images/annonces/1795650847793_d5asg.jpg",
+      "/images/annonces/1795650867733_fcsf4.jpg",
+      "/images/annonces/1795650874978_pgmnp.jpg"
+    ],
+    "id": 26
   }
 ]
