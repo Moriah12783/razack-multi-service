@@ -1186,5 +1186,25 @@
       "/images/annonces/1792430091082_zjoep.jpg"
     ],
     "id": 66
+  },
+  {
+    "titre": "TELEVISION",
+    "room": "salon",
+    "cat": "TELEVISION",
+    "prix": 50000,
+    "statut": "available",
+    "emoji": "🛋️",
+    "tags": [
+      "TELE"
+    ],
+    "desc": "TOUTES LES MARQUES",
+    "photos": [
+      "/images/annonces/1795651417040_1peav.jpg",
+      "/images/annonces/1795651423644_ayj9r.jpg",
+      "/images/annonces/1795651431796_7iw6p.jpg",
+      "/images/annonces/1795651444933_9jiq8.jpg",
+      "/images/annonces/1795651451916_wq8qq.jpg"
+    ],
+    "id": 67
   }
 ]
