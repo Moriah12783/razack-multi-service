@@ -501,5 +501,34 @@
       "/images/annonces/1795648884143_97e1n.jpg"
     ],
     "id": 19
+  },
+  {
+    "brand": "SUZUKI",
+    "model": "VITARA",
+    "year": 2024,
+    "type": "Berline",
+    "formule": "sans-chauffeur",
+    "places": 5,
+    "priceDay": 60000,
+    "priceWeek": 0,
+    "priceMonth": 0,
+    "fuel": "Essence",
+    "transmission": "Automatique",
+    "status": "available",
+    "emoji": "🚗",
+    "features": [
+      "Climatisation",
+      "GPS",
+      "Bluetooth",
+      "Kilométrage inclus"
+    ],
+    "photos": [
+      "/images/annonces/1795649058053_9p546.jpg",
+      "/images/annonces/1795649066117_tgj0h.jpg",
+      "/images/annonces/1795649080223_8d4q8.jpg",
+      "/images/annonces/1795649093690_u407w.jpg",
+      "/images/annonces/1795649102340_viias.jpg"
+    ],
+    "id": 20
   }
 ]
