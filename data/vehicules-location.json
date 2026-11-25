@@ -616,5 +616,34 @@
       "/images/annonces/1795650099561_knxff.jpg"
     ],
     "id": 23
+  },
+  {
+    "brand": "MERCEDES",
+    "model": "GLE 450 AMG SPORT",
+    "year": 2025,
+    "type": "SUV",
+    "formule": "chauffeur",
+    "places": 5,
+    "priceDay": 450000,
+    "priceWeek": 0,
+    "priceMonth": 0,
+    "fuel": "Essence",
+    "transmission": "Automatique",
+    "status": "available",
+    "emoji": "🚗",
+    "features": [
+      "Chauffeur professionnel",
+      "Climatisation",
+      "GPS",
+      "Wi-Fi bord"
+    ],
+    "photos": [
+      "/images/annonces/1795650311043_93zoh.jpg",
+      "/images/annonces/1795650321018_kulhr.jpg",
+      "/images/annonces/1795650336439_0q8l5.jpg",
+      "/images/annonces/1795650349662_n0ih1.jpg",
+      "/images/annonces/1795650358817_m5yu0.jpg"
+    ],
+    "id": 24
   }
 ]
