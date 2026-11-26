@@ -148,13 +148,13 @@
     "id": 7,
     "type": "Résidence",
     "mode": "court-sejour",
-    "quartier": "Plateau",
-    "titre": "Studio Plateau — Court séjour",
+    "quartier": "COCODY RIVIERA 4",
+    "titre": "Studio COCODY RIVIERA 4 — Court séjour",
     "chambres": 1,
     "sdb": 1,
     "surface": 40,
-    "prix": 55000,
-    "unite": "/nuit",
+    "prix": 25000,
+    "unite": "JOUR",
     "desc": "Studio fonctionnel en plein centre d'Abidjan, idéal pour déplacements professionnels.",
     "equip": [
       "WiFi haut débit",
@@ -163,7 +163,12 @@
       "Kitchenette"
     ],
     "emoji": "🏙️",
-    "statut": "available"
+    "statut": "available",
+    "photos": [
+      "/images/annonces/1795713233434_iubw6.jpg",
+      "/images/annonces/1795713240461_11jrn.jpg",
+      "/images/annonces/1795713249769_a9h0r.jpg"
+    ]
   },
   {
     "id": 8,
