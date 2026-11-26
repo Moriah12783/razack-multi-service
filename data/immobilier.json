@@ -298,5 +298,31 @@
       "/images/annonces/1783784612722_vub4h.jpg"
     ],
     "id": 13
+  },
+  {
+    "titre": "Studio",
+    "type": "Studio",
+    "mode": "court-sejour",
+    "quartier": "ANGRE CAFEIER 5",
+    "prix": 30000,
+    "unite": "1 JOUR",
+    "chambres": 1,
+    "sdb": 1,
+    "surface": 0,
+    "statut": "available",
+    "emoji": "🏠",
+    "equip": [
+      "WiFi",
+      "Ménage inclus",
+      "Breakfast"
+    ],
+    "desc": "Wifi \nClim\nChauffe eau\nMicro-onde\nBalcon",
+    "photos": [
+      "/images/annonces/1795711431377_bzr0l.jpg",
+      "/images/annonces/1795711442590_cq44j.jpg",
+      "/images/annonces/1795711452559_j31dc.jpg",
+      "/images/annonces/1795711464814_ph7oa.jpg"
+    ],
+    "id": 14
   }
 ]
