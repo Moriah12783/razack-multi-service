@@ -211,13 +211,13 @@
     "id": 10,
     "type": "Appartement",
     "mode": "court-sejour",
-    "quartier": "Cocody",
-    "titre": "Appartement cosy Cocody",
+    "quartier": "ANGRE CNPS",
+    "titre": "Chambre salon CNPS-RESIDENCE MEUBLEE",
     "chambres": 2,
     "sdb": 1,
     "surface": 75,
-    "prix": 65000,
-    "unite": "/nuit",
+    "prix": 50000,
+    "unite": "JOUR",
     "desc": "Appartement confortable dans quartier calme de Cocody. Idéal pour familles en transit.",
     "equip": [
       "WiFi",
@@ -226,7 +226,14 @@
       "Parking"
     ],
     "emoji": "🏠",
-    "statut": "available"
+    "statut": "available",
+    "photos": [
+      "/images/annonces/1795712686482_dc4ua.jpg",
+      "/images/annonces/1795712692671_ge93l.jpg",
+      "/images/annonces/1795712706273_ewu6g.jpg",
+      "/images/annonces/1795712727991_0zpoq.jpg",
+      "/images/annonces/1795712743639_vvj2h.jpg"
+    ]
   },
   {
     "id": 11,
